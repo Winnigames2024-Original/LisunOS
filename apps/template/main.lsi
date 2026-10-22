@@ -1,0 +1,6 @@
+# Базовый сценарий установки расширения LisunOS
+# Функция загрузки тяжелого контента (удалите, если не требуется):
+# download_file https://site.com>background.png
+
+register_service template.service
+request_restart
