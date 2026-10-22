@@ -1,0 +1,7 @@
+# Регистрация шаблона приложения в экосистеме ядра
+import winforms
+winforms.Application templateApp = new winforms.Application()
+winforms.Form Form1 = new winforms.Form("%appfiles%\Form1.cs", "%appfiles%\Form1.designer.cs")
+templateApp.program.addForm(Form1)
+templateApp.namespace = "template"
+templateApp.show()
