@@ -47,3 +47,54 @@
 
 ### Динамические команды приложений
 * `<namespace_установленного_приложения>` — Вызов любой команды, созданной установленными пакетами (например, команда `explorer` вызывает окно Проводника, а команда `template` вызовет окно Шаблона).
+
+
+# ⚡ LisunOS Core Engine v1.0
+
+Welcome to the documentation for **LisunOS Core Engine** — a lightweight, extensible shell engine based on **C# Windows Forms** that simulates basic operating system workflows. The system supports custom deployment script execution, an integrated text registry, package-based application deployment from compressed archives, and a modern terminal UI.
+
+---
+
+## 🛠️ Architecture and Directory Structure
+
+Upon its first execution, the engine automatically deploys its operational subsystem relative to the `.exe` file path:
+
+```text
+[.exe Directory]
+└── files/
+    └── os/
+        ├── root/
+        │   └── regedit/
+        │       ├── CONFIG       <- Core system parameters and engine state
+        │       └── DATA         <- User environment variables and localized settings
+        ├── sys/
+        │   └── services/        <- Target deployment path for all installed modules
+        └── temp/                <- Isolated workspace for caching and package download
+```
+
+---
+
+## 🖥️ All Available System Commands
+
+Enter these directives into the `LisunOS:\>` console line to manage the kernel:
+
+### Core Commands
+* `help` — Render a comprehensive list of all loaded built-in utilities and dynamically registered workspace namespaces.
+* `clear` — Wipe the text buffer of the terminal output screen.
+
+### Embedded WebView Shell
+* `webview <url_or_search_query>` — Switch the window runtime to the integrated browser panel. Plain text queries redirect to Google.
+  * **Note:** To exit the browser viewport and return to the log shell history, click the crimson **✕ Hide Panel** button in the upper-right corner of the view.
+  * **Security:** Unsecured endpoints (`http://`) are automatically intercepted. The engine blocks the operation and prints a custom warning page.
+  * **Auto-Zoom:** The viewport calculates scale coordinates dynamically to lock element sizing relative to the container frame width.
+
+### Integrated Registry Management
+* `regedit -config` — Dump the key-value core kernel variables from the `CONFIG` table state.
+* `regedit -data` — Dump active runtime variables from the localized `DATA` table.
+* `regedit -set:KEY -val:VALUE` — Commit a new parameter or update an existing descriptor in the `DATA` namespace with immediate disk serialization.
+
+### Package Manager
+* `apt install <direct_url_to_package.lnsh>` — Automated installer shell. Downloads the compressed asset array over the network to the `/os/temp/` folder, evaluates metadata validation, executes the `main.lsi` setup script, copies the binaries to `/sys/services/`, and mounts new namespaces on the fly without application reboots.
+
+### Dynamic App Execution
+* `<installed_app_namespace>` — Fire any command initialized by hot-loaded services (e.g., executing `explorer` opens the System File Explorer, while executing `template` brings up the App Template interface).
