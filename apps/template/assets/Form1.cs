@@ -1,18 +1,32 @@
-using System;
-using System.Windows.Forms;
+// ============================================================
+//  Логика шаблонного приложения LisunOS.
+//
+//  Как это работает:
+//  designer-файл рядом описывает контролы, а ядро LisunOS
+//  подключает к ним обработчики из встроенного моста логики
+//  (TemplateLogicBridge). Этот файл — точка, на которую
+//  ссылается служба; имена обработчиков должны совпадать
+//  с теми, что указаны в designer.
+//
+//  Обработчики формы:
+//     btnHello_Click        — кнопка «Поздороваться»
+//     btnCount_Click        — кнопка «Счётчик +1»
+//     btnClear_Click        — кнопка «Очистить»
+//     chkSave_CheckedChanged — флажок сохранения имени
+//
+//  Текст между ~~~CANTEDIT~ и ~CANTEDIT~~~ изменять нельзя:
+//  редактор LisunOS вернёт его на место при сохранении.
+// ============================================================
 
+// ~~~CANTEDIT~
 namespace LisunOS
 {
-    public partial class Form1 : Form
+    partial class TemplateLogicBridge
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void btnClickMe_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello from LisunOS Template App!", "LisunOS API Notice");
-        }
+        // Связка с ядром: имя класса должно остаться прежним,
+        // иначе служба не найдёт логику формы.
     }
 }
+// ~CANTEDIT~~~
+
+// Ниже можно дописывать свои заметки и код — эта часть свободна.

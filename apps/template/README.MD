@@ -1,265 +1,247 @@
-# 📦 Спецификация Создания Пакетов (.lnsh) и Шаблон приложения
+# 📦 Спецификация пакета `.lnsh` и шаблон приложения LisunOS
 
-Пакет установщика **`.lnsh`** является стандартным **ZIP-архивом**, содержащим строго определенный набор конфигурационных файлов. 
+Пакет **`.lnsh`** — обычный **ZIP-архив** со строго определённым набором
+файлов. Эта папка — готовый скелет: скопируйте, переименуйте, и у вас
+своё приложение.
 
-## Минимальная структура архива:
 ```text
 [Корень архива]
-├── meta.json         <- Манифест с метаданными приложения
-├── main.lsi          <- Сценарий пошагового развёртывания пакета
-├── template.service  <- Конфигурация интеграции службы в ядро
-└── assets/           <- Папка графических компонентов
-    ├── Form1.cs      <- Логическая часть окна приложения
-    └── Form1.designer.cs <- Разметка интерфейса (размеры, цвета)
+├── meta.json             <- манифест, массив локализаций
+├── main.lsi              <- сценарий развёртывания
+├── template.service      <- регистрация службы и формы в ядре
+└── assets/
+    ├── Form1.cs          <- связка с логикой приложения
+    └── Form1.designer.cs <- разметка интерфейса
 ```
 
----
+## 🚀 Установка
 
-## 📄 Исходный Код Файлов Шаблона (`Template`)
-
-Скопируйте код из блоков ниже в соответствующие файлы для сборки собственного пакета `template.lnsh`.
-
-### 1. Манифест пакета: `meta.json`
-```json
-{
-  "name": "TemplateApp",
-  "type": "service",
-  "version": "1.0.0"
-}
-```
-
-### 2. Сценарий установки: `main.lsi`
-```ini
-# Пошаговая сборка пакета
-# Дополнительная функция скачивания файлов (удалите символ # для активации):
-# download_file https://site.com>background.png
-
-register_service template.service
-request_restart
-```
-
-### 3. Конфигурация службы: `template.service`
-```ini
-# Регистрация графического пространства имен в FormEngine
-import winforms
-winforms.Application templateApp = new winforms.Application()
-winforms.Form Form1 = new winforms.Form("%appfiles%\Form1.cs", "%appfiles%\Form1.designer.cs")
-templateApp.program.addForm(Form1)
-templateApp.namespace = "template"
-templateApp.show()
-```
-
-### 4. Логика формы: `assets\Form1.cs`
-```csharp
-using System;
-using System.Windows.Forms;
-
-namespace LisunOS
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void btnClickMe_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello from LisunOS Template App!", "LisunOS API");
-        }
-    }
-}
-```
-
-### 5. Конструктор интерфейса: `assets\Form1.designer.cs`
-```csharp
-namespace LisunOS
-{
-    partial class Form1
-    {
-        private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.Button btnClickMe;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private void InitializeComponent()
-        {
-            this.btnClickMe = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // btnClickMe
-            // 
-            this.btnClickMe.BackColor = System.Drawing.Color.FromArgb(0, 122, 204);
-            this.btnClickMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClickMe.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClickMe.ForeColor = System.Drawing.Color.White;
-            this.btnClickMe.Location = new System.Drawing.Point(120, 100);
-            this.btnClickMe.Name = "btnClickMe";
-            this.btnClickMe.Size = new System.Drawing.Size(160, 45);
-            this.btnClickMe.TabIndex = 0;
-            this.btnClickMe.Text = "CLICK ME";
-            this.btnClickMe.UseVisualStyleBackColor = false;
-            this.btnClickMe.Click += new System.EventHandler(this.btnClickMe_Click);
-            // 
-            // Form1
-            // 
-            this.this.Text = "LisunOS App Template";
-            this.this.ClientSize = new System.Drawing.Size(400, 260);
-            this.this.BackColor = System.Drawing.Color.FromArgb(28, 28, 28);
-            this.Controls.Add(this.btnClickMe);
-            this.ResumeLayout(false);
-        }
-    }
-}
-```
-
----
-
-## 🛠️ Как Собрать Пакет `template.lnsh`
-
-1. Создайте обычную пустую папку на рабочем столе.
-2. Положите в корень файлы `meta.json`, `main.lsi` и `template.service`.
-3. Создайте подпапку `assets` и перенесите в неё файлы `Form1.cs` и `Form1.designer.cs`.
-4. Выделите все объекты внутри папки (3 файла и папку `assets`), нажмите правой кнопкой мыши -> **Отправить -> Сжатая ZIP-папка**.
-5. Замените расширение получившегося архива с `.zip` на **`.lnsh`**.
-
-
-# 📦 (.lnsh) Package Specification & Application Template
-
-An installer bundle with the **`.lnsh`** extension is standard **ZIP compressed data** containing a strictly predefined scheme of engine configuration elements.
-
-## Minimal Archive Blueprint:
 ```text
-[Archive Root]
-├── meta.json         <- Manifest file specifying package metadata
-├── main.lsi          <- Linear deployment procedure script
-├── template.service  <- Pipeline linking the environment configuration to the engine
-└── assets/           <- Graphical layout components folder
-    ├── Form1.cs      <- Code-behind window logic file
-    └── Form1.designer.cs <- Form UI configuration properties (dimensions, colors)
+apt update TemplateApp            # сведения из meta.json, проверка версии
+apt install <ссылка.lnsh>         # или: sudo apt install <ссылка.lnsh>
+template                          # запуск формы
 ```
+
+`apt update <name>` ищет пакет по полю `name` манифеста. После установки
+`main.lsi`, `*.service` и содержимое `assets/` **шифруются**
+(AES-256-CBC, заголовок `LSNC1`, ключ выводится из токена зала через
+PBKDF2, 20 000 итераций) — исходники пакета не остаются на диске
+открытыми.
 
 ---
 
-## 📄 Template Source Code (`Template`)
+## 📄 1. Манифест: `meta.json`
 
-Copy the codebase sections below into matching discrete files to bundle your custom `template.lnsh` file.
+Манифест — **массив**: по одной записи на язык, поле `lang` обязательно.
+Ядро берёт запись под текущий язык системы, при отсутствии — первую.
 
-### 1. Application Manifest: `meta.json`
 ```json
-{
-  "name": "TemplateApp",
-  "type": "service",
-  "version": "1.0.0"
-}
+[
+  {
+    "name": "TemplateApp",
+    "lang": "ruRU",
+    "type": "service",
+    "title": "Шаблон приложения",
+    "description": "Основа для своего приложения LisunOS",
+    "version": "1.0.0",
+    "author": "LisunOS",
+    "permissions": [ "read_files", "write_files", "show_dialogs" ],
+    "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/template/TemplateApp.lnsh"
+  },
+  {
+    "name": "TemplateApp",
+    "lang": "enUS",
+    "type": "service",
+    "title": "Application template",
+    "description": "A starting point for your own LisunOS app",
+    "version": "1.0.0",
+    "author": "LisunOS",
+    "permissions": [ "read_files", "write_files", "show_dialogs" ],
+    "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/template/TemplateApp.lnsh"
+  }
+]
 ```
 
-### 2. Deployment Script: `main.lsi`
+Поддерживается и старая форма — один объект без `lang`. Разбор ведёт
+собственный JSON-парсер с восстановлением после опечаток, так что лишняя
+запятая установку не сорвёт.
+
+### 🔐 Разрешения
+
+| Право           | Что открывает                        |
+|-----------------|--------------------------------------|
+| `superuser`     | всё сразу, выдаётся только вручную   |
+| `read_files`    | чтение файлов системы                |
+| `write_files`   | создание файлов                      |
+| `edit_files`    | правка существующих файлов           |
+| `manage_files`  | перемещение и удаление               |
+| `edit_settings` | запись в реестр и настройки          |
+| `network`       | сеть, сокеты, сервер                 |
+| `run_services`  | запуск других служб                  |
+| `show_dialogs`  | окна сообщений                       |
+| `autostart`     | запуск вместе с системой             |
+
+Приложение запрашивает права **само**: в `main.lsi` через
+`request_permission`, в коде через `LisunPermissions.Demand(...)`.
+Отклонённое право спрашивается повторно при следующей попытке, выданные
+хранятся в `/os/root/regedit/PERMISSIONS`.
+
+---
+
+## ⚙️ 2. Сценарий установки: `main.lsi`
+
 ```ini
-# Linear configuration setup sequence
-# Remote resource pre-loading utility (remove the # symbol to engage):
-# download_file https://site.com>background.png
+require_core 1.1.0
+log Развёртывание TemplateApp
+
+mkdir root/template
+set_data template_counter=0
+
+request_permission read_files
+request_permission write_files
+request_permission show_dialogs
 
 register_service template.service
+register_command tpl -> templateApp
+
+protect
 request_restart
 ```
 
-### 3. Service Entry Configuration: `template.service`
-```ini
-# Instantiating graphical form mapping context via FormEngine
-import winforms
-winforms.Application templateApp = new winforms.Application()
-winforms.Form Form1 = new winforms.Form("%appfiles%\Form1.cs", "%appfiles%\Form1.designer.cs")
-templateApp.program.addForm(Form1)
-templateApp.namespace = "template"
-templateApp.show()
-```
+Полный список директив:
 
-### 4. Code-Behind Window Logic: `assets\Form1.cs`
-```csharp
-using System;
-using System.Windows.Forms;
-
-namespace LisunOS
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void btnClickMe_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello from LisunOS Template App!", "LisunOS API");
-        }
-    }
-}
-```
-
-### 5. Layout Sizing Properties: `assets\Form1.designer.cs`
-```csharp
-namespace LisunOS
-{
-    partial class Form1
-    {
-        private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.Button btnClickMe;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private void InitializeComponent()
-        {
-            this.btnClickMe = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // btnClickMe
-            // 
-            this.btnClickMe.BackColor = System.Drawing.Color.FromArgb(0, 122, 204);
-            this.btnClickMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClickMe.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClickMe.ForeColor = System.Drawing.Color.White;
-            this.btnClickMe.Location = new System.Drawing.Point(120, 100);
-            this.btnClickMe.Name = "btnClickMe";
-            this.btnClickMe.Size = new System.Drawing.Size(160, 45);
-            this.btnClickMe.TabIndex = 0;
-            this.btnClickMe.Text = "CLICK ME";
-            this.btnClickMe.UseVisualStyleBackColor = false;
-            this.btnClickMe.Click += new System.EventHandler(this.btnClickMe_Click);
-            // 
-            // Form1
-            // 
-            this.this.Text = "LisunOS App Template";
-            this.this.ClientSize = new System.Drawing.Size(400, 260);
-            this.this.BackColor = System.Drawing.Color.FromArgb(28, 28, 28);
-            this.Controls.Add(this.btnClickMe);
-            this.ResumeLayout(false);
-        }
-    }
-}
-```
+| Директива                    | Действие                                        |
+|------------------------------|-------------------------------------------------|
+| `require_core <версия>`      | прервать установку на старом ядре               |
+| `register_service <файл>`    | подключить службу (псевдоним — `run`)           |
+| `register_command a -> app`  | добавить ещё одну команду запуска               |
+| `download_file <url>>файл`   | скачать ресурс (нужно право `network`)          |
+| `unpack <архив>`             | распаковать архив внутри пакета                 |
+| `copy <из> <куда>`           | скопировать файл                                |
+| `mkdir <путь>`               | создать папку в виртуальной ФС                  |
+| `delete <путь>`              | удалить файл или папку                          |
+| `set_data KEY=VALUE`         | записать в реестр `DATA`                        |
+| `set_config KEY=VALUE`       | записать в реестр `CONFIG`                      |
+| `request_permission <право>` | запросить право у пользователя                  |
+| `log <текст>`                | строка в журнал терминала                       |
+| `message <текст>`            | окно сообщения                                  |
+| `protect` / `no_protect`     | включить/выключить шифрование пакета            |
+| `request_restart`            | предложить перезапуск подсистем                 |
 
 ---
 
-## 🛠️ Compiling your `template.lnsh` file
+## 🖼️ 3. Служба и форма: `template.service`
 
-1. Initialize a new empty working directory block on your desktop.
-2. Store the `meta.json`, `main.lsi`, and `template.service` elements in its root branch.
-3. Build a subfolder named `assets` and transfer `Form1.cs` along with `Form1.designer.cs` into it.
-4. Select all internal items collectively (3 base files and the `assets` folder asset).
-5. Compress the selection into a **standard ZIP archive structural node**.
-6. Alter the container format flag on your file system, changing `.zip` directly to **`.lnsh`**.
+```ini
+import winforms
+
+winforms.Application templateApp = new winforms.Application()
+winforms.Form MainForm = new winforms.Form("%appfiles%\Form1.cs", "%appfiles%\Form1.designer.cs")
+
+MainForm.size       = 760, 520
+MainForm.minsize    = 560, 400
+MainForm.background = #0D1117
+MainForm.foreground = #CED6E0
+MainForm.center     = true
+MainForm.resizable  = true
+
+templateApp.program.addForm(MainForm)
+
+templateApp.title       = "Шаблон приложения"
+templateApp.description = "Основа для своего приложения LisunOS"
+templateApp.namespace   = "template"
+templateApp.command     = "tpl"
+templateApp.command     = "demo"
+templateApp.autostart   = false
+
+log Шаблон готов. Запуск: template, tpl, demo
+```
+
+**Свойства формы** (`<переменная формы>.<свойство>`): `title`, `size`,
+`width`, `height`, `minsize`, `background`, `foreground`, `opacity`,
+`topmost`, `resizable`, `center`, `maximized`, `padding`.
+
+**Свойства приложения** (`<переменная приложения>.<свойство>`): `title`,
+`description`, `namespace`, `command`, `icon`, `autostart`.
+
+**Методы**: `program.addForm(Form)`, `program.setDefaultForm(Form)`,
+`show()`, `hide()`.
+
+`autostart = true` сработает только если выдано право `autostart`.
+
+---
+
+## 🧩 4. Разметка: `assets/Form1.designer.cs`
+
+Файл разбирается ядром как текст: создаются контролы, применяются
+свойства, привязываются обработчики. Доступны `Panel`, `Label`,
+`TextBox`, `Button`, `CheckBox`, `ListBox`, `ProgressBar`, `ComboBox`,
+`TrackBar`, `PictureBox` и другие контролы WinForms.
+
+```csharp
+this.btnHello = new System.Windows.Forms.Button();
+this.btnHello.Text     = "Поздороваться";
+this.btnHello.Location = new System.Drawing.Point(24, 300);
+this.btnHello.Size     = new System.Drawing.Size(180, 36);
+this.btnHello.Click   += new System.EventHandler(this.btnHello_Click);
+this.pnlBody.Controls.Add(this.btnHello);
+```
+
+Имена контролов — это ключи, по которым мост логики их находит, поэтому
+переименование контрола требует правки моста.
+
+---
+
+## 🔒 5. Защищённые блоки текста
+
+```text
+~~~NOREMOVE~    строки нельзя менять, файл нельзя удалить    ~NOREMOVE~~~
+~~~CANTEDIT~    текст нельзя менять, файл удалить можно      ~CANTEDIT~~~
+```
+
+Проводник и файловый менеджер веб-сервера открывают такие файлы на
+правку, но при сохранении сверяют защищённые блоки и предлагают
+восстановить изменённые строки. В `assets/Form1.cs` под `CANTEDIT` лежит
+объявление `TemplateLogicBridge` — ядро ищет логику формы именно по этому
+имени.
+
+---
+
+## 🔗 6. Мост логики на стороне ядра
+
+`LisunOS/TemplateLogicBridge.cs`:
+
+```csharp
+public TemplateLogicBridge(DynamicFormContext context)
+{
+    form  = context.Form;
+    hello = context.Get<Button>("btnHello");
+    log   = context.Get<ListBox>("lstLog");
+}
+
+private void btnCount_Click(object sender, EventArgs e)
+{
+    if (!LisunPermissions.Demand(packageName, LisunPermissions.EditSettings)) return;
+
+    LisunEngine.RegistryData["template_counter"] = next.ToString();
+    LisunEngine.SaveRegistry();
+}
+```
+
+`FormEngine.CreateLogicBridge` выбирает мост по наличию контрола
+(`btnHello`) или по имени пакета, `InitializeBridge` вызывает
+`Initialize()` после построения формы.
+
+---
+
+## 🛠️ Как сделать своё приложение
+
+1. Скопируйте `apps/template` в `apps/<ваше-имя>`.
+2. Поменяйте `name`, `title`, `version`, `permissions` и `url` **во всех**
+   языковых записях `meta.json`.
+3. Переименуйте `template.service`, поправьте `namespace` и `command`.
+4. Нарисуйте форму в `assets/Form1.designer.cs`.
+5. Напишите мост по образцу `TemplateLogicBridge.cs`, зарегистрируйте его
+   в `FormEngine` и в `LisunOS.csproj`.
+6. Добавьте строки интерфейса в `LisunLocale.cs` — для обоих языков.
+7. Упакуйте папку в ZIP, переименуйте в `<Имя>.lnsh`, выложите по `url`.

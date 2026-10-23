@@ -1,6 +1,30 @@
-# Базовый сценарий установки расширения LisunOS
-# Функция загрузки тяжелого контента (удалите, если не требуется):
-# download_file https://site.com>background.png
+# ============================================================
+#  Сценарий установки шаблонного приложения LisunOS
+#  Директивы выполняются по порядку при apt install / install
+# ============================================================
 
+# минимальная версия ядра, иначе установка прервётся
+require_core 1.1.0
+
+log Развёртывание TemplateApp
+
+# своя папка для данных приложения внутри виртуальной ФС
+mkdir root/template
+
+# значения по умолчанию в реестре DATA
+set_data template_counter=0
+
+# права запрашиваются самим приложением, отказ спросят повторно
+request_permission read_files
+request_permission write_files
+request_permission show_dialogs
+
+# регистрация службы и дополнительный алиас команды
 register_service template.service
+register_command tpl -> templateApp
+
+# зашифровать файлы пакета после установки
+protect
+
+# предложить перезапуск подсистем
 request_restart

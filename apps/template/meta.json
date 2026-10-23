@@ -1,5 +1,32 @@
-{
-  "name": "TemplateApp",
-  "type": "service",
-  "version": "1.0.0"
-}
+[
+  {
+    "name": "TemplateApp",
+    "lang": "ruRU",
+    "type": "service",
+    "version": "1.0.0",
+    "author": "Winnigames2024",
+    "title": "Шаблон приложения",
+    "description": "Готовая основа для своего приложения LisunOS",
+    "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/template/TemplateApp.lnsh",
+    "permissions": [
+      "read_files",
+      "write_files",
+      "show_dialogs"
+    ]
+  },
+  {
+    "name": "TemplateApp",
+    "lang": "enUS",
+    "type": "service",
+    "version": "1.0.0",
+    "author": "Winnigames2024",
+    "title": "Application template",
+    "description": "Ready-made starting point for your own LisunOS application",
+    "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/template/TemplateApp.lnsh",
+    "permissions": [
+      "read_files",
+      "write_files",
+      "show_dialogs"
+    ]
+  }
+]
