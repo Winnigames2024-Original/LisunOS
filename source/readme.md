@@ -36,7 +36,6 @@ LisunOS/
 | `files/os/root/www/.api.key` | ключ доступа к `api.php` |
 | `files/os/root/www/.panel.pass` | пароль веб-панели |
 | `PythonToExeConverter_TemporaryKey.pfx` | сертификат подписи с закрытым ключом |
-| четыре файла `.mp3` | чужая музыка, к проекту отношения не имеет |
 
 В файлах реестра `CONFIG` и `DATA` значения этих ключей заменены на
 `<УДАЛЕНО ПРИ ПУБЛИКАЦИИ>`. Структура файлов сохранена, остальные
@@ -59,7 +58,3 @@ build.bat
 **.NET Framework 4.8 Developer Pack**.
 
 ---
-
-## ХАХА Ты реально открыл эту страницу?
-
-## HAHA You really opened this page?
