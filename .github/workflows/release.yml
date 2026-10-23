@@ -1,0 +1,84 @@
+# Собирает архив релиза и публикует его, когда в репозиторий приходит тег vX.Y.Z
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Тег релиза, например v1.1.0"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Определить версию
+        id: ver
+        run: |
+          TAG="${{ github.event.inputs.tag }}"
+          if [ -z "$TAG" ]; then TAG="${GITHUB_REF_NAME}"; fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Собрать архив
+        run: |
+          set -e
+          VERSION="${{ steps.ver.outputs.version }}"
+          DIR="LisunOS-$VERSION"
+
+          mkdir -p "$DIR/docs" "$DIR/packages"
+          cp dist/LisunOS.exe "$DIR/"
+          cp docs/install-ru.md "$DIR/docs/УСТАНОВКА-RU.md"
+          cp docs/install-en.md "$DIR/docs/INSTALL-EN.md"
+          cp apps/explorerApp.lnsh apps/webserverv2.lnsh "$DIR/packages/"
+          cp apps/template/TemplateApp.lnsh "$DIR/packages/"
+
+          cat > "$DIR/README.txt" <<'EOT'
+          LisunOS "Aurora"
+          ================
+
+          RU
+          --
+          1. Запустите LisunOS.exe. Установка не нужна, нужен .NET Framework 4.8.
+          2. Как ставить утилиты — docs\УСТАНОВКА-RU.md
+          3. Готовые пакеты лежат в папке packages: в терминале LisunOS выполните
+             apt install <полный путь к .lnsh>
+
+          EN
+          --
+          1. Run LisunOS.exe. No installer needed, .NET Framework 4.8 required.
+          2. How to install the utilities — docs\INSTALL-EN.md
+          3. Ready-made packages are in the packages folder: in the LisunOS terminal run
+             apt install <full path to the .lnsh>
+
+          https://github.com/Winnigames2024-Original/LisunOS
+          EOT
+
+          zip -r "$DIR.zip" "$DIR"
+          unzip -l "$DIR.zip"
+
+      - name: Опубликовать релиз
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          TAG="${{ steps.ver.outputs.tag }}"
+          VERSION="${{ steps.ver.outputs.version }}"
+
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" "LisunOS-$VERSION.zip" dist/LisunOS.exe \
+              --repo "$GITHUB_REPOSITORY" --clobber
+          else
+            gh release create "$TAG" "LisunOS-$VERSION.zip" dist/LisunOS.exe \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "LisunOS $VERSION «Aurora»" \
+              --notes-file .github/RELEASE_NOTES.md
+          fi
