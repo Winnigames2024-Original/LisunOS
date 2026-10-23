@@ -12,6 +12,14 @@
 После установки файлы пакета шифруются. Приложение само запрашивает
 права, выданные хранятся в `/os/root/regedit/PERMISSIONS`.
 
+### Готовые пакеты
+
+| Архив | Пакет | Команда запуска |
+|-------|-------|-----------------|
+| [`explorerApp.lnsh`](explorerApp.lnsh) | ExplorerApp 1.1.0 — проводник | `explorer`, `files` |
+| [`webserverv2.lnsh`](webserverv2.lnsh) | WebServerV2 2.0.0 — панель сервера | `webserverv2`, `httpd` |
+| [`template/TemplateApp.lnsh`](template/TemplateApp.lnsh) | TemplateApp 1.0.0 — шаблон | `template`, `tpl` |
+
 👉 **Готовый скелет и полная спецификация — в [`template/`](template/README.MD).**
 
 ---
@@ -27,5 +35,13 @@
 
 Package files are encrypted after install. An application requests its own
 permissions; granted ones live in `/os/root/regedit/PERMISSIONS`.
+
+### Ready-made packages
+
+| Archive | Package | Launch command |
+|---------|---------|----------------|
+| [`explorerApp.lnsh`](explorerApp.lnsh) | ExplorerApp 1.1.0 — file manager | `explorer`, `files` |
+| [`webserverv2.lnsh`](webserverv2.lnsh) | WebServerV2 2.0.0 — server panel | `webserverv2`, `httpd` |
+| [`template/TemplateApp.lnsh`](template/TemplateApp.lnsh) | TemplateApp 1.0.0 — template | `template`, `tpl` |
 
 👉 **A ready-made skeleton and the full specification live in [`template/`](template/README.MD).**
