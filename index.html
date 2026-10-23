@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LisunOS</title>
+<meta name="description" content="LisunOS — виртуальная операционная система на C# WinForms: терминал, пакеты, свой PHP, веб-сервер и Wi-Fi.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d1117'/><text x='32' y='44' font-size='34' font-family='monospace' fill='%234c8dff' text-anchor='middle'>L</text></svg>">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-2: #1c2330;
+    --line: #262d3a;
+    --text: #e6eaf2;
+    --dim: #8b95a7;
+    --accent: #4c8dff;
+    --ok: #3fb950;
+    --mono: "Cascadia Mono", "JetBrains Mono", Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(13,17,23,.88); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; gap: 16px; height: 56px; }
+  nav .brand { font-family: var(--mono); font-weight: 700; letter-spacing: -.01em; }
+  nav .sp { flex: 1; }
+  nav a { color: var(--dim); text-decoration: none; font-size: 14.5px; }
+  nav a:hover { color: var(--text); }
+  .lang { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .lang button {
+    font: inherit; font-size: 13px; padding: 5px 11px; cursor: pointer;
+    background: transparent; color: var(--dim); border: 0;
+  }
+  .lang button.on { background: var(--surface-2); color: var(--text); }
+
+  header { padding: 72px 0 56px; border-bottom: 1px solid var(--line); }
+  h1 { margin: 0 0 14px; font-size: 48px; line-height: 1.05; letter-spacing: -.035em; font-weight: 700; }
+  h1 .hl { color: var(--accent); }
+  .lead { margin: 0 0 32px; font-size: 19px; color: var(--dim); max-width: 42em; }
+
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 15.5px; font-weight: 600; text-decoration: none;
+    padding: 13px 22px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--surface-2); color: var(--text);
+    transition: background .15s, border-color .15s, transform .15s;
+  }
+  .btn:hover { background: #232b3a; border-color: #36405a; transform: translateY(-1px); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.primary:hover { background: #3d7ced; }
+  .note { font-family: var(--mono); font-size: 13px; color: var(--dim); margin-top: 14px; }
+
+  section { padding: 54px 0; border-bottom: 1px solid var(--line); }
+  h2 { margin: 0 0 8px; font-size: 25px; letter-spacing: -.02em; }
+  .sub { margin: 0 0 26px; color: var(--dim); }
+
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .card h3 { margin: 0 0 7px; font-size: 16.5px; }
+  .card p { margin: 0; color: var(--dim); font-size: 14.5px; }
+
+  pre {
+    background: #0a0e14; border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; overflow-x: auto; margin: 0 0 14px;
+    font-family: var(--mono); font-size: 13.5px; line-height: 1.75; color: #c9d3e3;
+  }
+  pre b { color: var(--ok); font-weight: 400; }
+  pre i { color: var(--dim); font-style: normal; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { color: var(--dim); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+  td code, p code, li code { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+
+  footer { padding: 36px 0 56px; color: var(--dim); font-size: 14px; }
+  footer a { color: var(--dim); }
+
+  [data-en] { display: none; }
+  body.en [data-ru] { display: none; }
+  body.en [data-en] { display: revert; }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 34px; }
+    .lead { font-size: 17px; }
+    header { padding: 48px 0 40px; }
+    nav a.hide-s { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">LisunOS</span>
+    <a href="#install" class="hide-s"><span data-ru>Установка</span><span data-en>Install</span></a>
+    <a href="#apps" class="hide-s"><span data-ru>Пакеты</span><span data-en>Packages</span></a>
+    <a href="https://github.com/Winnigames2024-Original/LisunOS">GitHub</a>
+    <span class="sp"></span>
+    <span class="lang">
+      <button type="button" id="ru" class="on">RU</button>
+      <button type="button" id="en">EN</button>
+    </span>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <h1><span data-ru>Операционная система<br><span class="hl">внутри одного .exe</span></span><span data-en>An operating system<br><span class="hl">inside a single .exe</span></span></h1>
+
+    <p class="lead">
+      <span data-ru>LisunOS — виртуальная ОС на C# WinForms: терминал с пакетным менеджером,
+      собственный движок PHP, HTTP-сервер, Wi-Fi и система разрешений. Один файл,
+      без установщика.</span>
+      <span data-en>LisunOS is a virtual OS built on C# WinForms: a terminal with a package
+      manager, its own PHP engine, an HTTP server, Wi-Fi and a permission system.
+      One file, no installer.</span>
+    </p>
+
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe">
+        ↓ <span data-ru>Скачать LisunOS.exe</span><span data-en>Download LisunOS.exe</span>
+      </a>
+      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.1.0.zip">
+        <span data-ru>Архив с документацией</span><span data-en>Archive with documentation</span>
+      </a>
+      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest">
+        <span data-ru>Все релизы</span><span data-en>All releases</span>
+      </a>
+    </div>
+
+    <p class="note">
+      <span data-ru>версия 1.1.0 «Aurora» · Windows · нужен .NET Framework 4.8</span>
+      <span data-en>version 1.1.0 "Aurora" · Windows · needs .NET Framework 4.8</span>
+    </p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span data-ru>Что внутри</span><span data-en>What is inside</span></h2>
+    <p class="sub"><span data-ru>Подсистемы ядра, доступные сразу после запуска.</span><span data-en>Kernel subsystems available right after launch.</span></p>
+
+    <div class="grid">
+      <div class="card">
+        <h3><span data-ru>Терминал</span><span data-en>Terminal</span></h3>
+        <p><span data-ru>Автодополнение, история, псевдонимы, русская и английская раскладка.</span><span data-en>Autocomplete, history, aliases, Russian and English layouts.</span></p>
+      </div>
+      <div class="card">
+        <h3><span data-ru>Пакеты apt</span><span data-en>apt packages</span></h3>
+        <p><span data-ru>Установка из сети, локализованные манифесты, шифрование пакета после установки.</span><span data-en>Install from the network, localized manifests, package encryption after install.</span></p>
+      </div>
+      <div class="card">
+        <h3><span data-ru>Свой PHP</span><span data-en>Own PHP</span></h3>
+        <p><span data-ru>341 функция, лексер и интерпретатор написаны с нуля. Сборка PHP докачивается сама.</span><span data-en>341 functions, lexer and interpreter written from scratch. A PHP build downloads itself.</span></p>
+      </div>
+      <div class="card">
+        <h3><span data-ru>Веб-сервер</span><span data-en>Web server</span></h3>
+        <p><span data-ru>Настройка в стиле nginx, api.php, веб-панель с паролем, прокси на Node.js.</span><span data-en>nginx-style configuration, api.php, a password-protected panel, a proxy to Node.js.</span></p>
+      </div>
+      <div class="card">
+        <h3>Wi-Fi</h3>
+        <p><span data-ru>Поиск сетей, подключение с паролем и без, страница входа открывается сама.</span><span data-en>Scan networks, connect with or without a password, the sign-in page opens by itself.</span></p>
+      </div>
+      <div class="card">
+        <h3><span data-ru>Разрешения</span><span data-en>Permissions</span></h3>
+        <p><span data-ru>Одиннадцать прав, приложение запрашивает их само, отказ спрашивается повторно.</span><span data-en>Eleven rights, an application requests them itself, a denial is asked again.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2><span data-ru>Установка</span><span data-en>Installation</span></h2>
+    <p class="sub"><span data-ru>Скачайте exe и запустите — рабочая среда развернётся рядом с ним.</span><span data-en>Download the exe and run it — the working environment is deployed next to it.</span></p>
+
+<pre><i><span data-ru># рабочая среда создаётся при первом запуске</span><span data-en># the working environment is created on first run</span></i>
+[<span data-ru>папка с .exe</span><span data-en>folder with the .exe</span>]
+└── files/os/
+    ├── root/regedit/   <i>CONFIG, DATA</i>
+    ├── root/www/       <i><span data-ru>корень сайта</span><span data-en>site root</span></i>
+    ├── sys/services/   <i><span data-ru>установленные приложения</span><span data-en>installed applications</span></i>
+    └── temp/</pre>
+
+<pre><b>help</b>                          <i><span data-ru>список всех команд</span><span data-en>list every command</span></i>
+<b>apt install php-frm</b>           <i><span data-ru>PHP: движок свой, сборка докачается</span><span data-en>PHP: own engine, a build downloads itself</span></i>
+<b>wifi form</b>                     <i><span data-ru>окно выбора сети</span><span data-en>network picker window</span></i>
+<b>system start</b>                  <i><span data-ru>порт 8989, прямой эфир установки</span><span data-en>port 8989, live setup feed</span></i>
+<b>webserverv2</b>                   <i><span data-ru>панель HTTP-сервера</span><span data-en>HTTP server panel</span></i></pre>
+
+    <p>
+      <span data-ru>Полные инструкции: <a href="docs/install-ru.md">на русском</a> и <a href="docs/install-en.md">на английском</a>. Они же лежат в архиве релиза.</span>
+      <span data-en>Full instructions: <a href="docs/install-en.md">in English</a> and <a href="docs/install-ru.md">in Russian</a>. The same files ship inside the release archive.</span>
+    </p>
+  </div>
+</section>
+
+<section id="apps">
+  <div class="wrap">
+    <h2><span data-ru>Готовые пакеты</span><span data-en>Ready-made packages</span></h2>
+    <p class="sub"><span data-ru>Ставятся одной командой прямо из репозитория.</span><span data-en>Installed with one command straight from the repository.</span></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th><span data-ru>Пакет</span><span data-en>Package</span></th>
+          <th><span data-ru>Запуск</span><span data-en>Launch</span></th>
+          <th><span data-ru>Что делает</span><span data-en>What it does</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/explorerApp.lnsh">explorerApp.lnsh</a></td>
+          <td><code>explorer</code></td>
+          <td><span data-ru>Проводник файловой системы</span><span data-en>File manager</span></td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/webserverv2.lnsh">webserverv2.lnsh</a></td>
+          <td><code>webserverv2</code></td>
+          <td><span data-ru>Панель HTTP-сервера</span><span data-en>HTTP server panel</span></td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/template/TemplateApp.lnsh">TemplateApp.lnsh</a></td>
+          <td><code>template</code></td>
+          <td><span data-ru>Шаблон своего приложения</span><span data-en>Skeleton for your own app</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+<pre style="margin-top:20px"><b>apt install</b> https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/explorerApp.lnsh</pre>
+
+    <p>
+      <span data-ru>Как собрать свой пакет — <a href="https://github.com/Winnigames2024-Original/LisunOS/tree/main/apps/template">спецификация <code>.lnsh</code></a>.</span>
+      <span data-en>How to build your own package — <a href="https://github.com/Winnigames2024-Original/LisunOS/tree/main/apps/template">the <code>.lnsh</code> specification</a>.</span>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    LisunOS 1.1.0 «Aurora» · Winnigames2024 ·
+    <a href="https://github.com/Winnigames2024-Original/LisunOS">github.com/Winnigames2024-Original/LisunOS</a>
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+var ru = document.getElementById("ru");
+var en = document.getElementById("en");
+
+function apply(lang) {
+  document.body.classList.toggle("en", lang === "en");
+  document.documentElement.lang = lang;
+
+  ru.classList.toggle("on", lang === "ru");
+  en.classList.toggle("on", lang === "en");
+
+  try { localStorage.setItem("lisunos-lang", lang); } catch (e) {}
+}
+
+ru.addEventListener("click", function () { apply("ru"); });
+en.addEventListener("click", function () { apply("en"); });
+
+var saved = null;
+try { saved = localStorage.getItem("lisunos-lang"); } catch (e) {}
+
+// Проект русскоязычный, поэтому по умолчанию RU; выбор посетителя запоминается.
+if (!saved) saved = "ru";
+apply(saved);
+</script>
+</body>
+</html>

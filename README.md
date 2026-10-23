@@ -1,5 +1,22 @@
 # ⚡ LisunOS Core Engine v1.0
 
+## 📥 Скачать
+
+| | |
+|---|---|
+| **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
+| [LisunOS-1.1.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.1.0.zip) | exe + документация RU/EN + готовые пакеты |
+| [Страница релизов](https://github.com/Winnigames2024-Original/LisunOS/releases/latest) | что изменилось в версии |
+| [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
+
+Как ставить утилиты: **[инструкция на русском](docs/install-ru.md)** ·
+[in English](docs/install-en.md)
+
+Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+
 Добро пожаловать в документацию проекта **LisunOS Core Engine** — легковесного расширяемого движка на базе **C# Windows Forms**, имитирующего работу операционной системы. Система поддерживает выполнение собственных скриптов развёртывания, работу со встроенным реестром, пакетную установку приложений из архивов и содержит интегрированную строку ввода.
 
 ---
@@ -50,6 +67,22 @@
 
 
 # ⚡ LisunOS Core Engine v1.0
+
+## 📥 Download
+
+| | |
+|---|---|
+| **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
+| [LisunOS-1.1.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.1.0.zip) | exe + RU/EN documentation + ready-made packages |
+| [Releases page](https://github.com/Winnigames2024-Original/LisunOS/releases/latest) | what changed in this version |
+| [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
+
+How to install the utilities: **[guide in English](docs/install-en.md)** ·
+[на русском](docs/install-ru.md)
+
+Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
 
 Welcome to the documentation for **LisunOS Core Engine** — a lightweight, extensible shell engine based on **C# Windows Forms** that simulates basic operating system workflows. The system supports custom deployment script execution, an integrated text registry, package-based application deployment from compressed archives, and a modern terminal UI.
 
