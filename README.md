@@ -1,11 +1,11 @@
-# ⚡ LisunOS Core Engine v1.5
+# ⚡ LisunOS Core Engine v1.6
 
 ## 📥 Скачать
 
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.5.1.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.1.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.6.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.6.0.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,24 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.6.0
+
+* **Настоящий SSH-2** — подключается обычный клиент `ssh`, с компьютера и
+  с телефона: `ssh имя@192.168.0.5 -p 2222`. Обмен ключами
+  diffie-hellman-group14-sha256, ключ хоста rsa-sha2-256, шифр aes128-ctr,
+  контроль hmac-sha2-256. Собрано из того, что есть в .NET — скачивать и
+  ставить ничего не нужно.
+* **Простой режим остался** на том же порту: telnet, nc, PuTTY Raw.
+  Протокол выбирается по первым байтам клиента.
+* **Имя в приглашении** — `LisunOS root:\>`. Сменить: `user current set <имя>`.
+* **Ограничения** для всех, кроме root: `user limit <имя> add <область>`.
+  Семь областей — файлы, пакеты, сеть, пользователи, приложения, система,
+  повышение прав. Проверка идёт до выполнения команды.
+
+---
 
 ---
 
@@ -120,14 +138,14 @@
 * `<namespace_установленного_приложения>` — Вызов любой команды, созданной установленными пакетами (например, команда `explorer` вызывает окно Проводника, а команда `template` вызовет окно Шаблона).
 
 
-# ⚡ LisunOS Core Engine v1.5
+# ⚡ LisunOS Core Engine v1.6
 
 ## 📥 Download
 
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.5.1.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.1.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.6.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.6.0.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -135,6 +153,25 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.6.0
+
+* **Real SSH-2** — a regular `ssh` client connects, from a computer and from
+  a phone: `ssh name@192.168.0.5 -p 2222`. Key exchange
+  diffie-hellman-group14-sha256, host key rsa-sha2-256, cipher aes128-ctr,
+  MAC hmac-sha2-256. Built from what .NET already provides — nothing to
+  download or install.
+* **The plain mode stayed** on the same port: telnet, nc, PuTTY Raw. The
+  protocol is chosen by the client's first bytes.
+* **The name in the prompt** — `LisunOS root:\>`. Switch it with
+  `user current set <name>`.
+* **Limits** for everyone except root: `user limit <name> add <area>`.
+  Seven areas — files, packages, network, users, applications, system,
+  elevation. The check happens before the command runs.
+
+---
 
 ---
 

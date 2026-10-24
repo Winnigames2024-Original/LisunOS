@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.5.1 "Aurora". Every command is typed into the system terminal —
+LisunOS 1.6.0 "Aurora". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -345,12 +345,25 @@ off.
 
 ## Signing in from a phone or another PC
 
-The sign-in server is `SshHost`. It is **not** SSH-2 — there is no key
-exchange here, so a regular `ssh` client cannot connect. These work:
+A **regular `ssh` client** connects — from a computer, from a phone, from
+anywhere. The key exchange and the encryption are real, and the password
+does not travel in the clear. No libraries to install: the protocol is
+built inside LisunOS out of what .NET already provides.
 
-* **PuTTY** — connection type **Raw** or **Telnet**, with the address and
-  port printed by the `ssh` command;
-* `nc <address> 2222` — on Linux, macOS and in Termux on Android.
+```text
+ssh lilia@192.168.0.5 -p 2222
+```
+
+The plain text mode stayed on the same port for when no `ssh` client is at
+hand: **PuTTY** with connection type **Raw** or **Telnet**, or
+`nc <address> 2222`. The server tells them apart by the first bytes: an
+`ssh` client greets with `SSH-2.0-…`, telnet stays quiet and waits for a
+prompt.
+
+On the first connection `ssh` shows the machine's key fingerprint and asks
+for confirmation — that is normal. The `ssh status` command prints the same
+fingerprint so you can compare. The key is created once and lives in
+`files/os/root/regedit/.ssh_host_key`.
 
 Create a user first — the server will not start without one:
 
@@ -411,6 +424,45 @@ exit             log out
 
 The server holds up to eight connections at a time.
 
+### Who you are in the system
+
+The prompt shows the name: `LisunOS root:\>`. By default that is **root** —
+the system itself; it can be neither limited nor removed.
+
+```text
+user current                  who is active
+user current set lilia        switch (root only)
+whoami                        the same thing
+```
+
+Over the network the name comes from the sign-in: commands run as whoever
+logged in.
+
+### Limits
+
+Any account except root can have areas closed off. The check happens before
+the command runs, so a forbidden command never changes anything.
+
+```text
+user areas                        the list of areas
+user limit lilia                  what is closed for lilia
+user limit lilia add files        close it
+user limit lilia remove files     open it again
+user limit lilia clear            remove every limit
+```
+
+| Area | What it closes |
+|------|----------------|
+| `files` | creating, editing and deleting files |
+| `packages` | `apt` and `store` |
+| `network` | `curl`, `wifi`, the server, `ssh`, `ufw`, `php-frm` |
+| `users` | managing accounts |
+| `apps` | launching applications |
+| `system` | registry, services, restart, language, rights |
+| `superuser` | elevating privileges |
+
+Only root can set and remove limits.
+
 The **Network access** application does the same with a window:
 
 ```text
@@ -454,7 +506,8 @@ whatever is on screen into `/os/home/logs`.
 | Rights get in the way | `perm app <name>` and `perm grant <name> <right>` |
 | `su` reports an error | that is by design: open `superuser` and grant the right to a package |
 | `ssh start` will not start | run `user create <name> <password>` first, then `ufw port 2222 enable` |
-| An `ssh` client will not connect | this is not SSH-2: use PuTTY in **Raw** or **Telnet** mode, or `nc` |
+| `ssh` complains the key changed | the key was recreated; drop the old entry from `known_hosts` |
+| A command answers "closed" | that is a limit: `user limit <name>` shows which one |
 | A package from disk will not install over the network | that is blocked: install by name (`apt install sshapp`) or by link |
 | A command over ssh "did nothing" | it opened a window — look at the computer screen |
 
