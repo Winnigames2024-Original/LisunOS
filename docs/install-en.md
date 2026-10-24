@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.4.0 "Aurora". Every command is typed into the system terminal —
+LisunOS 1.5.0 "Aurora". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -368,6 +368,8 @@ Then the server:
 ssh                           this machine's addresses and the port
 ssh start 2222                start it
 ssh status                    state and the number of connections
+ssh who                       who is online right now
+ssh help                      how a network session differs from the terminal
 ssh log                       who connected and when
 ssh stop                      stop it
 ```
@@ -376,6 +378,38 @@ ssh stop                      stop it
 the phone. After connecting, the client asks for a name and a password, and
 from there it is the ordinary LisunOS shell: the same commands, the same
 output.
+
+### What a network session can do
+
+Commands run through the same core as the terminal, so **every** command is
+available, including the ones installed applications added: `explorer`,
+`logs`, `superuser`, `store`, `httpd` and your own. There are exactly three
+differences.
+
+**Windows open in LisunOS, not in ssh.** A form cannot be shown over a text
+channel, so the window appears on the computer itself and ssh receives a
+line saying it opened. That is how `explorer`, `wifi form`, `superuser` and
+application commands behave.
+
+**A directory of its own.** `cd` in one session moves neither the terminal
+nor the other clients: each has its own. The prompt shows where you are —
+`LisunOS:\root\www>`.
+
+**Only the LisunOS file system is visible.** Windows drive paths (`C:\...`,
+network shares) are closed: `apt install C:\app.lnsh` and pointing at your
+own `php-cgi.exe` are refused over the network. You can install by name from
+the catalog and by link.
+
+The session also understands:
+
+```text
+clear            wipe the screen
+!!               repeat the last command
+?                a short note about the session
+exit             log out
+```
+
+The server holds up to eight connections at a time.
 
 The **Network access** application does the same with a window:
 
@@ -421,5 +455,7 @@ whatever is on screen into `/os/home/logs`.
 | `su` reports an error | that is by design: open `superuser` and grant the right to a package |
 | `ssh start` will not start | run `user create <name> <password>` first, then `ufw port 2222 enable` |
 | An `ssh` client will not connect | this is not SSH-2: use PuTTY in **Raw** or **Telnet** mode, or `nc` |
+| A package from disk will not install over the network | that is blocked: install by name (`apt install sshapp`) or by link |
+| A command over ssh "did nothing" | it opened a window — look at the computer screen |
 
 The system log lives on the Terminal tab; `clear` wipes the screen.

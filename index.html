@@ -6,7 +6,7 @@
 <title>LisunOS</title>
 <meta name="description" content="LisunOS — виртуальная операционная система на C# WinForms: терминал, пакеты, свой PHP, веб-сервер и Wi-Fi.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d1117'/><text x='32' y='44' font-size='34' font-family='monospace' fill='%234c8dff' text-anchor='middle'>L</text></svg>">
-<link rel="stylesheet" href="assets/css/site.css?v=1.4.0">
+<link rel="stylesheet" href="assets/css/site.css?v=1.5.0">
 </head>
 <body>
 
@@ -14,8 +14,9 @@
   <div class="wrap">
     <span class="brand">LisunOS</span>
     <a href="#install" class="hide-s"><span data-ru>Установка</span><span data-en>Install</span></a>
-    <a href="#apps" class="hide-s"><span data-ru>Пакеты</span><span data-en>Packages</span></a>
+    <a href="apps/" class="hide-s"><span data-ru>Пакеты</span><span data-en>Packages</span></a>
     <a href="releases/"><span data-ru>Релизы</span><span data-en>Releases</span></a>
+    <a href="mdreader/" class="hide-s"><span data-ru>Документы</span><span data-en>Docs</span></a>
     <a href="https://github.com/Winnigames2024-Original/LisunOS">GitHub</a>
     <span class="sp"></span>
     <span class="lang">
@@ -42,7 +43,7 @@
       <a class="btn primary" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe">
         ↓ <span data-ru>Скачать LisunOS.exe</span><span data-en>Download LisunOS.exe</span>
       </a>
-      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.4.0.zip">
+      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.0.zip">
         <span data-ru>Архив с документацией</span><span data-en>Archive with documentation</span>
       </a>
       <a class="btn" href="releases/">
@@ -51,8 +52,8 @@
     </div>
 
     <p class="note">
-      <span data-ru>версия 1.4.0 «Aurora» · Windows · нужен .NET Framework 4.8</span>
-      <span data-en>version 1.4.0 "Aurora" · Windows · needs .NET Framework 4.8</span>
+      <span data-ru>версия 1.5.0 «Aurora» · Windows · нужен .NET Framework 4.8</span>
+      <span data-en>version 1.5.0 "Aurora" · Windows · needs .NET Framework 4.8</span>
     </p>
   </div>
 </header>
@@ -93,7 +94,7 @@
       </div>
       <div class="card">
         <h3><span data-ru>Вход по сети</span><span data-en>Network sign-in</span></h3>
-        <p><span data-ru>Команда ssh показывает адрес машины — с телефона или другого ПК в оболочку заходят по логину и паролю.</span><span data-en>The ssh command prints the machine address — sign in to the shell from a phone or another PC with a login and a password.</span></p>
+        <p><span data-ru>С телефона или другого ПК — по логину и паролю. Команды все, включая добавленные приложениями; окна при этом открываются в LisunOS.</span><span data-en>From a phone or another PC with a login and a password. Every command works, including ones applications added; windows open in LisunOS.</span></p>
       </div>
     </div>
   </div>
@@ -123,8 +124,8 @@
 <b>superuser</b>                     <i><span data-ru>выдать пакету право superuser</span><span data-en>grant a package the superuser right</span></i></pre>
 
     <p>
-      <span data-ru>Полные инструкции: <a href="docs/install-ru.md">на русском</a> и <a href="docs/install-en.md">на английском</a>. Они же лежат в архиве релиза.</span>
-      <span data-en>Full instructions: <a href="docs/install-en.md">in English</a> and <a href="docs/install-ru.md">in Russian</a>. The same files ship inside the release archive.</span>
+      <span data-ru>Полные инструкции: <a href="mdreader/?url=docs/install-ru.md">на русском</a> и <a href="mdreader/?url=docs/install-en.md">на английском</a>. Они же лежат в архиве релиза.</span>
+      <span data-en>Full instructions: <a href="mdreader/?url=docs/install-en.md">in English</a> and <a href="mdreader/?url=docs/install-ru.md">in Russian</a>. The same files ship inside the release archive.</span>
     </p>
   </div>
 </section>
@@ -162,12 +163,12 @@
 
 <footer>
   <div class="wrap">
-    LisunOS 1.4.0 «Aurora» · Winnigames2024 ·
+    LisunOS 1.5.0 «Aurora» · Winnigames2024 ·
     <a href="https://github.com/Winnigames2024-Original/LisunOS">github.com/Winnigames2024-Original/LisunOS</a>
   </div>
 </footer>
 
-<script src="assets/js/lang.js?v=1.4.0"></script>
-<script src="assets/js/packages.js?v=1.4.0"></script>
+<script src="assets/js/lang.js?v=1.5.0"></script>
+<script src="assets/js/packages.js?v=1.5.0"></script>
 </body>
 </html>

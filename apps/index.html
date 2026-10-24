@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LisunOS — пакеты</title>
+<meta name="description" content="Готовые пакеты LisunOS: проводник, сервер, доступ по сети, журнал и другие. Установка одной командой.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d1117'/><text x='32' y='44' font-size='34' font-family='monospace' fill='%234c8dff' text-anchor='middle'>L</text></svg>">
+<link rel="stylesheet" href="../assets/css/site.css?v=1.5.0">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand"><a href="../index.html">LisunOS</a></span>
+    <a href="../index.html#install" class="hide-s"><span data-ru>Установка</span><span data-en>Install</span></a>
+    <a href="./" class="on"><span data-ru>Пакеты</span><span data-en>Packages</span></a>
+    <a href="../releases/"><span data-ru>Релизы</span><span data-en>Releases</span></a>
+    <a href="../mdreader/" class="hide-s"><span data-ru>Документы</span><span data-en>Docs</span></a>
+    <a href="https://github.com/Winnigames2024-Original/LisunOS">GitHub</a>
+    <span class="sp"></span>
+    <span class="lang">
+      <button type="button" id="ru" class="on">RU</button>
+      <button type="button" id="en">EN</button>
+    </span>
+  </div>
+</nav>
+
+<header class="short">
+  <div class="wrap">
+    <h1 class="small"><span data-ru>Пакеты</span><span data-en>Packages</span></h1>
+    <p class="lead tight">
+      <span data-ru>Приложения для LisunOS. Ставятся по имени — система сама находит пакет
+      в <a href="catalog.json">catalog.json</a> и качает его отсюда.</span>
+      <span data-en>Applications for LisunOS. Install them by name — the system finds the package
+      in <a href="catalog.json">catalog.json</a> and downloads it from here.</span>
+    </p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+<pre><b>apt install</b> sshapp                 <i><span data-ru>по имени из каталога</span><span data-en>by name from the catalog</span></i>
+<b>apt install</b> &lt;<span data-ru>ссылка</span><span data-en>link</span>&gt;.lnsh            <i><span data-ru>или прямой ссылкой на файл</span><span data-en>or with a direct link to the file</span></i>
+<b>store</b>                            <i><span data-ru>тот же список внутри системы</span><span data-en>the same list inside the system</span></i>
+<b>types</b>                            <i><span data-ru>какие бывают типы пакетов</span><span data-en>what package types exist</span></i></pre>
+
+    <div id="state" class="state">
+      <span data-ru>Читаю catalog.json…</span><span data-en>Reading catalog.json…</span>
+    </div>
+    <div id="cards" class="grid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span data-ru>Свой пакет</span><span data-en>Your own package</span></h2>
+    <p class="sub">
+      <span data-ru>Пакет <code>.lnsh</code> — обычный ZIP: манифест, сценарий установки, описание формы и логика.</span>
+      <span data-en>A <code>.lnsh</code> package is a plain ZIP: a manifest, an install script, a form description and the logic.</span>
+    </p>
+
+<pre>meta.json          <i><span data-ru>имя, тип, версия, запрашиваемые права</span><span data-en>name, type, version, requested rights</span></i>
+main.lsi           <i><span data-ru>сценарий установки</span><span data-en>install script</span></i>
+&lt;<span data-ru>имя</span><span data-en>name</span>&gt;.service      <i><span data-ru>приложение и его форма, блоки daemon</span><span data-en>the application and its form, daemon blocks</span></i>
+assets/Form1.designer.cs   <i><span data-ru>разметка окна</span><span data-en>the window layout</span></i>
+assets/Form1.cs            <i><span data-ru>связка с логикой в ядре</span><span data-en>the bridge to the logic in the core</span></i></pre>
+
+    <p>
+      <span data-ru>Готовый скелет и полная спецификация — в <a href="../mdreader/?url=apps/template/README.MD">описании шаблона</a>
+      или в папке <a href="https://github.com/Winnigames2024-Original/LisunOS/tree/main/apps/template">template</a>.</span>
+      <span data-en>A ready skeleton and the full specification live in the <a href="../mdreader/?url=apps/template/README.MD">template description</a>
+      or in the <a href="https://github.com/Winnigames2024-Original/LisunOS/tree/main/apps/template">template</a> folder.</span>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    LisunOS 1.5.0 «Aurora» · Winnigames2024 ·
+    <a href="https://github.com/Winnigames2024-Original/LisunOS">github.com/Winnigames2024-Original/LisunOS</a>
+  </div>
+</footer>
+
+<script src="../assets/js/lang.js?v=1.5.0"></script>
+<script src="../assets/js/catalog.js?v=1.5.0"></script>
+</body>
+</html>

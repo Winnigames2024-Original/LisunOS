@@ -1,11 +1,11 @@
-# ⚡ LisunOS Core Engine v1.4
+# ⚡ LisunOS Core Engine v1.5
 
 ## 📥 Скачать
 
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.4.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.4.0.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.5.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.0.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,26 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.5.0
+
+* **Сеанс по сети стал полноценным** — по ssh доступны все команды, включая
+  добавленные приложениями. Окна при этом открываются в LisunOS на
+  компьютере, а в ssh приходит строка об этом: форму в текстовом канале
+  не показать.
+* **У каждого сеанса своя текущая папка** — `cd` по сети не уводит ни
+  терминал, ни других подключённых; приглашение показывает путь.
+* **Наружу из системы сеанс не выходит** — пути диска Windows закрыты,
+  видна только файловая система LisunOS.
+* **`ssh who`** показывает, кто сейчас в сети, **`ssh help`** — чем сеанс
+  отличается от терминала. В самом сеансе работают `clear`, `!!` и `?`.
+* **Сайт**: страница [пакетов](https://winnigames2024-original.github.io/LisunOS/apps/)
+  и [читалка markdown](https://winnigames2024-original.github.io/LisunOS/mdreader/) —
+  любой `.md` открывается по адресу `/mdreader/?url=<ссылка>`.
+
+---
 
 ---
 
@@ -100,14 +120,14 @@
 * `<namespace_установленного_приложения>` — Вызов любой команды, созданной установленными пакетами (например, команда `explorer` вызывает окно Проводника, а команда `template` вызовет окно Шаблона).
 
 
-# ⚡ LisunOS Core Engine v1.4
+# ⚡ LisunOS Core Engine v1.5
 
 ## 📥 Download
 
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.4.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.4.0.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.5.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.0.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -115,6 +135,26 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.5.0
+
+* **A network session is now a real one** — every command is available over
+  ssh, including the ones applications added. Windows still open in LisunOS
+  on the computer and ssh receives a line about it: a form cannot be shown
+  over a text channel.
+* **Each session has its own directory** — `cd` over the network moves
+  neither the terminal nor the other clients; the prompt shows the path.
+* **A session cannot step outside the system** — Windows drive paths are
+  closed, only the LisunOS file system is visible.
+* **`ssh who`** shows who is online, **`ssh help`** explains how a session
+  differs from the terminal. Inside a session `clear`, `!!` and `?` work.
+* **The site**: a [packages page](https://winnigames2024-original.github.io/LisunOS/apps/)
+  and a [markdown reader](https://winnigames2024-original.github.io/LisunOS/mdreader/) —
+  any `.md` opens at `/mdreader/?url=<link>`.
+
+---
 
 ---
 

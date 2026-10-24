@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LisunOS — чтение .md</title>
+<meta name="description" content="Открывает любой markdown-файл по ссылке: /mdreader/?url=<адрес .md>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d1117'/><text x='32' y='44' font-size='30' font-family='monospace' fill='%234c8dff' text-anchor='middle'>md</text></svg>">
+<link rel="stylesheet" href="../assets/css/site.css?v=1.5.0">
+<link rel="stylesheet" href="../assets/css/markdown.css?v=1.5.0">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand"><a href="../index.html">LisunOS</a></span>
+    <a href="../index.html#install" class="hide-s"><span data-ru>Установка</span><span data-en>Install</span></a>
+    <a href="../apps/" class="hide-s"><span data-ru>Пакеты</span><span data-en>Packages</span></a>
+    <a href="../releases/"><span data-ru>Релизы</span><span data-en>Releases</span></a>
+    <a href="./" class="on"><span data-ru>Документы</span><span data-en>Docs</span></a>
+    <a href="https://github.com/Winnigames2024-Original/LisunOS">GitHub</a>
+    <span class="sp"></span>
+    <span class="lang">
+      <button type="button" id="ru" class="on">RU</button>
+      <button type="button" id="en">EN</button>
+    </span>
+  </div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div id="source" class="md-source"></div>
+    <div id="state" class="state"></div>
+    <article id="doc" class="md"></article>
+
+    <div id="picker" class="md-picker" hidden>
+      <h2><span data-ru>Чтение markdown</span><span data-en>Markdown reader</span></h2>
+      <p class="sub">
+        <span data-ru>Адрес файла передаётся в параметре <code>url</code>:</span>
+        <span data-en>The file address goes in the <code>url</code> parameter:</span>
+      </p>
+<pre>/mdreader/?url=docs/install-ru.md
+/mdreader/?url=https://raw.githubusercontent.com/<span data-ru>пользователь</span><span data-en>owner</span>/<span data-ru>репозиторий</span><span data-en>repo</span>/main/README.md</pre>
+
+      <p class="sub"><span data-ru>Документы проекта:</span><span data-en>Project documents:</span></p>
+      <div class="assets">
+        <a class="asset" href="?url=docs/install-ru.md">Установка — RU</a>
+        <a class="asset" href="?url=docs/install-en.md">Install — EN</a>
+        <a class="asset" href="?url=README.md">README</a>
+        <a class="asset" href="?url=apps/README.MD">apps</a>
+        <a class="asset" href="?url=apps/template/README.MD">template</a>
+        <a class="asset" href="?url=locale/README.md">locale</a>
+        <a class="asset" href="?url=source/readme.md">source</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    LisunOS 1.5.0 «Aurora» · Winnigames2024 ·
+    <a href="https://github.com/Winnigames2024-Original/LisunOS">github.com/Winnigames2024-Original/LisunOS</a>
+  </div>
+</footer>
+
+<script src="../assets/js/lang.js?v=1.5.0"></script>
+<script src="../assets/js/markdown.js?v=1.5.0"></script>
+<script src="../assets/js/mdreader.js?v=1.5.0"></script>
+</body>
+</html>

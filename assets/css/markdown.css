@@ -1,0 +1,96 @@
+/* ============================================================
+   Оформление разобранного markdown.
+   Отдельный файл: его подключает только читалка.
+   ============================================================ */
+
+.md-source {
+  display: none;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--dim);
+  padding: 10px 14px;
+  margin-bottom: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  word-break: break-all;
+}
+.md-source.on { display: block; }
+.md-source a { color: var(--accent); }
+
+.md-picker { padding: 10px 0 30px; }
+.md-picker h2 { margin-top: 0; }
+
+.md { font-size: 16px; line-height: 1.72; }
+.md:empty { display: none; }
+
+.md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  margin: 34px 0 12px;
+}
+.md h1 { font-size: 32px; margin-top: 8px; }
+.md h2 { font-size: 24px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.md h3 { font-size: 19px; }
+.md h4, .md h5, .md h6 { font-size: 16px; color: var(--dim); }
+
+.md p { margin: 0 0 14px; }
+.md a { color: var(--accent); }
+
+.md ul, .md ol { margin: 0 0 14px; padding-left: 26px; }
+.md li { margin-bottom: 5px; }
+.md li.cont { list-style: none; margin-left: -8px; color: var(--dim); }
+
+.md code {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  color: var(--accent);
+  background: #0a0e14;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.md pre.code {
+  position: relative;
+  background: #0a0e14;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 0 0 16px;
+  overflow-x: auto;
+}
+.md pre.code code {
+  background: none; border: 0; padding: 0;
+  color: #c9d3e3; font-size: 13.5px; line-height: 1.7;
+}
+.md pre.code[data-lang]::after {
+  content: attr(data-lang);
+  position: absolute; top: 8px; right: 12px;
+  font-family: var(--mono); font-size: 11px; color: var(--dim);
+}
+
+.md blockquote {
+  margin: 0 0 16px;
+  padding: 2px 0 2px 16px;
+  border-left: 3px solid var(--line);
+  color: var(--dim);
+}
+.md blockquote p:last-child { margin-bottom: 0; }
+
+.md table { margin: 0 0 18px; font-size: 14.5px; }
+.md table code { font-size: 12.5px; }
+.md th { white-space: nowrap; }
+
+.md hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+
+.md img { max-width: 100%; border-radius: 8px; }
+
+.md del { color: var(--dim); }
+
+@media (max-width: 600px) {
+  .md h1 { font-size: 25px; }
+  .md h2 { font-size: 20px; }
+  .md { font-size: 15.5px; }
+  .md table { font-size: 13px; }
+}
