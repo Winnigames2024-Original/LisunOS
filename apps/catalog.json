@@ -1,0 +1,108 @@
+{
+  "catalog": "LisunOS",
+  "version": "1.2.0",
+  "packages": [
+    {
+      "name": "ExplorerApp",
+      "version": "1.1.0",
+      "author": "Winnigames2024",
+      "command": "explorer",
+      "title_ru": "Файлы",
+      "title_en": "Files",
+      "description_ru": "Графический проводник виртуальной файловой системы",
+      "description_en": "Graphical file manager for the virtual file system",
+      "permissions": [
+        "read_files",
+        "write_files",
+        "edit_files",
+        "manage_files",
+        "edit_settings"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/explorerApp.lnsh"
+    },
+    {
+      "name": "WebServerV2",
+      "version": "2.0.0",
+      "author": "Winnigames2024",
+      "command": "webserverv2",
+      "title_ru": "Сервер v2",
+      "title_en": "Server v2",
+      "description_ru": "Панель запуска HTTP-сервера на этом устройстве",
+      "description_en": "Control panel for running an HTTP server on this device",
+      "permissions": [
+        "network",
+        "read_files",
+        "write_files",
+        "edit_settings",
+        "show_dialogs"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/webserverv2.lnsh"
+    },
+    {
+      "name": "CalcApp",
+      "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "calc",
+      "title_ru": "Калькулятор",
+      "title_en": "Calculator",
+      "description_ru": "Калькулятор с историей вычислений и памятью",
+      "description_en": "Calculator with a history of results and memory",
+      "permissions": [
+        "edit_settings",
+        "show_dialogs"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/calcapp.lnsh"
+    },
+    {
+      "name": "SettingsApp",
+      "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "settings",
+      "title_ru": "Параметры",
+      "title_en": "Settings",
+      "description_ru": "Язык, раскладка, разрешения приложений, сервер и PHP в одном окне",
+      "description_en": "Language, layout, application permissions, server and PHP in one window",
+      "permissions": [
+        "edit_settings",
+        "read_files",
+        "show_dialogs",
+        "run_services"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/settingsapp.lnsh"
+    },
+    {
+      "name": "StoreApp",
+      "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "store",
+      "title_ru": "Каталог приложений",
+      "title_en": "Application catalog",
+      "description_ru": "Список пакетов LisunOS и установка в один щелчок",
+      "description_en": "The list of LisunOS packages, installed with one click",
+      "permissions": [
+        "network",
+        "read_files",
+        "write_files",
+        "run_services",
+        "show_dialogs"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/storeapp.lnsh"
+    },
+    {
+      "name": "TemplateApp",
+      "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "template",
+      "title_ru": "Шаблон приложения",
+      "title_en": "Application template",
+      "description_ru": "Готовая основа для своего приложения LisunOS",
+      "description_en": "Ready-made starting point for your own LisunOS application",
+      "permissions": [
+        "read_files",
+        "write_files",
+        "show_dialogs"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/template/TemplateApp.lnsh"
+    }
+  ]
+}

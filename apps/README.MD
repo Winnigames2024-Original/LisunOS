@@ -18,7 +18,13 @@
 |-------|-------|-----------------|
 | [`explorerApp.lnsh`](explorerApp.lnsh) | ExplorerApp 1.1.0 — проводник | `explorer`, `files` |
 | [`webserverv2.lnsh`](webserverv2.lnsh) | WebServerV2 2.0.0 — панель сервера | `webserverv2`, `httpd` |
+| [`calcapp.lnsh`](calcapp.lnsh) | CalcApp 1.0.0 — калькулятор с историей | `calc`, `calculator` |
+| [`settingsapp.lnsh`](settingsapp.lnsh) | SettingsApp 1.0.0 — параметры системы | `settings`, `options` |
+| [`storeapp.lnsh`](storeapp.lnsh) | StoreApp 1.0.0 — каталог приложений | `store`, `apps-store` |
 | [`template/TemplateApp.lnsh`](template/TemplateApp.lnsh) | TemplateApp 1.0.0 — шаблон | `template`, `tpl` |
+
+Список для Каталога приложений — [`catalog.json`](catalog.json): его читает
+пакет StoreApp и команда `store refresh`.
 
 👉 **Готовый скелет и полная спецификация — в [`template/`](template/README.MD).**
 
@@ -42,6 +48,12 @@ permissions; granted ones live in `/os/root/regedit/PERMISSIONS`.
 |---------|---------|----------------|
 | [`explorerApp.lnsh`](explorerApp.lnsh) | ExplorerApp 1.1.0 — file manager | `explorer`, `files` |
 | [`webserverv2.lnsh`](webserverv2.lnsh) | WebServerV2 2.0.0 — server panel | `webserverv2`, `httpd` |
+| [`calcapp.lnsh`](calcapp.lnsh) | CalcApp 1.0.0 — calculator with history | `calc`, `calculator` |
+| [`settingsapp.lnsh`](settingsapp.lnsh) | SettingsApp 1.0.0 — system settings | `settings`, `options` |
+| [`storeapp.lnsh`](storeapp.lnsh) | StoreApp 1.0.0 — application catalog | `store`, `apps-store` |
 | [`template/TemplateApp.lnsh`](template/TemplateApp.lnsh) | TemplateApp 1.0.0 — template | `template`, `tpl` |
+
+The list used by the catalog app is [`catalog.json`](catalog.json); StoreApp
+and the `store refresh` command read it.
 
 👉 **A ready-made skeleton and the full specification live in [`template/`](template/README.MD).**

@@ -34,12 +34,14 @@ jobs:
           VERSION="${{ steps.ver.outputs.version }}"
           DIR="LisunOS-$VERSION"
 
-          mkdir -p "$DIR/docs" "$DIR/packages"
+          mkdir -p "$DIR/docs" "$DIR/packages" "$DIR/locale"
           cp dist/LisunOS.exe "$DIR/"
           cp docs/install-ru.md "$DIR/docs/УСТАНОВКА-RU.md"
           cp docs/install-en.md "$DIR/docs/INSTALL-EN.md"
-          cp apps/explorerApp.lnsh apps/webserverv2.lnsh "$DIR/packages/"
+          cp apps/*.lnsh "$DIR/packages/"
           cp apps/template/TemplateApp.lnsh "$DIR/packages/"
+          cp apps/catalog.json "$DIR/packages/"
+          cp locale/*.json locale/README.md "$DIR/locale/"
 
           cat > "$DIR/README.txt" <<'EOT'
           LisunOS "Aurora"
@@ -51,6 +53,8 @@ jobs:
           2. Как ставить утилиты — docs\УСТАНОВКА-RU.md
           3. Готовые пакеты лежат в папке packages: в терминале LisunOS выполните
              apt install <полный путь к .lnsh>
+          4. Языки интерфейса — в папке locale: скопируйте нужный .json
+             в files\os\sys\locale рядом с .exe, затем lang reload и lang <код>
 
           EN
           --
@@ -58,6 +62,8 @@ jobs:
           2. How to install the utilities — docs\INSTALL-EN.md
           3. Ready-made packages are in the packages folder: in the LisunOS terminal run
              apt install <full path to the .lnsh>
+          4. Interface languages are in the locale folder: copy a .json into
+             files\os\sys\locale next to the .exe, then run lang reload and lang <code>
 
           https://github.com/Winnigames2024-Original/LisunOS
           EOT
