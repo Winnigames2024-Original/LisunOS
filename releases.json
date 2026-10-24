@@ -3,9 +3,49 @@
   "codename": "Aurora",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.4.0",
+  "latest": "v1.5.0",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.5.0",
+      "version": "1.5.0",
+      "name": "LisunOS 1.5.0 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Вход по сети стал полноценной работой: по ssh доступны все команды, включая добавленные приложениями, у каждого сеанса своя папка, а наружу из системы сеанс не выходит.",
+      "summary_en": "Network sign-in became real work: every command is available over ssh, including the ones applications added, each session has its own directory, and a session cannot step outside the system.",
+      "highlights_ru": [
+        "По ssh работают все команды, включая зарегистрированные пакетами",
+        "Окна открываются в LisunOS на компьютере, в сеанс приходит строка об этом",
+        "У каждого сеанса своя текущая папка, путь виден в приглашении",
+        "Пути диска Windows по сети закрыты: видна только система LisunOS",
+        "ssh who и ssh help, а в сеансе — clear, !! и ?",
+        "Страница пакетов /apps/ с карточками из catalog.json",
+        "Читалка markdown /mdreader/?url=<ссылка> — свой разбор, без библиотек"
+      ],
+      "highlights_en": [
+        "Every command works over ssh, including ones registered by packages",
+        "Windows open in LisunOS on the computer, the session gets a line about it",
+        "Each session has its own directory, shown in the prompt",
+        "Windows drive paths are closed over the network: only LisunOS is visible",
+        "ssh who and ssh help, plus clear, !! and ? inside a session",
+        "A packages page at /apps/ with cards from catalog.json",
+        "A markdown reader at /mdreader/?url=<link> — own parser, no libraries"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 913408,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.5.0/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.5.0.zip",
+          "size": 352336,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.5.0/LisunOS-1.5.0.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.5.0"
+    },
     {
       "tag": "v1.4.0",
       "version": "1.4.0",
