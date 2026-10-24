@@ -1,11 +1,48 @@
 {
   "project": "LisunOS",
-  "codename": "Kelvin",
+  "codename": "Lumen",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.8.2",
+  "latest": "v1.8.3",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.8.3",
+      "version": "1.8.3",
+      "codename": "Lumen",
+      "name": "LisunOS 1.8.3 «Lumen»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "SuperUser ставится без сети, у него появились ключи enable_superuser и enable_su, проводное соединение видно наравне с Wi-Fi, приложения работают сразу после установки.",
+      "summary_en": "SuperUser installs with no network and gained the enable_superuser and enable_su keys, wired connections count as much as Wi-Fi, and applications work right after the install.",
+      "highlights_ru": [
+        "superuser install — SuperUser из встроенного каталога, интернет не нужен",
+        "Имена пакетов ищутся по-человечески: superuser = SuperUserApp",
+        "Ключи enable_superuser и enable_su: второй включает команду su",
+        "net — все адаптеры; кабель отличается от VPN и виртуальных коммутаторов",
+        "Права с официального сайта и из мастера выдаются сами, перезапуск после установки не нужен"
+      ],
+      "highlights_en": [
+        "superuser install — SuperUser from the built-in catalog, no internet needed",
+        "Package names are matched the human way: superuser = SuperUserApp",
+        "The enable_superuser and enable_su keys: the second one enables su",
+        "net — every adapter; a cable is told apart from VPN and virtual switches",
+        "Rights from the official site and the wizard are granted automatically, no restart after install"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 1105408,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.3/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.8.3.zip",
+          "size": 430078,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.3/LisunOS-1.8.3.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.3"
+    },
     {
       "tag": "v1.8.2",
       "version": "1.8.2",
