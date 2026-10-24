@@ -2,63 +2,22 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Страница релизов переехала на releases/, чтобы работал и адрес с косой
+     чертой. Этот файл остаётся ради прежних ссылок и закладок. -->
+<meta http-equiv="refresh" content="0; url=releases/">
+<link rel="canonical" href="https://winnigames2024-original.github.io/LisunOS/releases/">
 <title>LisunOS — релизы</title>
-<meta name="description" content="Все выпуски LisunOS: что изменилось в каждой версии и прямые ссылки на LisunOS.exe и архив с документацией.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d1117'/><text x='32' y='44' font-size='34' font-family='monospace' fill='%234c8dff' text-anchor='middle'>L</text></svg>">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-
-<nav>
-  <div class="wrap">
-    <span class="brand"><a href="index.html">LisunOS</a></span>
-    <a href="index.html#install" class="hide-s"><span data-ru>Установка</span><span data-en>Install</span></a>
-    <a href="index.html#apps" class="hide-s"><span data-ru>Пакеты</span><span data-en>Packages</span></a>
-    <a href="releases.html" class="on"><span data-ru>Релизы</span><span data-en>Releases</span></a>
-    <a href="https://github.com/Winnigames2024-Original/LisunOS">GitHub</a>
-    <span class="sp"></span>
-    <span class="lang">
-      <button type="button" id="ru" class="on">RU</button>
-      <button type="button" id="en">EN</button>
-    </span>
-  </div>
-</nav>
-
-<header class="short">
-  <div class="wrap">
-    <h1 class="small"><span data-ru>Релизы</span><span data-en>Releases</span></h1>
-    <p class="lead tight">
-      <span data-ru>Каждый выпуск — один .exe и архив с документацией, пакетами и языками.
-      Те же данные лежат в <a href="releases.json">releases.json</a>.</span>
-      <span data-en>Every release is one .exe plus an archive with documentation, packages and
-      languages. The same data lives in <a href="releases.json">releases.json</a>.</span>
-    </p>
-  </div>
-</header>
-
 <section>
   <div class="wrap">
-    <div id="state" class="state">
-      <span data-ru>Читаю releases.json…</span><span data-en>Reading releases.json…</span>
-    </div>
-    <div id="releases"></div>
-
-    <p class="note">
-      <span data-ru>Нужен .NET Framework 4.8 — он входит в Windows 10 версии 1903 и новее.</span>
-      <span data-en>.NET Framework 4.8 is required — it ships with Windows 10 version 1903 and newer.</span>
+    <p class="state">
+      <span data-ru>Страница релизов: <a href="releases/">releases/</a></span>
+      <span data-en>The releases page: <a href="releases/">releases/</a></span>
     </p>
   </div>
 </section>
-
-<footer>
-  <div class="wrap">
-    LisunOS 1.4.0 «Aurora» · Winnigames2024 ·
-    <a href="https://github.com/Winnigames2024-Original/LisunOS">github.com/Winnigames2024-Original/LisunOS</a>
-  </div>
-</footer>
-
-<script src="assets/js/lang.js"></script>
-<script src="assets/js/releases.js"></script>
+<script>location.replace("releases/");</script>
 </body>
 </html>

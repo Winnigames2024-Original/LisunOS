@@ -14,6 +14,12 @@
 
   var state = document.getElementById("state");
 
+  // Страница живёт по двум адресам — /releases/ и /releases.html, — а файл
+  // с данными лежит в корне сайта. Поэтому путь к нему задаёт сама разметка,
+  // и один и тот же скрипт работает с обеих глубин.
+  var source = box.getAttribute("data-source") || "releases.json";
+
+
   function size(bytes) {
     if (!bytes && bytes !== 0) return "";
     if (bytes < 1024) return bytes + " B";
@@ -111,15 +117,15 @@
   function fail(reason) {
     state.className = "state bad";
     state.innerHTML =
-      '<span data-ru>Не удалось прочитать releases.json: ' + text(reason) +
+      '<span data-ru>Не удалось прочитать ' + text(source) + ": " + text(reason) +
       '. Список релизов есть и на <a href="https://github.com/Winnigames2024-Original/LisunOS/releases">GitHub</a>.</span>' +
-      '<span data-en>Could not read releases.json: ' + text(reason) +
+      '<span data-en>Could not read ' + text(source) + ": " + text(reason) +
       '. The releases are also on <a href="https://github.com/Winnigames2024-Original/LisunOS/releases">GitHub</a>.</span>';
   }
 
   // Страницу открывают и как файл с диска — тогда fetch по file:// запрещён,
   // и честнее сказать об этом, чем показать пустой экран.
-  fetch("releases.json", { cache: "no-cache" })
+  fetch(source, { cache: "no-cache" })
     .then(function (response) {
       if (!response.ok) throw new Error("HTTP " + response.status);
       return response.json();
