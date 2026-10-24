@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.8.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.0.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.8.1.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.1.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,17 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🔧 1.8.1 — починен вход по ssh
+
+В 1.8.0 клиент `ssh` отвечал `incorrect signature` и рвал соединение.
+Причина: подпись обмена ключами считалась не от того значения — `SignHash`
+в .NET подписывает переданный отпечаток как есть, а RFC 8332 требует
+подпись над `SHA-256` от хеша обмена. Исправлено; рукопожатие проверено
+настоящим клиентом OpenSSH 9.5 — до выдачи ключей сеанса и первого
+зашифрованного пакета.
 
 ---
 
@@ -190,7 +201,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.8.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.0.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.8.1.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.1.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -198,6 +209,17 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🔧 1.8.1 — the ssh login is fixed
+
+In 1.8.0 the `ssh` client answered `incorrect signature` and dropped the
+connection. The cause: the key-exchange signature was computed over the
+wrong value — .NET's `SignHash` signs the digest it is given as is, while
+RFC 8332 requires a signature over `SHA-256` of the exchange hash. Fixed;
+the handshake was verified with a real OpenSSH 9.5 client, through session
+key derivation and the first encrypted packet.
 
 ---
 
