@@ -3,9 +3,41 @@
   "codename": "Aurora",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.5.0",
+  "latest": "v1.5.1",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.5.1",
+      "version": "1.5.1",
+      "name": "LisunOS 1.5.1 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Поле ввода в терминале было раздавлено строкой подсказки: панель теперь раздвигается под неё, а не делится высотой.",
+      "summary_en": "The terminal input box was being crushed by the hint line: the panel now grows to fit it instead of sharing its height.",
+      "highlights_ru": [
+        "Поле ввода сохраняет свою высоту, когда появляется строка использования",
+        "На пустой строке подсказка от прошлой команды больше не висит",
+        "Список вариантов над панелью едет вместе с ней"
+      ],
+      "highlights_en": [
+        "The input box keeps its height when the usage line appears",
+        "On an empty line the previous command’s hint no longer lingers",
+        "The suggestion list above the panel moves with it"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 913920,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.5.1/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.5.1.zip",
+          "size": 352493,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.5.1/LisunOS-1.5.1.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.5.1"
+    },
     {
       "tag": "v1.5.0",
       "version": "1.5.0",
