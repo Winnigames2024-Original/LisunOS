@@ -39,7 +39,6 @@ jobs:
           cp docs/install-ru.md "$DIR/docs/УСТАНОВКА-RU.md"
           cp docs/install-en.md "$DIR/docs/INSTALL-EN.md"
           cp apps/*.lnsh "$DIR/packages/"
-          cp apps/template/TemplateApp.lnsh "$DIR/packages/"
           cp apps/catalog.json "$DIR/packages/"
           cp locale/*.json locale/README.md "$DIR/locale/"
 

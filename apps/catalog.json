@@ -1,10 +1,25 @@
 {
   "catalog": "LisunOS",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "packages": [
     {
+      "name": "CalcApp",
+      "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "calc",
+      "title_ru": "Калькулятор",
+      "title_en": "Calculator",
+      "description_ru": "Калькулятор с историей вычислений и памятью",
+      "description_en": "Calculator with a history of results and memory",
+      "permissions": [
+        "edit_settings",
+        "show_dialogs"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/calcapp.lnsh"
+    },
+    {
       "name": "ExplorerApp",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": "Winnigames2024",
       "command": "explorer",
       "title_ru": "Файлы",
@@ -21,37 +36,20 @@
       "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/explorerApp.lnsh"
     },
     {
-      "name": "WebServerV2",
-      "version": "2.0.0",
-      "author": "Winnigames2024",
-      "command": "webserverv2",
-      "title_ru": "Сервер v2",
-      "title_en": "Server v2",
-      "description_ru": "Панель запуска HTTP-сервера на этом устройстве",
-      "description_en": "Control panel for running an HTTP server on this device",
-      "permissions": [
-        "network",
-        "read_files",
-        "write_files",
-        "edit_settings",
-        "show_dialogs"
-      ],
-      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/webserverv2.lnsh"
-    },
-    {
-      "name": "CalcApp",
+      "name": "LogsApp",
       "version": "1.0.0",
       "author": "Winnigames2024",
-      "command": "calc",
-      "title_ru": "Калькулятор",
-      "title_en": "Calculator",
-      "description_ru": "Калькулятор с историей вычислений и памятью",
-      "description_en": "Calculator with a history of results and memory",
+      "command": "logs",
+      "title_ru": "Журнал",
+      "title_en": "Journal",
+      "description_ru": "Журнал ядра с поиском, фильтром по источнику и выгрузкой в файл",
+      "description_en": "The kernel journal with search, a source filter and export to a file",
       "permissions": [
-        "edit_settings",
-        "show_dialogs"
+        "read_log",
+        "write_files",
+        "clipboard"
       ],
-      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/calcapp.lnsh"
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/logsapp.lnsh"
     },
     {
       "name": "SettingsApp",
@@ -69,6 +67,23 @@
         "run_services"
       ],
       "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/settingsapp.lnsh"
+    },
+    {
+      "name": "SshApp",
+      "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "ssh-app",
+      "title_ru": "Доступ по сети",
+      "title_en": "Network access",
+      "description_ru": "Адрес для подключения с телефона или другого ПК, порт, пользователи и журнал",
+      "description_en": "The address to connect from a phone or another PC, the port, users and the log",
+      "permissions": [
+        "listen",
+        "manage_users",
+        "network",
+        "read_log"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/sshapp.lnsh"
     },
     {
       "name": "StoreApp",
@@ -89,8 +104,24 @@
       "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/storeapp.lnsh"
     },
     {
-      "name": "TemplateApp",
+      "name": "SuperUserApp",
       "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "su-app",
+      "title_ru": "SuperUser",
+      "title_en": "SuperUser",
+      "description_ru": "Единственный способ выдать пакету право superuser: команда su его больше не включает",
+      "description_en": "The only way to grant a package the superuser right: the su command no longer does it",
+      "permissions": [
+        "edit_settings",
+        "show_dialogs",
+        "read_log"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/superuserapp.lnsh"
+    },
+    {
+      "name": "TemplateApp",
+      "version": "1.1.0",
       "author": "Winnigames2024",
       "command": "template",
       "title_ru": "Шаблон приложения",
@@ -102,7 +133,25 @@
         "write_files",
         "show_dialogs"
       ],
-      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/template/TemplateApp.lnsh"
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/TemplateApp.lnsh"
+    },
+    {
+      "name": "WebServerV2",
+      "version": "2.1.0",
+      "author": "Winnigames2024",
+      "command": "webserverv2",
+      "title_ru": "Сервер v2",
+      "title_en": "Server v2",
+      "description_ru": "Панель запуска HTTP-сервера на этом устройстве",
+      "description_en": "Control panel for running an HTTP server on this device",
+      "permissions": [
+        "network",
+        "read_files",
+        "write_files",
+        "edit_settings",
+        "show_dialogs"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/webserverv2.lnsh"
     }
   ]
 }

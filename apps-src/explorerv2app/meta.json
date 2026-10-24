@@ -2,8 +2,8 @@
   {
     "name": "ExplorerApp",
     "lang": "ruRU",
-    "type": "service",
-    "version": "1.1.0",
+    "type": "app",
+    "version": "1.2.0",
     "author": "Winnigames2024",
     "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/explorerApp.lnsh",
     "title": "Файлы",
@@ -19,8 +19,8 @@
   {
     "name": "ExplorerApp",
     "lang": "enUS",
-    "type": "service",
-    "version": "1.1.0",
+    "type": "app",
+    "version": "1.2.0",
     "author": "Winnigames2024",
     "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/explorerApp.lnsh",
     "title": "Files",

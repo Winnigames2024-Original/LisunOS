@@ -1,0 +1,24 @@
+[
+  {
+    "name": "LogsApp",
+    "lang": "ruRU",
+    "type": "app",
+    "title": "Журнал",
+    "description": "Журнал ядра с поиском, фильтром по источнику и выгрузкой в файл",
+    "version": "1.0.0",
+    "author": "Winnigames2024",
+    "permissions": [ "read_log", "write_files" ],
+    "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/logsapp.lnsh"
+  },
+  {
+    "name": "LogsApp",
+    "lang": "enUS",
+    "type": "app",
+    "title": "Journal",
+    "description": "The kernel journal with search, a source filter and export to a file",
+    "version": "1.0.0",
+    "author": "Winnigames2024",
+    "permissions": [ "read_log", "write_files" ],
+    "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/logsapp.lnsh"
+  }
+]

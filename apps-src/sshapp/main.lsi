@@ -1,0 +1,14 @@
+# Сценарий установки приложения «Доступ по сети»
+require_core 1.1.0
+
+log Установка SshApp
+
+request_permission listen
+request_permission manage_users
+request_permission network
+
+register_service ssh.service
+register_command ssh-app -> sshApp
+
+protect
+request_restart

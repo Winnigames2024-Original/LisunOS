@@ -2,8 +2,8 @@
   {
     "name": "WebServerV2",
     "lang": "ruRU",
-    "type": "service",
-    "version": "2.0.0",
+    "type": "app",
+    "version": "2.1.0",
     "author": "Winnigames2024",
     "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/webserverv2.lnsh",
     "title": "Сервер v2",
@@ -19,8 +19,8 @@
   {
     "name": "WebServerV2",
     "lang": "enUS",
-    "type": "service",
-    "version": "2.0.0",
+    "type": "app",
+    "version": "2.1.0",
     "author": "Winnigames2024",
     "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/webserverv2.lnsh",
     "title": "Server v2",

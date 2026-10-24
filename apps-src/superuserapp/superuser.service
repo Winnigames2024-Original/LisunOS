@@ -1,0 +1,23 @@
+# SuperUser — выдача права superuser пакетам
+import winforms
+
+winforms.Application superUserApp = new winforms.Application()
+
+winforms.Form MainForm = new winforms.Form("%appfiles%\Form1.cs", "%appfiles%\Form1.designer.cs")
+
+MainForm.size       = 780, 560
+MainForm.minsize    = 680, 480
+MainForm.background = #0D1117
+MainForm.foreground = #CED6E0
+MainForm.center     = true
+MainForm.resizable  = true
+
+superUserApp.program.addForm(MainForm)
+
+superUserApp.title       = "SuperUser"
+superUserApp.description = "Выдача права superuser пакетам"
+superUserApp.namespace   = "superuser"
+superUserApp.command     = "su-app"
+superUserApp.autostart   = false
+
+log SuperUser готов. Запуск: superuser

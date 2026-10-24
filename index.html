@@ -131,7 +131,7 @@
       <a class="btn primary" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe">
         ↓ <span data-ru>Скачать LisunOS.exe</span><span data-en>Download LisunOS.exe</span>
       </a>
-      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.3.0.zip">
+      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.4.0.zip">
         <span data-ru>Архив с документацией</span><span data-en>Archive with documentation</span>
       </a>
       <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest">
@@ -140,8 +140,8 @@
     </div>
 
     <p class="note">
-      <span data-ru>версия 1.3.0 «Aurora» · Windows · нужен .NET Framework 4.8</span>
-      <span data-en>version 1.3.0 "Aurora" · Windows · needs .NET Framework 4.8</span>
+      <span data-ru>версия 1.4.0 «Aurora» · Windows · нужен .NET Framework 4.8</span>
+      <span data-en>version 1.4.0 "Aurora" · Windows · needs .NET Framework 4.8</span>
     </p>
   </div>
 </header>
@@ -174,7 +174,15 @@
       </div>
       <div class="card">
         <h3><span data-ru>Разрешения</span><span data-en>Permissions</span></h3>
-        <p><span data-ru>Одиннадцать прав, приложение запрашивает их само, отказ спрашивается повторно.</span><span data-en>Eleven rights, an application requests them itself, a denial is asked again.</span></p>
+        <p><span data-ru>Девятнадцать прав, приложение запрашивает их само, отказ спрашивается повторно.</span><span data-en>Nineteen rights, an application requests them itself, a denial is asked again.</span></p>
+      </div>
+      <div class="card">
+        <h3>SuperUser</h3>
+        <p><span data-ru>Команда su больше не повышает права: пакет выбирают в приложении SuperUser и выдают право вручную.</span><span data-en>The su command no longer elevates: you pick the package in the SuperUser application and grant the right by hand.</span></p>
+      </div>
+      <div class="card">
+        <h3><span data-ru>Вход по сети</span><span data-en>Network sign-in</span></h3>
+        <p><span data-ru>Команда ssh показывает адрес машины — с телефона или другого ПК в оболочку заходят по логину и паролю.</span><span data-en>The ssh command prints the machine address — sign in to the shell from a phone or another PC with a login and a password.</span></p>
       </div>
     </div>
   </div>
@@ -197,7 +205,11 @@
 <b>apt install php-frm</b>           <i><span data-ru>PHP: движок свой, сборка докачается</span><span data-en>PHP: own engine, a build downloads itself</span></i>
 <b>wifi form</b>                     <i><span data-ru>окно выбора сети</span><span data-en>network picker window</span></i>
 <b>system start</b>                  <i><span data-ru>порт 8989, прямой эфир установки</span><span data-en>port 8989, live setup feed</span></i>
-<b>webserverv2</b>                   <i><span data-ru>панель HTTP-сервера</span><span data-en>HTTP server panel</span></i></pre>
+<b>webserverv2</b>                   <i><span data-ru>панель HTTP-сервера</span><span data-en>HTTP server panel</span></i>
+<b>apt install sshapp</b>            <i><span data-ru>вход по сети: ставится по имени с сайта</span><span data-en>network sign-in: installed by name from the site</span></i>
+<b>user create lilia 1234</b>        <i><span data-ru>учётная запись для входа</span><span data-en>an account to sign in with</span></i>
+<b>ssh</b>                           <i><span data-ru>адрес, который вводят на телефоне</span><span data-en>the address to type on the phone</span></i>
+<b>superuser</b>                     <i><span data-ru>выдать пакету право superuser</span><span data-en>grant a package the superuser right</span></i></pre>
 
     <p>
       <span data-ru>Полные инструкции: <a href="docs/install-ru.md">на русском</a> и <a href="docs/install-en.md">на английском</a>. Они же лежат в архиве релиза.</span>

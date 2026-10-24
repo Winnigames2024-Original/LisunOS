@@ -1,0 +1,13 @@
+# Сценарий установки приложения «Журнал»
+require_core 1.1.0
+
+log Установка LogsApp
+
+request_permission read_log
+request_permission write_files
+
+register_service logs.service
+register_command logs -> logsApp
+
+protect
+request_restart

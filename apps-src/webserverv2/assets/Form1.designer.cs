@@ -32,7 +32,14 @@ namespace LisunOS
         private System.Windows.Forms.Label lblHintCaption;
         private System.Windows.Forms.Label lblHints;
 
+        private System.Windows.Forms.Label lblHostsCaption;
+        private System.Windows.Forms.ListView lstHosts;
+        private System.Windows.Forms.Button btnReloadConfig;
+        private System.Windows.Forms.Button btnEditConfig;
         private System.Windows.Forms.Panel pnlLog;
+        private System.Windows.Forms.Panel pnlLogHead;
+        private System.Windows.Forms.TextBox txtLogFilter;
+        private System.Windows.Forms.Button btnClearLog;
         private System.Windows.Forms.Label lblLogCaption;
         private System.Windows.Forms.ListBox lstServerLog;
 
@@ -65,7 +72,14 @@ namespace LisunOS
             this.lblAddresses = new System.Windows.Forms.Label();
             this.lblHintCaption = new System.Windows.Forms.Label();
             this.lblHints = new System.Windows.Forms.Label();
+            this.lblHostsCaption = new System.Windows.Forms.Label();
+            this.lstHosts = new System.Windows.Forms.ListView();
+            this.btnReloadConfig = new System.Windows.Forms.Button();
+            this.btnEditConfig = new System.Windows.Forms.Button();
             this.pnlLog = new System.Windows.Forms.Panel();
+            this.pnlLogHead = new System.Windows.Forms.Panel();
+            this.txtLogFilter = new System.Windows.Forms.TextBox();
+            this.btnClearLog = new System.Windows.Forms.Button();
             this.lblLogCaption = new System.Windows.Forms.Label();
             this.lstServerLog = new System.Windows.Forms.ListBox();
 
@@ -230,7 +244,7 @@ namespace LisunOS
             this.pnlSide.BackColor = System.Drawing.Color.FromArgb(22, 27, 34);
             this.pnlSide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.pnlSide.Location = new System.Drawing.Point(616, 124);
-            this.pnlSide.Size = new System.Drawing.Size(360, 320);
+            this.pnlSide.Size = new System.Drawing.Size(360, 452);
 
             this.lblAddrCaption.Text = "АДРЕСА";
             this.lblAddrCaption.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
@@ -252,29 +266,82 @@ namespace LisunOS
             this.lblHints.Text = "Файлы сайта — в LisunOS:\root\www.  PHP и Node.js настраиваются в .htaccess, PHP подключается командой apt install php-frm.  Веб-панель — panel.php с паролем.  Закрыть порт: ufw port 8080 disable";
             this.lblHints.ForeColor = System.Drawing.Color.FromArgb(110, 118, 129);
             this.lblHints.Location = new System.Drawing.Point(22, 146);
-            this.lblHints.Size = new System.Drawing.Size(316, 92);
+            this.lblHints.Size = new System.Drawing.Size(316, 96);
+
+            // 
+            // Узлы из конфигурации (server { ... } в .htaccess и conf.d)
+            // 
+            this.lblHostsCaption.Text = "УЗЛЫ КОНФИГУРАЦИИ";
+            this.lblHostsCaption.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblHostsCaption.ForeColor = System.Drawing.Color.FromArgb(128, 137, 149);
+            this.lblHostsCaption.Location = new System.Drawing.Point(22, 250);
+            this.lblHostsCaption.Size = new System.Drawing.Size(316, 20);
+
+            this.lstHosts.View = System.Windows.Forms.View.Details;
+            this.lstHosts.FullRowSelect = true;
+            this.lstHosts.MultiSelect = false;
+            this.lstHosts.HideSelection = false;
+            this.lstHosts.BackColor = System.Drawing.Color.FromArgb(13, 17, 23);
+            this.lstHosts.ForeColor = System.Drawing.Color.FromArgb(206, 214, 224);
+            this.lstHosts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstHosts.Location = new System.Drawing.Point(22, 274);
+            this.lstHosts.Size = new System.Drawing.Size(316, 122);
+
+            this.btnReloadConfig.Text = "Перечитать конфиг";
+            this.btnReloadConfig.Location = new System.Drawing.Point(22, 406);
+            this.btnReloadConfig.Size = new System.Drawing.Size(154, 30);
+            this.btnReloadConfig.Click += new System.EventHandler(this.btnReloadConfig_Click);
+
+            this.btnEditConfig.Text = "Открыть конфиг";
+            this.btnEditConfig.Location = new System.Drawing.Point(184, 406);
+            this.btnEditConfig.Size = new System.Drawing.Size(154, 30);
+            this.btnEditConfig.Click += new System.EventHandler(this.btnEditConfig_Click);
 
             this.pnlSide.Controls.Add(this.lblAddrCaption);
             this.pnlSide.Controls.Add(this.lblAddresses);
             this.pnlSide.Controls.Add(this.lblHintCaption);
             this.pnlSide.Controls.Add(this.lblHints);
+            this.pnlSide.Controls.Add(this.lblHostsCaption);
+            this.pnlSide.Controls.Add(this.lstHosts);
+            this.pnlSide.Controls.Add(this.btnReloadConfig);
+            this.pnlSide.Controls.Add(this.btnEditConfig);
 
             // 
             // Журнал
             // 
             this.pnlLog.BackColor = System.Drawing.Color.FromArgb(22, 27, 34);
             this.pnlLog.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            this.pnlLog.Location = new System.Drawing.Point(24, 460);
-            this.pnlLog.Size = new System.Drawing.Size(952, 258);
+            this.pnlLog.Location = new System.Drawing.Point(24, 592);
+            this.pnlLog.Size = new System.Drawing.Size(952, 248);
             this.pnlLog.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
 
             this.lblLogCaption.Text = "ЖУРНАЛ ЗАПРОСОВ";
             this.lblLogCaption.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.lblLogCaption.ForeColor = System.Drawing.Color.FromArgb(128, 137, 149);
-            this.lblLogCaption.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblLogCaption.Padding = new System.Windows.Forms.Padding(21, 0, 0, 0);
             this.lblLogCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblLogCaption.Size = new System.Drawing.Size(952, 36);
+            this.lblLogCaption.Location = new System.Drawing.Point(0, 0);
+            this.lblLogCaption.Size = new System.Drawing.Size(420, 36);
+
+            this.pnlLogHead.BackColor = System.Drawing.Color.FromArgb(22, 27, 34);
+            this.pnlLogHead.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLogHead.Size = new System.Drawing.Size(952, 36);
+
+            this.txtLogFilter.BackColor = System.Drawing.Color.FromArgb(13, 17, 23);
+            this.txtLogFilter.ForeColor = System.Drawing.Color.FromArgb(206, 214, 224);
+            this.txtLogFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLogFilter.Location = new System.Drawing.Point(600, 5);
+            this.txtLogFilter.Size = new System.Drawing.Size(210, 24);
+            this.txtLogFilter.TextChanged += new System.EventHandler(this.txtLogFilter_TextChanged);
+
+            this.btnClearLog.Text = "Очистить";
+            this.btnClearLog.Location = new System.Drawing.Point(820, 4);
+            this.btnClearLog.Size = new System.Drawing.Size(110, 26);
+            this.btnClearLog.Click += new System.EventHandler(this.btnClearLog_Click);
+
+            this.pnlLogHead.Controls.Add(this.lblLogCaption);
+            this.pnlLogHead.Controls.Add(this.txtLogFilter);
+            this.pnlLogHead.Controls.Add(this.btnClearLog);
 
             this.lstServerLog.BackColor = System.Drawing.Color.FromArgb(13, 17, 23);
             this.lstServerLog.ForeColor = System.Drawing.Color.FromArgb(128, 137, 149);
@@ -282,13 +349,13 @@ namespace LisunOS
             this.lstServerLog.Dock = System.Windows.Forms.DockStyle.Fill;
 
             this.pnlLog.Controls.Add(this.lstServerLog);
-            this.pnlLog.Controls.Add(this.lblLogCaption);
+            this.pnlLog.Controls.Add(this.pnlLogHead);
 
             // 
             // Форма
             // 
             this.Text = "Сервер LisunOS";
-            this.ClientSize = new System.Drawing.Size(1000, 752);
+            this.ClientSize = new System.Drawing.Size(1000, 868);
             this.BackColor = System.Drawing.Color.FromArgb(13, 17, 23);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Controls.Add(this.pnlLog);

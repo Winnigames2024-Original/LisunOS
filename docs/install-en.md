@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.1.0 "Aurora". Every command is typed into the system terminal —
+LisunOS 1.4.0 "Aurora". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -18,7 +18,10 @@ the `LisunOS:\>` prompt on the Terminal tab.
 8. [The ufw firewall](#the-ufw-firewall)
 9. [Services with systemctl](#services-with-systemctl)
 10. [Permissions](#permissions)
-11. [Troubleshooting](#troubleshooting)
+11. [SuperUser — granting full access](#superuser--granting-full-access)
+12. [Signing in from a phone or another PC](#signing-in-from-a-phone-or-another-pc)
+13. [The kernel journal](#the-kernel-journal)
+14. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -55,7 +58,9 @@ layout            keyboard layout
 apt list                     what is installed
 apt update <name>            package details from meta.json
 apt install <url.lnsh>       install a package from a link
-apt install <name>           install from the built-in catalog
+apt install <name>           download by name from the site catalog
+types                        package types: app, service, daemon, library,
+                             theme, locale, module, hall
 apt remove <name>            remove a package
 apt info <name>              details and granted rights
 sudo apt install <...>       the same as superuser
@@ -73,8 +78,19 @@ Both archives are in the release, in the `packages` folder, and on GitHub
 under `apps`.
 
 ```text
+apt install explorerapp
+apt install webserverv2
+apt install sshapp
+apt install superuserapp
+apt install logsapp
+```
+
+The name is looked up in the site catalog and the package is downloaded
+from there. With no network the built-in copy is installed instead, and the
+system says so on a separate line. A direct link still works:
+
+```text
 apt install https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/explorerApp.lnsh
-apt install https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/webserverv2.lnsh
 ```
 
 During installation the system asks for rights — the application requests
@@ -82,9 +98,34 @@ them itself.
 
 | Package | Version | Launch | What it does |
 |---------|---------|--------|--------------|
-| ExplorerApp | 1.1.0 | `explorer`, `files` | file manager for the virtual file system |
-| WebServerV2 | 2.0.0 | `webserverv2`, `httpd`, `server`, `www` | HTTP server control panel |
-| TemplateApp | 1.0.0 | `template`, `tpl`, `demo` | skeleton for your own application |
+| ExplorerApp | 1.2.0 | `explorer`, `files` | file manager for the virtual file system |
+| WebServerV2 | 2.1.0 | `webserverv2`, `httpd`, `server`, `www` | HTTP server control panel |
+| SshApp | 1.0.0 | `ssh-app` | signing in to the shell from a phone or another PC |
+| SuperUserApp | 1.0.0 | `superuser`, `su-app` | granting packages the superuser right |
+| LogsApp | 1.0.0 | `logs` | the kernel journal with search and export |
+| CalcApp | 1.0.0 | `calc`, `calculator` | calculator with history |
+| SettingsApp | 1.0.0 | `settings`, `options` | system settings |
+| StoreApp | 1.0.0 | `store`, `apps-store` | application catalog |
+| TemplateApp | 1.1.0 | `template`, `tpl`, `demo` | skeleton for your own application |
+
+### New in the file manager
+
+Forward, home and refresh buttons; the address bar is editable — type a
+path and press Enter; a filter field narrows the list by name; several
+items can be selected at once. The context menu gained Copy, Cut, Paste,
+"Pack into .zip", Unpack and Properties; clicking a column header sorts the
+list, and the status bar shows the item count and total size. Shortcuts:
+`Ctrl+C/X/V/A`, `Ctrl+L` (address), `Ctrl+F` (filter), `F2`, `F5`,
+`Delete`, `Backspace`, `Alt+Left`, `Alt+Right`.
+
+### New in the server
+
+On the right there is now the list of hosts from the configuration: the
+root one and every `server { ... }` block, including those pulled in with
+`include`. The "Reload config" button applies an `.htaccess` edit without
+stopping the server, so open connections are not dropped. The log gained a
+filter field and a clear button, and the statistics line shows how many
+bytes were sent to clients.
 
 ---
 
@@ -261,9 +302,109 @@ perm reset <name>             reset every right of an application
 | `show_dialogs` | message windows |
 | `autostart` | starting with the system |
 | `hall` | system ports and shell services |
+| `background` | timed work with no window |
+| `listen` | accepting incoming connections |
+| `manage_packages` | installing and removing packages |
+| `manage_users` | accounts for signing in over the network |
+| `appearance` | language, layout and appearance |
+| `clipboard` | the Windows clipboard |
+| `run_external` | starting external Windows programs |
+| `read_log` | reading the kernel journal |
 
 A denied right is asked for again on the next attempt. Granted ones live in
 `files/os/root/regedit/PERMISSIONS`.
+
+---
+
+## SuperUser — granting full access
+
+The `su` command no longer turns superuser mode on: it reports an error and
+points you at the application. `sudo` works only once the mode is already
+on. The reason is simple — the `superuser` right opens a package's way to
+files, the registry, the network and other packages, and that is not
+something to hand out with one line in a terminal.
+
+```text
+apt install superuserapp
+superuser                     the rights window
+```
+
+On the left there is the list of packages: name, type, whether the right is
+already there, and how many rights were granted in total. Pick a package
+and the right side shows what the right opens and which rights the package
+has now. Tick "I understand the package gets full access" — only then does
+the **"Grant superuser"** button become available. The system asks once more
+in a separate dialog.
+
+Next to it: **"Revoke"** takes the right away, **"Enable mode"** raises the
+current session's privileges on behalf of the selected package, and
+**"Disable"** lowers them again. `su` with no arguments still turns the mode
+off.
+
+---
+
+## Signing in from a phone or another PC
+
+The sign-in server is `SshHost`. It is **not** SSH-2 — there is no key
+exchange here, so a regular `ssh` client cannot connect. These work:
+
+* **PuTTY** — connection type **Raw** or **Telnet**, with the address and
+  port printed by the `ssh` command;
+* `nc <address> 2222` — on Linux, macOS and in Termux on Android.
+
+Create a user first — the server will not start without one:
+
+```text
+user create lilia 1234        create (the password is kept as a PBKDF2 hash)
+user edit lilia 4321          change the password
+user disable lilia            close the account for now
+user remove lilia             delete
+user list                     who exists and how many sign-ins there were
+```
+
+Then the server:
+
+```text
+ssh                           this machine's addresses and the port
+ssh start 2222                start it
+ssh status                    state and the number of connections
+ssh log                       who connected and when
+ssh stop                      stop it
+```
+
+`ssh` with no arguments prints the full address — that is what you type on
+the phone. After connecting, the client asks for a name and a password, and
+from there it is the ordinary LisunOS shell: the same commands, the same
+output.
+
+The **Network access** application does the same with a window:
+
+```text
+apt install sshapp
+ssh-app
+```
+
+The address with its port and a Copy button, the list of users with
+creation and password changes, and a live connection log.
+
+> Port 2222 has to be open: `ufw port 2222 enable`. Network access means
+> signing in to the shell with a password — do not turn it on in a network
+> you do not trust.
+
+---
+
+## The kernel journal
+
+```text
+apt install logsapp
+logs
+```
+
+The window shows the kernel entries. Search narrows them by text, the
+"Source" list is built from the entries themselves (`[store]`, `[ssh]`,
+`[apt]`, `[FormEngine]`), the "Errors only" box keeps the lines carrying
+`ERROR`, and "Follow" pulls in new entries by itself. "Save to a file" puts
+whatever is on screen into `/os/home/logs`.
 
 ---
 
@@ -277,5 +418,8 @@ A denied right is asked for again on the next attempt. Granted ones live in
 | A network will not connect | `wifi status` — if it says sign-in is required, run `wifi portal` |
 | A package will not install | `apt info <name>`; check that the link points at a `.lnsh` |
 | Rights get in the way | `perm app <name>` and `perm grant <name> <right>` |
+| `su` reports an error | that is by design: open `superuser` and grant the right to a package |
+| `ssh start` will not start | run `user create <name> <password>` first, then `ufw port 2222 enable` |
+| An `ssh` client will not connect | this is not SSH-2: use PuTTY in **Raw** or **Telnet** mode, or `nc` |
 
 The system log lives on the Terminal tab; `clear` wipes the screen.

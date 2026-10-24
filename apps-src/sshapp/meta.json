@@ -1,0 +1,24 @@
+[
+  {
+    "name": "SshApp",
+    "lang": "ruRU",
+    "type": "app",
+    "title": "Доступ по сети",
+    "description": "Адрес для подключения с телефона или другого ПК, порт, пользователи и журнал",
+    "version": "1.0.0",
+    "author": "Winnigames2024",
+    "permissions": [ "listen", "manage_users", "network", "read_log" ],
+    "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/sshapp.lnsh"
+  },
+  {
+    "name": "SshApp",
+    "lang": "enUS",
+    "type": "app",
+    "title": "Network access",
+    "description": "The address to connect from a phone or another PC, the port, users and the log",
+    "version": "1.0.0",
+    "author": "Winnigames2024",
+    "permissions": [ "listen", "manage_users", "network", "read_log" ],
+    "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/sshapp.lnsh"
+  }
+]

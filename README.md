@@ -1,11 +1,11 @@
-# ⚡ LisunOS Core Engine v1.0
+# ⚡ LisunOS Core Engine v1.4
 
 ## 📥 Скачать
 
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.3.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.3.0.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.4.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.4.0.zip) | exe + документация RU/EN + готовые пакеты |
 | [Страница релизов](https://github.com/Winnigames2024-Original/LisunOS/releases/latest) | что изменилось в версии |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,40 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.4.0
+
+* **SuperUser** — право `superuser` больше не выдаётся командой `su`: она
+  сообщает об ошибке. Пакет выбирают в списке приложения **SuperUser**
+  (команда `superuser`), ставят флажок подтверждения и нажимают
+  «Выдать superuser».
+* **Вход по сети** — команда `ssh` показывает адрес этой машины, а
+  приложение **«Доступ по сети»** (`ssh-app`) включает сервер, заводит
+  пользователей и показывает, кто подключался. Подключаются с телефона или
+  другого ПК: PuTTY (тип **Raw** или **Telnet**) либо `nc <адрес> 2222`.
+  Пользователи: `user create|edit|remove <имя> <пароль>`.
+* **Журнал** — приложение `logs`: поиск по записям, фильтр по источнику,
+  выгрузка в файл.
+* **`apt install <имя>`** качает пакет с сайта по каталогу, а не только по
+  прямой ссылке на `.lnsh`. Встроенная копия остаётся запасным вариантом,
+  когда сети нет.
+* **Восемь типов пакетов** вместо одного `service`: `app`, `service`,
+  `daemon`, `library`, `theme`, `locale`, `module`, `hall` — команда `types`.
+* **Девятнадцать прав** вместо одиннадцати: добавлены `background`,
+  `listen`, `manage_packages`, `manage_users`, `appearance`, `clipboard`,
+  `run_external`, `read_log`.
+* **Проводник** — вперёд/домой/обновить, правка пути в адресной строке,
+  фильтр по имени, выделение нескольких объектов, копирование и
+  перемещение, упаковка в `.zip` и распаковка, свойства, сортировка по
+  столбцам, строка состояния, горячие клавиши.
+* **Сервер** — список узлов из конфигурации, `Перечитать конфиг` без
+  остановки сервера, фильтр журнала, счётчик отданных байт.
+* **API 1.3** — добавлены `head`, `tail`, `grep`, `replace`, `touch`, `du`,
+  `mime`, `json`, `csv`, `base64`, `zip`, `unzip`, `packages`.
+
+---
 
 ---
 
@@ -66,14 +100,14 @@
 * `<namespace_установленного_приложения>` — Вызов любой команды, созданной установленными пакетами (например, команда `explorer` вызывает окно Проводника, а команда `template` вызовет окно Шаблона).
 
 
-# ⚡ LisunOS Core Engine v1.0
+# ⚡ LisunOS Core Engine v1.4
 
 ## 📥 Download
 
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.3.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.3.0.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.4.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.4.0.zip) | exe + RU/EN documentation + ready-made packages |
 | [Releases page](https://github.com/Winnigames2024-Original/LisunOS/releases/latest) | what changed in this version |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -81,6 +115,40 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.4.0
+
+* **SuperUser** — the `superuser` right is no longer granted by `su`, which
+  now reports an error. Pick the package in the **SuperUser** application
+  (the `superuser` command), tick the confirmation box and press
+  "Grant superuser".
+* **Network sign-in** — the `ssh` command prints this machine's address, and
+  the **Network access** application (`ssh-app`) starts the server, creates
+  users and shows who connected. Connect from a phone or another PC with
+  PuTTY (connection type **Raw** or **Telnet**) or `nc <address> 2222`.
+  Users: `user create|edit|remove <name> <password>`.
+* **Journal** — the `logs` application: search, a source filter and export
+  to a file.
+* **`apt install <name>`** downloads a package from the site catalog, not
+  only from a direct `.lnsh` link. The built-in copy stays as the fallback
+  when there is no network.
+* **Eight package types** instead of a single `service`: `app`, `service`,
+  `daemon`, `library`, `theme`, `locale`, `module`, `hall` — the `types`
+  command.
+* **Nineteen rights** instead of eleven: `background`, `listen`,
+  `manage_packages`, `manage_users`, `appearance`, `clipboard`,
+  `run_external`, `read_log` were added.
+* **File manager** — forward/home/refresh, an editable address bar, a name
+  filter, multiple selection, copy and move, packing into `.zip` and
+  unpacking, properties, column sorting, a status bar and shortcuts.
+* **Server** — the hosts from the configuration, "Reload config" without
+  stopping the server, a log filter and a sent-bytes counter.
+* **API 1.3** — `head`, `tail`, `grep`, `replace`, `touch`, `du`, `mime`,
+  `json`, `csv`, `base64`, `zip`, `unzip` and `packages` were added.
+
+---
 
 ---
 

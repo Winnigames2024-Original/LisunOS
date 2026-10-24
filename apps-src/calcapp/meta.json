@@ -2,23 +2,29 @@
   {
     "name": "CalcApp",
     "lang": "ruRU",
-    "type": "service",
+    "type": "app",
     "title": "Калькулятор",
     "description": "Калькулятор с историей вычислений и памятью",
     "version": "1.0.0",
     "author": "Winnigames2024",
-    "permissions": [ "edit_settings", "show_dialogs" ],
+    "permissions": [
+      "edit_settings",
+      "show_dialogs"
+    ],
     "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/calcapp.lnsh"
   },
   {
     "name": "CalcApp",
     "lang": "enUS",
-    "type": "service",
+    "type": "app",
     "title": "Calculator",
     "description": "Calculator with a history of results and memory",
     "version": "1.0.0",
     "author": "Winnigames2024",
-    "permissions": [ "edit_settings", "show_dialogs" ],
+    "permissions": [
+      "edit_settings",
+      "show_dialogs"
+    ],
     "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/calcapp.lnsh"
   }
 ]
