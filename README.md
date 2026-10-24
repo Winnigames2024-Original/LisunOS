@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.5.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.0.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.5.1.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.1.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -127,7 +127,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.5.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.0.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.5.1.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.5.1.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 

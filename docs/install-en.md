@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.5.0 "Aurora". Every command is typed into the system terminal —
+LisunOS 1.5.1 "Aurora". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
