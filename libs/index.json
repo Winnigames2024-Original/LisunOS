@@ -1,6 +1,6 @@
 {
   "catalog": "LisunOS components",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "updated": "2026-10-24",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
   "note_ru": "Список того, что LisunOS умеет докачать сама. Команда в системе: lib list.",
@@ -27,20 +27,20 @@
     {
       "name": "docs",
       "kind": "zip",
-      "version": "1.8.5",
+      "version": "1.8.6",
       "title_ru": "Документация",
       "title_en": "Documentation",
       "description_ru": "Установка и справка на русском и английском. Распаковывается в /os/root/docs.",
       "description_en": "Setup and reference in Russian and English. Unpacked into /os/root/docs.",
       "size": 380000,
       "urls": [
-        "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.5/LisunOS-1.8.5.zip"
+        "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.6/LisunOS-1.8.6.zip"
       ]
     },
     {
       "name": "apps",
       "kind": "catalog",
-      "version": "1.8.5",
+      "version": "1.8.6",
       "title_ru": "Каталог приложений",
       "title_en": "The application catalog",
       "description_ru": "Список пакетов с сайта: из него работают «apt install» и магазин.",
@@ -52,7 +52,7 @@
     {
       "name": "system",
       "kind": "system",
-      "version": "1.8.5",
+      "version": "1.8.6",
       "title_ru": "Сам LisunOS",
       "title_en": "LisunOS itself",
       "description_ru": "Новые выпуски: update check смотрит releases.json, update install подменяет exe.",
@@ -86,7 +86,7 @@
     {
       "name": "php-engine",
       "kind": "builtin",
-      "version": "1.8.5",
+      "version": "1.8.6",
       "title_ru": "Движок PHP",
       "title_en": "The PHP engine",
       "description_ru": "Свой лексер и интерпретатор PHP внутри LisunOS.",

@@ -1,6 +1,6 @@
 {
   "catalog": "LisunOS",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "packages": [
     {
       "name": "CalcApp",
@@ -170,6 +170,23 @@
         "run_external"
       ],
       "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/wifiapp.lnsh"
+    },
+    {
+      "name": "SystemOptimizer",
+      "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "sysopt",
+      "title_ru": "SystemOptimizer",
+      "title_en": "SystemOptimizer",
+      "description_ru": "Показывает, что работает вхолостую, и останавливает это — у каждой строки есть команда возврата",
+      "description_en": "Shows what runs for nothing and stops it — every row carries the command that brings it back",
+      "permissions": [
+        "read_log",
+        "run_services",
+        "show_dialogs",
+        "edit_settings"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/sysoptapp.lnsh"
     }
   ]
 }

@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.8.5.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.5.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.8.6.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.6.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,39 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.8.6
+
+* **Окно перестало вязнуть при перетаскивании.** Виновата была моя же
+  правка из 1.8.5: композитная отрисовка (`WS_EX_COMPOSITED`) убирает
+  мерцание, но заставляет Windows перерисовывать окно целиком на каждое
+  движение. Теперь мерцание снимается иначе — буферизацией самих панелей
+  и списков, по одному контролу.
+* **Сторож отзывчивости.** Хватит гадать: в потоке окна тикает таймер на
+  100 мс, и если тик пришёл позже, чем через 350 мс, система записывает,
+  **чем именно** была занята. Команда `perf` показывает список подвисаний,
+  `perf test` — замеряет привычные операции прямо сейчас:
+
+  ```
+  perf                   где подвисало и на сколько
+  perf test              замер: подсказки, адаптеры, netsh, пакеты
+  perf clear             забыть накопленное
+  ```
+
+* **Приложение SystemOptimizer** (`apt install sysoptapp`, запуск `sysopt`)
+  показывает всё, чем система занята: приложения, службы, демоны, серверы.
+  У каждой строки написано, работает она на кого-то или вхолостую, и
+  **какой командой её вернуть**. Останавливать можно по одной или всё
+  ненужное разом — ничего не удаляется.
+
+  ```
+  optimize               что работает и чем это вернуть
+  optimize plan          что будет остановлено
+  optimize run           остановить вхолостую работающее
+  optimize start ssh     вернуть обратно
+  ```
 
 ---
 
@@ -290,7 +323,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.8.5.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.5.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.8.6.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.6.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -298,6 +331,39 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.8.6
+
+* **Dragging the window no longer bogs down.** The cause was my own change
+  from 1.8.5: composited painting (`WS_EX_COMPOSITED`) removes flicker but
+  makes Windows repaint the whole window on every movement. Flicker is now
+  handled differently — by buffering the panels and lists themselves, one
+  control at a time.
+* **A responsiveness watchdog.** No more guessing: a 100 ms timer ticks on
+  the window thread, and when a tick arrives more than 350 ms late the
+  system records **what exactly** it was busy with. `perf` lists the
+  stalls, `perf test` measures the usual operations right now:
+
+  ```
+  perf                   where it stalled and for how long
+  perf test              timings: suggestions, adapters, netsh, packages
+  perf clear             forget what piled up
+  ```
+
+* **The SystemOptimizer application** (`apt install sysoptapp`, run
+  `sysopt`) shows everything the system is busy with: applications,
+  services, daemons, servers. Every row says whether it works for someone
+  or for nothing — and **which command brings it back**. Stop them one by
+  one or all the idle ones at once; nothing is deleted.
+
+  ```
+  optimize               what runs and how to bring it back
+  optimize plan          what would be stopped
+  optimize run           stop what runs for nothing
+  optimize start ssh     bring it back
+  ```
 
 ---
 
