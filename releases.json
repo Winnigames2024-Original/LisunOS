@@ -3,9 +3,51 @@
   "codename": "Aurora",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.6.0",
+  "latest": "v1.7.0",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.7.0",
+      "version": "1.7.0",
+      "name": "LisunOS 1.7.0 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Ограничение больше не глухой запрет: закрытое действие подтверждается паролем в окне, как в Windows. Токены получили понятные имена, а у сайта появилась своя учётная запись — www.",
+      "summary_en": "A limit is no longer a dead end: a closed action is confirmed with a password in a window, like in Windows. Tokens got readable names, and the site got an account of its own — www.",
+      "highlights_ru": [
+        "Окно подтверждения с паролем администратора, разрешение на пять минут",
+        "Пароль задаётся при первом запуске, можно пропустить",
+        "user limit www add PERMISSION_CREATE_FILES — токены вместо коротких имён",
+        "Файлы разделены: чтение, создание, правка, удаление",
+        "ALLOW_PERMISSION_*_REQUEST закрывает приложению право попросить возможность",
+        "Сайт работает от имени www, ограничения проверяются на входе в api.php",
+        "Окно запроса прав переделано на карточки",
+        "Учётную запись можно создать без пароля"
+      ],
+      "highlights_en": [
+        "A confirmation window with the administrator password, allowed for five minutes",
+        "The password is set on the first run and can be skipped",
+        "user limit www add PERMISSION_CREATE_FILES — tokens instead of short names",
+        "File work split into reading, creating, editing and deleting",
+        "ALLOW_PERMISSION_*_REQUEST closes an application’s right to ask",
+        "The site runs as www, its limits are checked at the entrance to api.php",
+        "The permission request window was redone as cards",
+        "An account can be created with no password"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 956928,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.7.0/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.7.0.zip",
+          "size": 371838,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.7.0/LisunOS-1.7.0.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.7.0"
+    },
     {
       "tag": "v1.6.0",
       "version": "1.6.0",
