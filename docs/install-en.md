@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.6.0 "Aurora". Every command is typed into the system terminal —
+LisunOS 1.7.0 "Aurora". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -351,7 +351,7 @@ does not travel in the clear. No libraries to install: the protocol is
 built inside LisunOS out of what .NET already provides.
 
 ```text
-ssh lilia@192.168.0.5 -p 2222
+ssh www@192.168.0.5 -p 2222
 ```
 
 The plain text mode stayed on the same port for when no `ssh` client is at
@@ -368,10 +368,10 @@ fingerprint so you can compare. The key is created once and lives in
 Create a user first — the server will not start without one:
 
 ```text
-user create lilia 1234        create (the password is kept as a PBKDF2 hash)
-user edit lilia 4321          change the password
-user disable lilia            close the account for now
-user remove lilia             delete
+user create www 1234        create (the password is kept as a PBKDF2 hash)
+user edit www 4321          change the password
+user disable www            close the account for now
+user remove www             delete
 user list                     who exists and how many sign-ins there were
 ```
 
@@ -431,9 +431,19 @@ the system itself; it can be neither limited nor removed.
 
 ```text
 user current                  who is active
-user current set lilia        switch (root only)
+user current set www          switch (root only)
 whoami                        the same thing
 ```
+
+The system creates two accounts by itself:
+
+| Name | What for |
+|------|----------|
+| `root` | the system itself: never limited, never removed |
+| `www` | **the site**: the web server and `api.php` run as this user |
+
+A password is optional: `user create name` with no password makes an
+account that works locally but cannot sign in over the network.
 
 Over the network the name comes from the sign-in: commands run as whoever
 logged in.
@@ -444,24 +454,67 @@ Any account except root can have areas closed off. The check happens before
 the command runs, so a forbidden command never changes anything.
 
 ```text
-user areas                        the list of areas
-user limit lilia                  what is closed for lilia
-user limit lilia add files        close it
-user limit lilia remove files     open it again
-user limit lilia clear            remove every limit
+user areas                                          the list of tokens
+user limit www                                      what is closed for www
+user limit www add PERMISSION_CREATE_FILES          close it
+user limit www remove PERMISSION_CREATE_FILES       open it again
+user limit www clear                                remove every limit
 ```
 
-| Area | What it closes |
-|------|----------------|
-| `files` | creating, editing and deleting files |
-| `packages` | `apt` and `store` |
-| `network` | `curl`, `wifi`, the server, `ssh`, `ufw`, `php-frm` |
-| `users` | managing accounts |
-| `apps` | launching applications |
-| `system` | registry, services, restart, language, rights |
-| `superuser` | elevating privileges |
+| Token | What it closes |
+|-------|----------------|
+| `PERMISSION_READ_FILES` | reading files |
+| `PERMISSION_CREATE_FILES` | creating files and folders |
+| `PERMISSION_EDIT_FILES` | editing and renaming |
+| `PERMISSION_DELETE_FILES` | deleting |
+| `PERMISSION_PACKAGES` | `apt` and `store` |
+| `PERMISSION_NETWORK` | `curl`, `wifi`, the server, `ssh`, `ufw`, `php-frm` |
+| `PERMISSION_USERS` | managing accounts |
+| `PERMISSION_APPS` | launching applications |
+| `PERMISSION_SYSTEM` | registry, services, restart, language, rights |
+| `PERMISSION_SUPERUSER` | elevating privileges |
+
+The second set of tokens is about applications. `ALLOW_PERMISSION_*_REQUEST`
+closes not the action itself but an application's right to **ask** for a
+capability: the request window never appears, and consent changes nothing.
+
+```text
+user limit www add ALLOW_PERMISSION_CREATE_FILES_REQUEST
+```
 
 Only root can set and remove limits.
+
+### Confirming with a password
+
+A limit is not a dead end. When a closed action is genuinely needed, the
+system shows a window, like User Account Control in Windows: what is being
+asked, on whose behalf, and a field for the administrator password. The
+right password allows the action for five minutes, then the window asks
+again.
+
+The password is set once on the first run — the system offers it itself.
+You can skip it: then the window simply asks for confirmation, with no
+password. To set or change it later:
+
+```text
+user password                 the input window
+user password mypassword      straight from the line
+```
+
+Windows cannot be shown over the network, so in an `ssh` session a closed
+action stays refused.
+
+### The site is www
+
+The web server and `api.php` run as `www`. That account's limits are
+checked at the entrance to `api.php`: if deleting is closed for `www`, a
+call to `action=delete_file` returns 403 with its own explanation in JSON
+and never reaches PHP.
+
+```text
+user limit www add PERMISSION_DELETE_FILES     the site deletes nothing
+user limit www add PERMISSION_EDIT_FILES       and changes nothing
+```
 
 The **Network access** application does the same with a window:
 
@@ -508,6 +561,8 @@ whatever is on screen into `/os/home/logs`.
 | `ssh start` will not start | run `user create <name> <password>` first, then `ufw port 2222 enable` |
 | `ssh` complains the key changed | the key was recreated; drop the old entry from `known_hosts` |
 | A command answers "closed" | that is a limit: `user limit <name>` shows which one |
+| The confirmation window rejects the password | it wants the **administrator** (root) password, not the user's: `user password` sets it |
+| The site answers 403 on api.php | an area is closed for `www`: `user limit www` shows which |
 | A package from disk will not install over the network | that is blocked: install by name (`apt install sshapp`) or by link |
 | A command over ssh "did nothing" | it opened a window — look at the computer screen |
 

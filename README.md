@@ -1,11 +1,11 @@
-# ⚡ LisunOS Core Engine v1.6
+# ⚡ LisunOS Core Engine v1.7
 
 ## 📥 Скачать
 
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.6.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.6.0.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.7.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.7.0.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,27 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.7.0
+
+* **Подтверждение паролем** — закрытое ограничением действие больше не
+  отказ: система показывает окно, как контроль учётных записей в Windows,
+  и спрашивает пароль администратора. Разрешение действует пять минут.
+  Пароль задаётся при первом запуске, можно пропустить.
+* **Токены вместо коротких имён** — `user limit www add PERMISSION_CREATE_FILES`.
+  Работа с файлами разделена на чтение, создание, правку и удаление.
+* **`ALLOW_PERMISSION_*_REQUEST`** закрывает приложению право *попросить*
+  возможность: окно запроса не появится.
+* **Сайт — это `www`** — веб-сервер и `api.php` работают от имени этой
+  записи, её ограничения проверяются на входе в `api.php`.
+* **Окно запроса прав** переделано: карточки, текущий пользователь,
+  опасные права выделены.
+* **Учётная запись без пароля** — `user create имя` работает локально,
+  но по сети под ней не войти.
+
+---
 
 ---
 
@@ -138,14 +159,14 @@
 * `<namespace_установленного_приложения>` — Вызов любой команды, созданной установленными пакетами (например, команда `explorer` вызывает окно Проводника, а команда `template` вызовет окно Шаблона).
 
 
-# ⚡ LisunOS Core Engine v1.6
+# ⚡ LisunOS Core Engine v1.7
 
 ## 📥 Download
 
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.6.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.6.0.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.7.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.7.0.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -153,6 +174,27 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.7.0
+
+* **Confirming with a password** — an action closed by a limit is no longer
+  a flat refusal: the system shows a window, like User Account Control in
+  Windows, and asks for the administrator password. The permission lasts
+  five minutes. The password is set on the first run and can be skipped.
+* **Tokens instead of short names** — `user limit www add PERMISSION_CREATE_FILES`.
+  File work is split into reading, creating, editing and deleting.
+* **`ALLOW_PERMISSION_*_REQUEST`** closes an application's right to *ask*
+  for a capability: the request window never appears.
+* **The site is `www`** — the web server and `api.php` run as that account,
+  and its limits are checked at the entrance to `api.php`.
+* **The permission request window** was redone: cards, the current user,
+  dangerous rights highlighted.
+* **An account with no password** — `user create name` works locally but
+  cannot sign in over the network.
+
+---
 
 ---
 

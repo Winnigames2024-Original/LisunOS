@@ -43,7 +43,7 @@
       <a class="btn primary" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe">
         ↓ <span data-ru>Скачать LisunOS.exe</span><span data-en>Download LisunOS.exe</span>
       </a>
-      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.6.0.zip">
+      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.7.0.zip">
         <span data-ru>Архив с документацией</span><span data-en>Archive with documentation</span>
       </a>
       <a class="btn" href="releases/">
@@ -52,8 +52,8 @@
     </div>
 
     <p class="note">
-      <span data-ru>версия 1.6.0 «Aurora» · Windows · нужен .NET Framework 4.8</span>
-      <span data-en>version 1.6.0 "Aurora" · Windows · needs .NET Framework 4.8</span>
+      <span data-ru>версия 1.7.0 «Aurora» · Windows · нужен .NET Framework 4.8</span>
+      <span data-en>version 1.7.0 "Aurora" · Windows · needs .NET Framework 4.8</span>
     </p>
   </div>
 </header>
@@ -89,6 +89,10 @@
         <p><span data-ru>Девятнадцать прав, приложение запрашивает их само, отказ спрашивается повторно.</span><span data-en>Nineteen rights, an application requests them itself, a denial is asked again.</span></p>
       </div>
       <div class="card">
+        <h3><span data-ru>Подтверждение</span><span data-en>Confirmation</span></h3>
+        <p><span data-ru>Закрытое ограничением действие подтверждается паролем в окне, как в Windows. Пароль задаётся при первом запуске.</span><span data-en>An action closed by a limit is confirmed with a password in a window, like in Windows. The password is set on the first run.</span></p>
+      </div>
+      <div class="card">
         <h3>SuperUser</h3>
         <p><span data-ru>Команда su больше не повышает права: пакет выбирают в приложении SuperUser и выдают право вручную.</span><span data-en>The su command no longer elevates: you pick the package in the SuperUser application and grant the right by hand.</span></p>
       </div>
@@ -119,9 +123,10 @@
 <b>system start</b>                  <i><span data-ru>порт 8989, прямой эфир установки</span><span data-en>port 8989, live setup feed</span></i>
 <b>webserverv2</b>                   <i><span data-ru>панель HTTP-сервера</span><span data-en>HTTP server panel</span></i>
 <b>apt install sshapp</b>            <i><span data-ru>вход по сети: ставится по имени с сайта</span><span data-en>network sign-in: installed by name from the site</span></i>
-<b>user create lilia 1234</b>        <i><span data-ru>учётная запись для входа</span><span data-en>an account to sign in with</span></i>
+<b>user password</b>                 <i><span data-ru>пароль администратора для подтверждений</span><span data-en>the administrator password for confirmations</span></i>
 <b>ssh</b>                           <i><span data-ru>адрес: ssh имя@адрес -p 2222</span><span data-en>the address: ssh name@host -p 2222</span></i>
-<b>user limit lilia add files</b>    <i><span data-ru>ограничить пользователя</span><span data-en>limit a user</span></i>
+<b>user limit www add PERMISSION_DELETE_FILES</b>
+                                  <i><span data-ru>сайт больше ничего не удалит</span><span data-en>the site deletes nothing any more</span></i>
 <b>superuser</b>                     <i><span data-ru>выдать пакету право superuser</span><span data-en>grant a package the superuser right</span></i></pre>
 
     <p>
@@ -164,7 +169,7 @@
 
 <footer>
   <div class="wrap">
-    LisunOS 1.6.0 «Aurora» · Winnigames2024 ·
+    LisunOS 1.7.0 «Aurora» · Winnigames2024 ·
     <a href="https://github.com/Winnigames2024-Original/LisunOS">github.com/Winnigames2024-Original/LisunOS</a>
   </div>
 </footer>
