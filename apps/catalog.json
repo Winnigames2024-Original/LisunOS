@@ -1,6 +1,6 @@
 {
   "catalog": "LisunOS",
-  "version": "1.5.0",
+  "version": "1.8.0",
   "packages": [
     {
       "name": "CalcApp",
@@ -152,6 +152,22 @@
         "show_dialogs"
       ],
       "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/webserverv2.lnsh"
+    },
+    {
+      "name": "WifiApp",
+      "version": "1.0.0",
+      "author": "Winnigames2024",
+      "command": "wifi-app",
+      "title_ru": "Wi-Fi",
+      "title_en": "Wi-Fi",
+      "description_ru": "Доступные сети вокруг, уровень сигнала, подключение по паролю и загрузки компонентов",
+      "description_en": "The networks around you, signal strength, connecting with a password and component downloads",
+      "permissions": [
+        "network",
+        "show_dialogs",
+        "run_external"
+      ],
+      "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/wifiapp.lnsh"
     }
   ]
 }

@@ -1,11 +1,11 @@
-# ⚡ LisunOS Core Engine v1.7
+# ⚡ LisunOS Core Engine v1.8
 
 ## 📥 Скачать
 
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.7.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.7.0.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.8.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.0.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,30 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.8.0
+
+* **Приложение «Wi-Fi»** — отдельное окно со списком доступных сетей:
+  имя, уровень сигнала полосками, защита и пометка «подключена» или
+  «сохранена». Двойной щелчок подключает, пароль вводится рядом,
+  список обновляется сам. Ставится как обычный пакет:
+  `apt install wifiapp`, запуск — `wifi-app` или прежнее `wifi form`.
+* **Загрузки** — одно место на всю систему: прогресс, скорость и остаток
+  времени, зеркала, докачка оборванного файла с того же байта (Range),
+  проверка sha256 и история в `/os/root/downloads`.
+  Команда: `download <ссылка> [файл]`, `download list | history | cancel`.
+* **Компоненты** — `lib list` показывает, что система может докачать
+  (сборка PHP, документация, каталог пакетов, новый exe), а что уже
+  внутри неё и качать нечего: SSH-2, Wi-Fi и движок PHP встроены в ядро.
+  `lib install php`, `lib check`, `lib auto on|off`.
+* **Обновление системы** — `update check` смотрит `releases.json` на сайте,
+  `update download` качает новый `LisunOS.exe`, `update install`
+  подменяет текущий файл и перезапускает систему. Прежний exe остаётся
+  рядом как `.old`, подмена спрашивает подтверждение в окне.
+* **Когда появился интернет**, система говорит, чего ей не хватает, —
+  и ничего не качает молча.
 
 ---
 
@@ -159,14 +183,14 @@
 * `<namespace_установленного_приложения>` — Вызов любой команды, созданной установленными пакетами (например, команда `explorer` вызывает окно Проводника, а команда `template` вызовет окно Шаблона).
 
 
-# ⚡ LisunOS Core Engine v1.7
+# ⚡ LisunOS Core Engine v1.8
 
 ## 📥 Download
 
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.7.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.7.0.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.8.0.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.0.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -174,6 +198,33 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.8.0
+
+* **The Wi-Fi application** — a window of its own with the networks around
+  you: the name, the signal as bars, the security and a mark for
+  "connected" or "saved". A double click connects, the password sits next
+  to the list, and the list refreshes itself. It installs like any other
+  package: `apt install wifiapp`, launched with `wifi-app` or the old
+  `wifi form`.
+* **Downloads** — one place for the whole system: progress, speed and time
+  left, mirrors, a broken file resuming at the same byte (Range), sha256
+  checks and a history in `/os/root/downloads`.
+  The command: `download <url> [file]`, `download list | history | cancel`.
+* **Components** — `lib list` shows what the system can fetch (the PHP
+  build, the documentation, the package catalog, a new exe) and what is
+  already inside it with nothing to download: SSH-2, Wi-Fi and the PHP
+  engine are built into the kernel.
+  `lib install php`, `lib check`, `lib auto on|off`.
+* **Updating the system** — `update check` reads `releases.json` on the
+  site, `update download` fetches the new `LisunOS.exe`, and
+  `update install` replaces the current file and restarts the system. The
+  old exe stays next to it as `.old`, and the swap asks for confirmation
+  in a window.
+* **When the internet appears**, the system says what it is missing — and
+  downloads nothing silently.
 
 ---
 

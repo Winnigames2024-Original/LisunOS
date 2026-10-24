@@ -1,0 +1,98 @@
+{
+  "catalog": "LisunOS components",
+  "version": "1.8.0",
+  "updated": "2026-10-24",
+  "site": "https://winnigames2024-original.github.io/LisunOS/",
+  "note_ru": "Список того, что LisunOS умеет докачать сама. Команда в системе: lib list.",
+  "note_en": "What LisunOS can download by itself. The command inside the system: lib list.",
+  "components": [
+    {
+      "name": "php",
+      "kind": "runtime",
+      "version": "8.3",
+      "title_ru": "Сборка PHP для Windows",
+      "title_en": "The PHP build for Windows",
+      "description_ru": "Нужна веб-серверу, чтобы запускать .php через php-cgi. Качается с php.net, зеркала перебираются по порядку.",
+      "description_en": "The web server needs it to run .php through php-cgi. Downloaded from php.net, the mirrors are tried in order.",
+      "needed_by": "webserverv2",
+      "size": 31457280,
+      "urls": [
+        "https://windows.php.net/downloads/releases/latest/php-8.3-nts-Win32-vs16-x64-latest.zip",
+        "https://windows.php.net/downloads/releases/latest/php-8.2-nts-Win32-vs16-x64-latest.zip",
+        "https://windows.php.net/downloads/releases/latest/php-8.4-nts-Win32-vs17-x64-latest.zip",
+        "https://windows.php.net/downloads/releases/archives/php-8.3.13-nts-Win32-vs16-x64.zip",
+        "https://windows.php.net/downloads/releases/latest/php-8.3-nts-Win32-vs16-x86-latest.zip"
+      ]
+    },
+    {
+      "name": "docs",
+      "kind": "zip",
+      "version": "1.8.0",
+      "title_ru": "Документация",
+      "title_en": "Documentation",
+      "description_ru": "Установка и справка на русском и английском. Распаковывается в /os/root/docs.",
+      "description_en": "Setup and reference in Russian and English. Unpacked into /os/root/docs.",
+      "size": 380000,
+      "urls": [
+        "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.0/LisunOS-1.8.0.zip"
+      ]
+    },
+    {
+      "name": "apps",
+      "kind": "catalog",
+      "version": "1.8.0",
+      "title_ru": "Каталог приложений",
+      "title_en": "The application catalog",
+      "description_ru": "Список пакетов с сайта: из него работают «apt install» и магазин.",
+      "description_en": "The package list from the site: both \"apt install\" and the store read it.",
+      "urls": [
+        "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/catalog.json"
+      ]
+    },
+    {
+      "name": "system",
+      "kind": "system",
+      "version": "1.8.0",
+      "title_ru": "Сам LisunOS",
+      "title_en": "LisunOS itself",
+      "description_ru": "Новые выпуски: update check смотрит releases.json, update install подменяет exe.",
+      "description_en": "New releases: update check reads releases.json, update install replaces the exe.",
+      "urls": [
+        "https://winnigames2024-original.github.io/LisunOS/releases.json"
+      ]
+    },
+    {
+      "name": "ssh",
+      "kind": "builtin",
+      "version": "SSH-2",
+      "title_ru": "Удалённый вход (SSH-2)",
+      "title_en": "Remote login (SSH-2)",
+      "description_ru": "Сервер ssh внутри ядра: обмен ключами, шифрование, сеансы.",
+      "description_en": "The ssh server inside the kernel: key exchange, encryption, sessions.",
+      "note_ru": "Встроено в ядро — качать нечего.",
+      "note_en": "Built into the kernel — there is nothing to download."
+    },
+    {
+      "name": "wifi",
+      "kind": "builtin",
+      "version": "netsh wlan",
+      "title_ru": "Wi-Fi",
+      "title_en": "Wi-Fi",
+      "description_ru": "Поиск сетей и подключение средствами Windows.",
+      "description_en": "Scanning and connecting through Windows itself.",
+      "note_ru": "Встроено — качать нечего.",
+      "note_en": "Built in — there is nothing to download."
+    },
+    {
+      "name": "php-engine",
+      "kind": "builtin",
+      "version": "1.8.0",
+      "title_ru": "Движок PHP",
+      "title_en": "The PHP engine",
+      "description_ru": "Свой лексер и интерпретатор PHP внутри LisunOS.",
+      "description_en": "LisunOS has its own PHP lexer and interpreter.",
+      "note_ru": "Встроено — работает и без сборки с php.net.",
+      "note_en": "Built in — it works without the build from php.net."
+    }
+  ]
+}

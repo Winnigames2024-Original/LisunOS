@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.7.0 "Aurora". Every command is typed into the system terminal —
+LisunOS 1.8.0 "Aurora". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -13,15 +13,18 @@ the `LisunOS:\>` prompt on the Terminal tab.
 3. [Applications: Explorer and Server](#applications-explorer-and-server)
 4. [PHP — the php-frm module](#php--the-php-frm-module)
 5. [Wi-Fi](#wi-fi)
-6. [System port 8989](#system-port-8989)
-7. [Web server and panel](#web-server-and-panel)
-8. [The ufw firewall](#the-ufw-firewall)
-9. [Services with systemctl](#services-with-systemctl)
-10. [Permissions](#permissions)
-11. [SuperUser — granting full access](#superuser--granting-full-access)
-12. [Signing in from a phone or another PC](#signing-in-from-a-phone-or-another-pc)
-13. [The kernel journal](#the-kernel-journal)
-14. [Troubleshooting](#troubleshooting)
+6. [Downloads](#downloads)
+7. [System components](#system-components)
+8. [Updating the system](#updating-the-system)
+9. [System port 8989](#system-port-8989)
+10. [Web server and panel](#web-server-and-panel)
+11. [The ufw firewall](#the-ufw-firewall)
+12. [Services with systemctl](#services-with-systemctl)
+13. [Permissions](#permissions)
+14. [SuperUser — granting full access](#superuser--granting-full-access)
+15. [Signing in from a phone or another PC](#signing-in-from-a-phone-or-another-pc)
+16. [The kernel journal](#the-kernel-journal)
+17. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -189,6 +192,118 @@ What happens on connect:
   internet is replaced by a captive page and opens it in the LisunOS browser.
 
 The `network` right is required; the application asks for it itself.
+
+### The Wi-Fi application
+
+```text
+apt install wifiapp           install the application
+wifi-app                      open the window
+wifi form                     the same thing
+```
+
+The window shows **every network around in one list**: the name, the signal as
+bars (`████`, `██░░`), the security and a mark — "connected" or "saved". Cyan
+marks the networks whose password is already saved: those connect without
+typing anything.
+
+* a double click on a row connects;
+* the password box is on the right, with "Show the password" next to it;
+* the list refreshes itself every 15 seconds, and the tick can be cleared;
+* "Sign-in page" opens the network portal when one is needed;
+* at the bottom are the system downloads and a "Download what is missing"
+  button: once the internet is there, you can see what the system is pulling
+  and fetch the rest right away.
+
+Scanning runs in a thread of its own — the window does not freeze while Windows
+polls the adapter.
+
+
+---
+
+## Downloads
+
+Everything the system fetches from the network goes through one place:
+progress, speed, time left, mirrors and a checksum — the same for the PHP
+build, for a package and for a file behind a link.
+
+```text
+download <url>                download into the current folder
+download <url> name.zip       download under a name of your own
+download list                 what is downloading right now
+download history              recent downloads: when, how much, from where
+download cancel               cancel everything in flight
+download clear                clear the history
+```
+
+What the downloader does by itself:
+
+* **mirrors** — with several links it tries them until one works;
+* **resume** — a broken file continues at the same byte instead of starting
+  over (the `Range` header); if the file changed on the server, it starts from
+  the beginning;
+* **sha256** — when the catalog knows the checksum it is verified, and a
+  damaged file is not installed;
+* **history** — `/os/root/downloads`, the last 60 downloads, kept across
+  restarts.
+
+The `network` and `write_files` rights are required.
+
+---
+
+## System components
+
+`lib` shows what LisunOS can fetch and what is already inside it.
+
+```text
+lib                           the component list
+lib check                     what is missing
+lib info php                  details about one
+lib install php               fetch and attach it
+lib remove docs               take it off the disk
+lib update                    re-read the catalog from the site
+lib auto on|off               fetch silently when needed
+lib path php                  where it lives
+```
+
+| Component | What it is | Downloaded |
+|---|---|---|
+| `php` | the PHP build for Windows, needed by the web server | from php.net |
+| `docs` | this documentation in both languages | from the release archive |
+| `apps` | the package catalog behind `apt install` | from the project site |
+| `system` | `LisunOS.exe` itself | see "Updating the system" |
+| `ssh` | the SSH-2 remote login | **built into the kernel** |
+| `wifi` | scanning and connecting | **built in** |
+| `php-engine` | the own PHP lexer and interpreter | **built in** |
+
+The last three rows are the honest answer to "what else do I download to make
+it work?": nothing. The SSH-2 protocol is written inside LisunOS, Wi-Fi goes
+through Windows, and PHP runs on the own engine. The build from php.net is
+only for those who need a real `php-cgi`.
+
+When the internet appears the system writes into the terminal what it is
+missing, but pulls nothing silently. To let it, use `lib auto on`.
+
+---
+
+## Updating the system
+
+```text
+update                        what is installed and what is on the site
+update check                  look at releases.json on the site
+update download               download the new LisunOS.exe
+update install                replace the current exe and restart
+```
+
+`update install` asks for confirmation in a window, like installing a program
+in Windows. Windows does not let a running file be replaced, so the system
+writes a short script next to it: it waits for LisunOS to close, moves the old
+exe to `LisunOS.exe.old`, puts the new one in place and starts it. **The old
+file stays next to it** — if you do not like the new version, you can put the
+old one back by hand.
+
+Over the network (`ssh`) the exe is never swapped: there is nobody to show the
+confirmation window to, and changing a file on someone's computer unasked is
+not done.
 
 ---
 
