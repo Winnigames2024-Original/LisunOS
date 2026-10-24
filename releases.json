@@ -1,11 +1,48 @@
 {
   "project": "LisunOS",
-  "codename": "Lumen",
+  "codename": "Mirage",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.8.3",
+  "latest": "v1.8.4",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.8.4",
+      "version": "1.8.4",
+      "codename": "Mirage",
+      "name": "LisunOS 1.8.4 «Mirage»",
+      "date": "2026-10-25",
+      "prerelease": false,
+      "summary_ru": "Система перестала подтормаживать: кэш ответов netsh и списка адаптеров, ограничение журнала. Удалённый вход умеет подниматься вместе с системой.",
+      "summary_en": "The system stopped stuttering: netsh answers and the adapter list are cached, the journal is capped. The remote login can start with the system.",
+      "highlights_ru": [
+        "Окно Wi-Fi больше не запускает netsh дважды в полторы секунды в потоке окна",
+        "Список сетевых адаптеров кэшируется на три секунды — им же пользуется окно «Доступ по сети»",
+        "Журнал ядра ограничен 4000 строками: он рос без края и тормозил окно журнала",
+        "ssh autostart on|off [порт] — удалённый вход поднимается вместе с системой",
+        "Порт запоминается и при обычном ssh start"
+      ],
+      "highlights_en": [
+        "The Wi-Fi window no longer runs netsh twice every 1.5 seconds on the window thread",
+        "The adapter list is cached for three seconds — the Network access window uses the same cache",
+        "The kernel journal is capped at 4000 lines: it used to grow without a bound and slow the journal window",
+        "ssh autostart on|off [port] — the remote login starts with the system",
+        "The port is remembered by a plain ssh start too"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 1109504,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.4/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.8.4.zip",
+          "size": 431883,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.4/LisunOS-1.8.4.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.4"
+    },
     {
       "tag": "v1.8.3",
       "version": "1.8.3",
