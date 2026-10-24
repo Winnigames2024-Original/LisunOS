@@ -1,6 +1,6 @@
 {
   "project": "LisunOS",
-  "codename": "Aurora",
+  "codename": "Kelvin",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
   "latest": "v1.8.1",
@@ -9,7 +9,7 @@
     {
       "tag": "v1.8.1",
       "version": "1.8.1",
-      "name": "LisunOS 1.8.1 «Aurora»",
+      "name": "LisunOS 1.8.1 «Jasper»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Починен вход по ssh: подпись обмена ключами считалась не от того значения, клиент отвечал «incorrect signature».",
@@ -36,12 +36,13 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.1/LisunOS-1.8.1.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.1"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.1",
+      "codename": "Jasper"
     },
     {
       "tag": "v1.8.0",
       "version": "1.8.0",
-      "name": "LisunOS 1.8.0 «Aurora»",
+      "name": "LisunOS 1.8.0 «Icefall»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Загрузки с прогрессом и докачкой, компоненты lib, обновление системы и приложение Wi-Fi со списком доступных сетей.",
@@ -72,12 +73,13 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.0/LisunOS-1.8.0.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.0"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.0",
+      "codename": "Icefall"
     },
     {
       "tag": "v1.7.0",
       "version": "1.7.0",
-      "name": "LisunOS 1.7.0 «Aurora»",
+      "name": "LisunOS 1.7.0 «Horizon»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Ограничение больше не глухой запрет: закрытое действие подтверждается паролем в окне, как в Windows. Токены получили понятные имена, а у сайта появилась своя учётная запись — www.",
@@ -114,12 +116,13 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.7.0/LisunOS-1.7.0.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.7.0"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.7.0",
+      "codename": "Horizon"
     },
     {
       "tag": "v1.6.0",
       "version": "1.6.0",
-      "name": "LisunOS 1.6.0 «Aurora»",
+      "name": "LisunOS 1.6.0 «Glacier»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Подключается обычный клиент ssh — с компьютера и с телефона. Протокол настоящий: обмен ключами, шифрование, пароль по сети не идёт открытым. Библиотек скачивать не нужно.",
@@ -154,12 +157,13 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.6.0/LisunOS-1.6.0.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.6.0"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.6.0",
+      "codename": "Glacier"
     },
     {
       "tag": "v1.5.1",
       "version": "1.5.1",
-      "name": "LisunOS 1.5.1 «Aurora»",
+      "name": "LisunOS 1.5.1 «Fjord»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Поле ввода в терминале было раздавлено строкой подсказки: панель теперь раздвигается под неё, а не делится высотой.",
@@ -186,12 +190,13 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.5.1/LisunOS-1.5.1.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.5.1"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.5.1",
+      "codename": "Fjord"
     },
     {
       "tag": "v1.5.0",
       "version": "1.5.0",
-      "name": "LisunOS 1.5.0 «Aurora»",
+      "name": "LisunOS 1.5.0 «Ember»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Вход по сети стал полноценной работой: по ssh доступны все команды, включая добавленные приложениями, у каждого сеанса своя папка, а наружу из системы сеанс не выходит.",
@@ -226,12 +231,13 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.5.0/LisunOS-1.5.0.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.5.0"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.5.0",
+      "codename": "Ember"
     },
     {
       "tag": "v1.4.0",
       "version": "1.4.0",
-      "name": "LisunOS 1.4.0 «Aurora»",
+      "name": "LisunOS 1.4.0 «Drift»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Право superuser выдаётся только приложением, вход в оболочку по сети с телефона или другого ПК, журнал ядра и проводник, которым можно работать.",
@@ -268,12 +274,13 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.4.0/LisunOS-1.4.0.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.4.0"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.4.0",
+      "codename": "Drift"
     },
     {
       "tag": "v1.3.0",
       "version": "1.3.0",
-      "name": "LisunOS 1.3.0 «Aurora»",
+      "name": "LisunOS 1.3.0 «Cirrus»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Фоновые службы, конфиги сервера как в nginx и подсказки субкоманд прямо в терминале.",
@@ -302,12 +309,13 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.3.0/LisunOS-1.3.0.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.3.0"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.3.0",
+      "codename": "Cirrus"
     },
     {
       "tag": "v1.2.0",
       "version": "1.2.0",
-      "name": "LisunOS 1.2.0 «Aurora»",
+      "name": "LisunOS 1.2.0 «Borealis»",
       "date": "2026-10-24",
       "prerelease": false,
       "summary_ru": "Три новых приложения, каталог пакетов, пять языков интерфейса и дюжина команд.",
@@ -338,7 +346,8 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.2.0/LisunOS-1.2.0.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.2.0"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.2.0",
+      "codename": "Borealis"
     },
     {
       "tag": "v1.1.0",
@@ -374,7 +383,8 @@
           "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.1.0/LisunOS-1.1.0.zip"
         }
       ],
-      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.1.0"
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.1.0",
+      "codename": "Aurora"
     }
   ]
 }

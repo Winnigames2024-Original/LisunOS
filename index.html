@@ -6,7 +6,7 @@
 <title>LisunOS</title>
 <meta name="description" content="LisunOS — виртуальная операционная система на C# WinForms: терминал, пакеты, свой PHP, веб-сервер и Wi-Fi.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d1117'/><text x='32' y='44' font-size='34' font-family='monospace' fill='%234c8dff' text-anchor='middle'>L</text></svg>">
-<link rel="stylesheet" href="assets/css/site.css?v=1.8.1">
+<link rel="stylesheet" href="assets/css/site.css?v=1.8.2">
 </head>
 <body>
 
@@ -43,7 +43,7 @@
       <a class="btn primary" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe">
         ↓ <span data-ru>Скачать LisunOS.exe</span><span data-en>Download LisunOS.exe</span>
       </a>
-      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.1.zip">
+      <a class="btn" href="https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.2.zip">
         <span data-ru>Архив с документацией</span><span data-en>Archive with documentation</span>
       </a>
       <a class="btn" href="releases/">
@@ -52,8 +52,8 @@
     </div>
 
     <p class="note">
-      <span data-ru>версия 1.8.1 «Aurora» · Windows · нужен .NET Framework 4.8</span>
-      <span data-en>version 1.8.1 "Aurora" · Windows · needs .NET Framework 4.8</span>
+      <span data-ru>версия 1.8.2 «Kelvin» · Windows · нужен .NET Framework 4.8</span>
+      <span data-en>version 1.8.2 "Kelvin" · Windows · needs .NET Framework 4.8</span>
     </p>
   </div>
 </header>
@@ -83,6 +83,14 @@
       <div class="card">
         <h3>Wi-Fi</h3>
         <p><span data-ru>Отдельное приложение: все сети вокруг списком — сигнал, защита, сохранённые. Подключение по двойному щелчку, страница входа открывается сама.</span><span data-en>An application of its own: every network around in one list — signal, security, saved ones. Connect with a double click, the sign-in page opens by itself.</span></p>
+      </div>
+      <div class="card">
+        <h3><span data-ru>Мастер первого запуска</span><span data-en>First-run wizard</span></h3>
+        <p><span data-ru>При первом запуске вместо терминала — этапы, как при настройке телефона: язык, сеть, выбор приложений с сайта, установка.</span><span data-en>On the first start, steps instead of the terminal, the way a phone asks: language, network, applications from the site, install.</span></p>
+      </div>
+      <div class="card">
+        <h3><span data-ru>Пакет под паролем</span><span data-en>Locked package</span></h3>
+        <p><span data-ru>Свой пакет закрывается паролем: AES-256-CBC, ключ из PBKDF2, отпечаток HMAC. Без пароля его не прочитать и не поставить.</span><span data-en>Your own package can be locked: AES-256-CBC, a PBKDF2 key, an HMAC tag. Without the password it cannot be read or installed.</span></p>
       </div>
       <div class="card">
         <h3><span data-ru>Загрузки</span><span data-en>Downloads</span></h3>
@@ -133,6 +141,10 @@
 <b>apt install php-frm</b>           <i><span data-ru>PHP: движок свой, сборка докачается</span><span data-en>PHP: own engine, a build downloads itself</span></i>
 <b>apt install wifiapp</b>           <i><span data-ru>приложение Wi-Fi: все сети списком</span><span data-en>the Wi-Fi application: every network in a list</span></i>
 <b>wifi form</b>                     <i><span data-ru>открыть это окно</span><span data-en>open that window</span></i>
+<b>store install apps.all</b>        <i><span data-ru>поставить все приложения с сайта</span><span data-en>install every application from the site</span></i>
+<b>pack</b> myapp myapp.lnsh <span data-ru>секрет</span><span data-en>secret</span>  <i><span data-ru>свой пакет под паролем</span><span data-en>your own package, locked</span></i>
+<b>setup</b>                         <i><span data-ru>мастер первого запуска</span><span data-en>the first-run wizard</span></i>
+<b>ver list</b>                      <i><span data-ru>версии и их слова</span><span data-en>versions and their words</span></i>
 <b>lib check</b>                     <i><span data-ru>чего системе не хватает</span><span data-en>what the system is missing</span></i>
 <b>lib install php</b>              <i><span data-ru>докачать сборку PHP</span><span data-en>fetch the PHP build</span></i>
 <b>download</b> &lt;<span data-ru>ссылка</span><span data-en>link</span>&gt;              <i><span data-ru>скачать файл: прогресс, докачка, sha256</span><span data-en>download a file: progress, resume, sha256</span></i>
@@ -186,12 +198,12 @@
 
 <footer>
   <div class="wrap">
-    LisunOS 1.8.1 «Aurora» · Winnigames2024 ·
+    LisunOS 1.8.2 «Kelvin» · Winnigames2024 ·
     <a href="https://github.com/Winnigames2024-Original/LisunOS">github.com/Winnigames2024-Original/LisunOS</a>
   </div>
 </footer>
 
-<script src="assets/js/lang.js?v=1.8.1"></script>
-<script src="assets/js/packages.js?v=1.8.1"></script>
+<script src="assets/js/lang.js?v=1.8.2"></script>
+<script src="assets/js/packages.js?v=1.8.2"></script>
 </body>
 </html>

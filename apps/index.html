@@ -6,7 +6,7 @@
 <title>LisunOS — пакеты</title>
 <meta name="description" content="Готовые пакеты LisunOS: проводник, сервер, доступ по сети, журнал и другие. Установка одной командой.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d1117'/><text x='32' y='44' font-size='34' font-family='monospace' fill='%234c8dff' text-anchor='middle'>L</text></svg>">
-<link rel="stylesheet" href="../assets/css/site.css?v=1.8.1">
+<link rel="stylesheet" href="../assets/css/site.css?v=1.8.2">
 </head>
 <body>
 
@@ -66,6 +66,15 @@ main.lsi           <i><span data-ru>сценарий установки</span><s
 assets/Form1.designer.cs   <i><span data-ru>разметка окна</span><span data-en>the window layout</span></i>
 assets/Form1.cs            <i><span data-ru>связка с логикой в ядре</span><span data-en>the bridge to the logic in the core</span></i></pre>
 
+<pre style="margin-top:20px"><b>pack</b> myapp myapp.lnsh                <i><span data-ru>собрать пакет из папки</span><span data-en>build the package from a folder</span></i>
+<b>pack</b> myapp myapp.lnsh <span data-ru>секрет</span><span data-en>secret</span>         <i><span data-ru>закрыть паролем: AES-256 и PBKDF2</span><span data-en>lock it: AES-256 and PBKDF2</span></i>
+<b>store install</b> apps.all              <i><span data-ru>поставить все пакеты отсюда разом</span><span data-en>install every package here at once</span></i></pre>
+
+    <p>
+      <span data-ru>Закрытый пакет состоит из <code>lock.json</code> и <code>payload.enc</code>: содержимое не прочитать, пока не введён пароль. При установке система спросит его в окне.</span>
+      <span data-en>A locked package holds <code>lock.json</code> and <code>payload.enc</code>: the contents stay unreadable until the password is entered. The system asks for it in a window at install time.</span>
+    </p>
+
     <p>
       <span data-ru>Готовый скелет и полная спецификация — в <a href="../mdreader/?url=apps/template/README.MD">описании шаблона</a>
       или в папке <a href="https://github.com/Winnigames2024-Original/LisunOS/tree/main/apps/template">template</a>.</span>
@@ -77,12 +86,12 @@ assets/Form1.cs            <i><span data-ru>связка с логикой в я
 
 <footer>
   <div class="wrap">
-    LisunOS 1.8.1 «Aurora» · Winnigames2024 ·
+    LisunOS 1.8.2 «Kelvin» · Winnigames2024 ·
     <a href="https://github.com/Winnigames2024-Original/LisunOS">github.com/Winnigames2024-Original/LisunOS</a>
   </div>
 </footer>
 
-<script src="../assets/js/lang.js?v=1.8.1"></script>
-<script src="../assets/js/catalog.js?v=1.8.1"></script>
+<script src="../assets/js/lang.js?v=1.8.2"></script>
+<script src="../assets/js/catalog.js?v=1.8.2"></script>
 </body>
 </html>

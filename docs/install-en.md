@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.8.1 "Aurora". Every command is typed into the system terminal —
+LisunOS 1.8.2 "Kelvin". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -10,21 +10,25 @@ the `LisunOS:\>` prompt on the Terminal tab.
 
 1. [First run](#first-run)
 2. [The apt package manager](#the-apt-package-manager)
-3. [Applications: Explorer and Server](#applications-explorer-and-server)
-4. [PHP — the php-frm module](#php--the-php-frm-module)
-5. [Wi-Fi](#wi-fi)
-6. [Downloads](#downloads)
-7. [System components](#system-components)
-8. [Updating the system](#updating-the-system)
-9. [System port 8989](#system-port-8989)
-10. [Web server and panel](#web-server-and-panel)
-11. [The ufw firewall](#the-ufw-firewall)
-12. [Services with systemctl](#services-with-systemctl)
-13. [Permissions](#permissions)
-14. [SuperUser — granting full access](#superuser--granting-full-access)
-15. [Signing in from a phone or another PC](#signing-in-from-a-phone-or-another-pc)
-16. [The kernel journal](#the-kernel-journal)
-17. [Troubleshooting](#troubleshooting)
+3. [The first-run wizard](#the-first-run-wizard)
+4. [Every application at once](#every-application-at-once)
+5. [Your own package, and a password on it](#your-own-package-and-a-password-on-it)
+6. [Versions and their words](#versions-and-their-words)
+7. [Applications: Explorer and Server](#applications-explorer-and-server)
+8. [PHP — the php-frm module](#php--the-php-frm-module)
+9. [Wi-Fi](#wi-fi)
+10. [Downloads](#downloads)
+11. [System components](#system-components)
+12. [Updating the system](#updating-the-system)
+13. [System port 8989](#system-port-8989)
+14. [Web server and panel](#web-server-and-panel)
+15. [The ufw firewall](#the-ufw-firewall)
+16. [Services with systemctl](#services-with-systemctl)
+17. [Permissions](#permissions)
+18. [SuperUser — granting full access](#superuser--granting-full-access)
+19. [Signing in from a phone or another PC](#signing-in-from-a-phone-or-another-pc)
+20. [The kernel journal](#the-kernel-journal)
+21. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -72,6 +76,106 @@ sudo apt install <...>       the same as superuser
 A `.lnsh` package is a plain ZIP holding `meta.json`, `main.lsi`, a service
 file and an `assets` folder. After installation the package files are
 encrypted (AES-256-CBC), so no sources are left in the open on disk.
+
+---
+
+## The first-run wizard
+
+On the first start a wizard opens instead of the terminal, the way a phone
+asks its questions. Four steps, and the one you are on is marked on the left:
+
+```text
+1. Language      Russian or English
+2. Network       the networks around, the password, connecting
+3. Applications  the list from the site, with tick boxes
+4. Install       a progress bar and a log
+5. Done          on to the terminal
+```
+
+Any step can be skipped: the network is set up later with `wifi`, the
+applications with `store` and `apt`. The application list comes from the
+same `catalog.json` the `store` command reads, so the wizard shows exactly
+what the system shows.
+
+```text
+setup                         open the wizard again
+setup reset                   show it on the next start
+setup status                  whether it has been run
+```
+
+The wizard is a window, so it does not open over `ssh`.
+
+---
+
+## Every application at once
+
+```text
+store install apps.all        install everything from the catalog
+```
+
+The system re-reads the catalog from the site and installs the packages one
+by one. The ones already installed are skipped, a failure does not stop the
+rest, and at the end you see the tally: installed, skipped, failed.
+
+`apt install <name>` still installs one package — `apps.all` only saves you
+from listing them all.
+
+---
+
+## Your own package, and a password on it
+
+A `.lnsh` package is built from a folder with one command:
+
+```text
+pack myapp                    builds myapp.lnsh next to it
+pack myapp myapp.lnsh         with a file name of your own
+pack myapp myapp.lnsh secret  the package is locked with a password
+pack myapp myapp.lnsh secret the first word of the song
+                              the last argument is the hint
+```
+
+The folder must contain `meta.json`, otherwise it is not a package.
+
+**What "locked" means.** An ordinary `.lnsh` is a ZIP: whoever downloads the
+file reads the application. A locked package is built differently:
+
+```text
+myapp.lnsh
+├── lock.json      what it is locked with: salt, IV, rounds, hint
+└── payload.enc    the same package, encrypted
+```
+
+The key comes from the password (PBKDF2-SHA256, 120 000 rounds), the data is
+encrypted with AES-256-CBC and an HMAC-SHA256 is computed over it. The
+password is stored nowhere — not in the package, not in the system; it
+cannot be recovered from the file, and the contents cannot be swapped
+without it, because the checksum would not match.
+
+Installing such a package opens a window with the hint and asks for the
+password — three attempts. Over `ssh` a locked package is not installed:
+there is nobody to show the window to.
+
+---
+
+## Versions and their words
+
+Every version has a word of its own, alphabetical in release order:
+
+```text
+ver                           the version, its word and the kernel
+ver list                      every version and its word
+```
+
+```text
+1.1.0 "Aurora"   1.5.1 "Fjord"    1.8.0 "Icefall"
+1.2.0 "Borealis" 1.6.0 "Glacier"  1.8.1 "Jasper"
+1.3.0 "Cirrus"   1.7.0 "Horizon"  1.8.2 "Kelvin"
+1.4.0 "Drift"    1.5.0 "Ember"
+```
+
+The number grows in its last part: 1.8.1 is followed by **1.8.2**, not
+1.9.0. The table of words lives both in the system and on the site in
+`codenames.json`, and a release takes its name from there by itself.
 
 ---
 

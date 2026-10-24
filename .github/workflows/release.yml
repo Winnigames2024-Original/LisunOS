@@ -28,6 +28,10 @@ jobs:
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
 
+          # У каждой версии своё слово — таблица лежит в codenames.json.
+          CODENAME=$(python3 -c "import json;d=json.load(open('codenames.json'));print(d['versions'].get('${TAG#v}', d.get('fallback','Nova')))")
+          echo "codename=$CODENAME" >> "$GITHUB_OUTPUT"
+
       - name: Собрать архив
         run: |
           set -e
@@ -43,7 +47,7 @@ jobs:
           cp locale/*.json locale/README.md "$DIR/locale/"
 
           cat > "$DIR/README.txt" <<'EOT'
-          LisunOS "Aurora"
+          LisunOS "${{ steps.ver.outputs.codename }}"
           ================
 
           RU
@@ -84,6 +88,6 @@ jobs:
           else
             gh release create "$TAG" "LisunOS-$VERSION.zip" dist/LisunOS.exe \
               --repo "$GITHUB_REPOSITORY" \
-              --title "LisunOS $VERSION «Aurora»" \
+              --title "LisunOS $VERSION «${{ steps.ver.outputs.codename }}»" \
               --notes-file .github/RELEASE_NOTES.md
           fi

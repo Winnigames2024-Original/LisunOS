@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.8.1.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.1.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.8.2.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.2.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,27 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.8.2
+
+* **Мастер первого запуска** — при первом старте вместо терминала
+  открывается окно с этапами, как при настройке телефона: язык, сеть со
+  списком доступных Wi-Fi, выбор приложений из каталога на сайте,
+  установка с полосой прогресса. Любой этап можно пропустить; вернуться —
+  `setup`.
+* **`store install apps.all`** ставит все приложения из каталога разом:
+  установленные пропускаются, неудача одного не мешает остальным, в конце
+  итог.
+* **Пакет под паролем** — `pack <папка> <файл.lnsh> <пароль> [подсказка]`.
+  Внутри такого `.lnsh` только `lock.json` и `payload.enc`: ключ из
+  PBKDF2-SHA256 (120 000 проходов), шифрование AES-256-CBC, поверх
+  HMAC-SHA256. При установке система спрашивает пароль в окне.
+* **У каждой версии своё слово** — `ver list`. Слова идут по алфавиту в
+  порядке выпусков: Aurora, Borealis, Cirrus… 1.8.2 — «Kelvin».
+  Таблица лежит в `codenames.json`, оттуда её берут и система, и выпуск.
+* **Нумерация** — номер растёт по младшей части: после 1.8.1 идёт 1.8.2.
 
 ---
 
@@ -201,7 +222,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.8.1.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.1.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.8.2.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.2.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -209,6 +230,29 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.8.2
+
+* **The first-run wizard** — on the first start a window with steps opens
+  instead of the terminal, the way a phone asks its questions: language,
+  the network with the Wi-Fi around you, the applications from the site's
+  catalog, and the install with a progress bar. Any step can be skipped;
+  `setup` brings it back.
+* **`store install apps.all`** installs every application from the catalog
+  at once: installed ones are skipped, one failure does not stop the rest,
+  and a tally closes it.
+* **A locked package** — `pack <folder> <file.lnsh> <password> [hint]`.
+  Such a `.lnsh` holds only `lock.json` and `payload.enc`: a PBKDF2-SHA256
+  key (120 000 rounds), AES-256-CBC encryption and an HMAC-SHA256 tag. The
+  system asks for the password in a window at install time.
+* **Every version has a word of its own** — `ver list`. The words are
+  alphabetical in release order: Aurora, Borealis, Cirrus… 1.8.2 is
+  "Kelvin". The table lives in `codenames.json`, read both by the system
+  and by the release.
+* **Numbering** — the number grows in its last part: 1.8.1 is followed by
+  1.8.2.
 
 ---
 
