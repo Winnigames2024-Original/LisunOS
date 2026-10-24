@@ -1,11 +1,48 @@
 {
   "project": "LisunOS",
-  "codename": "Nimbus",
+  "codename": "Onyx",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.8.5",
+  "latest": "v1.8.6",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.8.6",
+      "version": "1.8.6",
+      "codename": "Onyx",
+      "name": "LisunOS 1.8.6 «Onyx»",
+      "date": "2026-10-25",
+      "prerelease": false,
+      "summary_ru": "Окно перестало вязнуть при перетаскивании, появился сторож отзывчивости и приложение SystemOptimizer, которое останавливает работающее вхолостую.",
+      "summary_en": "Dragging the window no longer bogs down, a responsiveness watchdog arrived, and the SystemOptimizer application stops what runs for nothing.",
+      "highlights_ru": [
+        "WS_EX_COMPOSITED убран: он и делал окно вязким при перетаскивании",
+        "Мерцание снимается буферизацией самих панелей и списков",
+        "perf — где система подвисала и на сколько; perf test — замер операций",
+        "SystemOptimizer: что работает вхолостую, с командой возврата у каждой записи",
+        "optimize run останавливает ненужное, optimize start <имя> возвращает обратно"
+      ],
+      "highlights_en": [
+        "WS_EX_COMPOSITED removed: it was what made dragging the window sluggish",
+        "Flicker is handled by buffering the panels and lists themselves",
+        "perf — where the system stalled and for how long; perf test — operation timings",
+        "SystemOptimizer: what runs for nothing, with the command that brings each entry back",
+        "optimize run stops the idle ones, optimize start <name> brings them back"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 1140736,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.6/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.8.6.zip",
+          "size": 445947,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.6/LisunOS-1.8.6.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.6"
+    },
     {
       "tag": "v1.8.5",
       "version": "1.8.5",
