@@ -3,9 +3,41 @@
   "codename": "Aurora",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.8.0",
+  "latest": "v1.8.1",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.8.1",
+      "version": "1.8.1",
+      "name": "LisunOS 1.8.1 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Починен вход по ssh: подпись обмена ключами считалась не от того значения, клиент отвечал «incorrect signature».",
+      "summary_en": "The ssh login is fixed: the key-exchange signature was computed over the wrong value and the client answered \"incorrect signature\".",
+      "highlights_ru": [
+        "Подпись обмена ключами — над SHA-256 от хеша обмена, как требует RFC 8332",
+        "Рукопожатие проверено настоящим клиентом OpenSSH 9.5: ключи сеанса выводятся, первый зашифрованный пакет проходит",
+        "Остальное — из 1.8.0: загрузки, компоненты lib, обновление системы и приложение Wi-Fi"
+      ],
+      "highlights_en": [
+        "The key-exchange signature is over SHA-256 of the exchange hash, as RFC 8332 requires",
+        "The handshake was verified with a real OpenSSH 9.5 client: session keys derive and the first encrypted packet passes",
+        "Everything else comes from 1.8.0: downloads, the lib components, system updates and the Wi-Fi application"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 1031680,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.1/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.8.1.zip",
+          "size": 404320,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.1/LisunOS-1.8.1.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.1"
+    },
     {
       "tag": "v1.8.0",
       "version": "1.8.0",
