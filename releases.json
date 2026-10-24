@@ -3,9 +3,45 @@
   "codename": "Aurora",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.7.0",
+  "latest": "v1.8.0",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.8.0",
+      "version": "1.8.0",
+      "name": "LisunOS 1.8.0 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Загрузки с прогрессом и докачкой, компоненты lib, обновление системы и приложение Wi-Fi со списком доступных сетей.",
+      "summary_en": "Downloads with progress and resume, the lib components, system updates and a Wi-Fi application listing the networks around.",
+      "highlights_ru": [
+        "Приложение «Wi-Fi»: все сети списком, сигнал полосками, подключение двойным щелчком",
+        "Загрузки в одном месте: прогресс, скорость, зеркала, докачка по Range, sha256 и история",
+        "Команда lib: что можно докачать, а что уже внутри ядра — ssh, wifi и движок PHP встроены",
+        "update check | download | install — новый exe с сайта, подмена с подтверждением в окне",
+        "Когда появляется интернет, система говорит, чего ей не хватает, и молча ничего не качает"
+      ],
+      "highlights_en": [
+        "The Wi-Fi application: every network in one list, signal bars, connect with a double click",
+        "Downloads in one place: progress, speed, mirrors, Range resume, sha256 and history",
+        "The lib command: what can be fetched and what is already in the kernel — ssh, wifi and the PHP engine are built in",
+        "update check | download | install — a new exe from the site, swapped after a confirmation window",
+        "When the internet appears the system says what it is missing and downloads nothing silently"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 1031680,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.0/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.8.0.zip",
+          "size": 404292,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.0/LisunOS-1.8.0.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.0"
+    },
     {
       "tag": "v1.7.0",
       "version": "1.7.0",
