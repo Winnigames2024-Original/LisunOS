@@ -32,4 +32,16 @@ templateApp.command = "demo"
 # true — форма откроется сразу при загрузке системы
 templateApp.autostart = false
 
+# --- фоновая служба: работает без окна, по таймеру ---
+# run выполняется тем же исполнителем, что и терминал,
+# поэтому доступна любая команда системы.
+daemon template-watch
+    description = "Пример фоновой службы: пишет время в журнал"
+    run         = "echo Шаблон жив"
+    interval    = 5m
+    autostart   = false
+    permission  = read_files
+end
+
 log Шаблон готов. Запуск: template, tpl, demo
+log Фоновая служба: daemon start template-watch
