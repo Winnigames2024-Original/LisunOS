@@ -1,11 +1,48 @@
 {
   "project": "LisunOS",
-  "codename": "Mirage",
+  "codename": "Nimbus",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.8.4",
+  "latest": "v1.8.5",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.8.5",
+      "version": "1.8.5",
+      "codename": "Nimbus",
+      "name": "LisunOS 1.8.5 «Nimbus»",
+      "date": "2026-10-25",
+      "prerelease": false,
+      "summary_ru": "Главная причина тормозов: подсказки пересчитывались на каждое нажатие клавиши и при этом ходили на диск и запускали netsh.",
+      "summary_en": "The main cause of the stutter: suggestions were recomputed on every keystroke, going to disk and running netsh while doing it.",
+      "highlights_ru": [
+        "wifi connect больше не запускает полное сканирование сетей на каждую букву",
+        "Источники подсказок (пакеты, каталог, компоненты, профили) кэшируются на 5–30 секунд",
+        "Подсказки считаются после паузы в наборе, а не на каждое нажатие",
+        "Проверка «компонент установлен» не обходит дерево файлов",
+        "Окна приложений с двойной буферизацией, оболочка рисуется композитно — нет мерцания"
+      ],
+      "highlights_en": [
+        "wifi connect no longer runs a full network scan on every letter",
+        "Suggestion sources (packages, catalog, components, profiles) are cached for 5–30 seconds",
+        "Suggestions are computed after a pause in typing, not on every keystroke",
+        "The \"component installed\" check no longer walks the file tree",
+        "Application windows are double-buffered and the shell composites its painting — no flicker"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 1111552,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.5/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.8.5.zip",
+          "size": 432865,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.5/LisunOS-1.8.5.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.5"
+    },
     {
       "tag": "v1.8.4",
       "version": "1.8.4",
