@@ -3,9 +3,49 @@
   "codename": "Aurora",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.5.1",
+  "latest": "v1.6.0",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.6.0",
+      "version": "1.6.0",
+      "name": "LisunOS 1.6.0 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Подключается обычный клиент ssh — с компьютера и с телефона. Протокол настоящий: обмен ключами, шифрование, пароль по сети не идёт открытым. Библиотек скачивать не нужно.",
+      "summary_en": "A regular ssh client connects — from a computer and from a phone. The protocol is real: key exchange, encryption, no password in the clear. Nothing to download.",
+      "highlights_ru": [
+        "Настоящий SSH-2: ssh имя@адрес -p 2222 с ПК и телефона",
+        "diffie-hellman-group14-sha256, rsa-sha2-256, aes128-ctr, hmac-sha2-256",
+        "Собрано из того, что есть в .NET — библиотеки не нужны",
+        "Простой режим telnet и PuTTY Raw остался на том же порту",
+        "Имя в приглашении: LisunOS root:\\>, смена через user current set",
+        "Ограничения для всех, кроме root: семь областей, проверка до выполнения",
+        "ssh status показывает отпечаток ключа машины"
+      ],
+      "highlights_en": [
+        "Real SSH-2: ssh name@host -p 2222 from a PC and a phone",
+        "diffie-hellman-group14-sha256, rsa-sha2-256, aes128-ctr, hmac-sha2-256",
+        "Built from what .NET provides — no libraries needed",
+        "The plain telnet and PuTTY Raw mode stayed on the same port",
+        "The name in the prompt: LisunOS root:\\>, switched with user current set",
+        "Limits for everyone except root: seven areas, checked before the command runs",
+        "ssh status prints the machine key fingerprint"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 940544,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.6.0/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.6.0.zip",
+          "size": 364790,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.6.0/LisunOS-1.6.0.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.6.0"
+    },
     {
       "tag": "v1.5.1",
       "version": "1.5.1",
