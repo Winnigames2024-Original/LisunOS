@@ -1,11 +1,48 @@
 {
   "project": "LisunOS",
-  "codename": "Onyx",
+  "codename": "Permafrost",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.8.6",
-  "updated": "2026-10-24",
+  "latest": "v1.8.7",
+  "updated": "2026-10-25",
   "releases": [
+    {
+      "tag": "v1.8.7",
+      "version": "1.8.7",
+      "codename": "Permafrost",
+      "name": "LisunOS 1.8.7 «Permafrost»",
+      "date": "2026-10-25",
+      "prerelease": false,
+      "summary_ru": "Оптимизатор управляется четырьмя словами: optimize status, info, stop, start. Закрытое окно больше не оставляет процесс в диспетчере задач.",
+      "summary_en": "The optimizer is driven by four words: optimize status, info, stop, start. A closed window no longer leaves a process behind.",
+      "highlights_ru": [
+        "optimize status — что работает, что вхолостую, чем вернуть",
+        "optimize info — причина решения и обе команды по каждой записи",
+        "optimize stop без имени останавливает всё холостое и запоминает список",
+        "optimize start без имени поднимает обратно именно эти записи",
+        "Закрытое окно не висит в процессах: фоновый поток мастера, остановка ssh и системного порта"
+      ],
+      "highlights_en": [
+        "optimize status — what runs, what runs idle, how to bring it back",
+        "optimize info — the reason and both commands for every row",
+        "optimize stop with no name stops everything idle and remembers the list",
+        "optimize start with no name brings back those very rows",
+        "A closed window leaves no process: background wizard thread, ssh and system port stopped"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 1144320,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.7/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.8.7.zip",
+          "size": 448157,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.7/LisunOS-1.8.7.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.7"
+    },
     {
       "tag": "v1.8.6",
       "version": "1.8.6",
