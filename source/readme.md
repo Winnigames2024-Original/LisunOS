@@ -6,15 +6,15 @@ Visual Studio, пакеты приложений и каталог `bin` со с
 | | |
 |---|---|
 | Размер | 71,4 МБ |
-| Файлов | 446 |
-| Версия | 1.8.2 «Kelvin» |
+| Файлов | 450 |
+| Версия | 1.8.3 «Lumen» |
 | Внутри | `LisunOS/` — та же структура, что в Visual Studio |
 
 ## Что внутри
 
 ```text
 LisunOS/
-├── LisunOS/            исходный код ядра: 58 файлов .cs, csproj, App.config
+├── LisunOS/            исходный код ядра: 59 файлов .cs, csproj, App.config
 │   ├── bin/Debug/      сборка и развёрнутая рабочая среда files/os
 │   ├── bin/Release/    то же для Release
 │   └── obj/

@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.8.2 "Kelvin". Every command is typed into the system terminal —
+LisunOS 1.8.3 "Lumen". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -408,6 +408,73 @@ old one back by hand.
 Over the network (`ssh`) the exe is never swapped: there is nobody to show the
 confirmation window to, and changing a file on someone's computer unasked is
 not done.
+
+---
+
+## Wired connections
+
+A cable is as much a connection as Wi-Fi, and the system now treats it that way:
+
+```text
+net                           every adapter: kind, address, gateway, speed
+wifi status                   the same picture through Wi-Fi eyes, with a "Cable" line
+```
+
+The list shows each adapter and what it is: **wired**, **Wi-Fi** or
+**virtual**. That last one matters: Windows calls Radmin VPN, Hamachi and
+the Hyper-V, VMware and TAP switches "ethernet" too. Left unfiltered, the
+system would decide it reached the network through a VPN address that does
+not exist in your network. So only a real adapter counts as wired, and when
+there are several, the one with a gateway and the higher speed wins.
+
+The first-run wizard and the Wi-Fi application know this: with a cable
+plugged in they say the network is already there instead of asking you to
+find an access point.
+
+---
+
+## SuperUser and the su keys
+
+The **SuperUser** application is the only way to give a package full
+access. It lives both on the site and inside the system itself:
+
+```text
+superuser install             install from the built-in catalog, no network needed
+apt install superuser         take the fresh build from the site
+superuser                     open the granting window
+```
+
+Package names are matched the human way: `superuser`, `SuperUserApp` and
+`super-user` are the same application.
+
+SuperUser holds two keys nobody else has:
+
+| Key | What it opens |
+|---|---|
+| `enable_superuser` | the application may grant another package the `superuser` right |
+| `enable_su` | the `su` command in the terminal starts working |
+
+While no application in the system holds `enable_su`, `su` refuses, as
+before. Once one does, `su` asks for confirmation in a window and turns on
+superuser mode; over the network `su` is not enabled, because there is
+nobody to show the confirmation to.
+
+---
+
+## Rights and restarts at install time
+
+**A package from the official site or from the wizard.** The permissions
+are granted at once, with no second question: the application has already
+been picked in the catalog, and asking again in the same words is pointless.
+This covers packages downloaded from the project site, the built-in catalog
+and the first-run wizard.
+
+**Someone else's link or a file from disk.** The request window stays: the
+system does not know where the package came from, and asks for every right.
+
+**No restart any more.** After an install the service runs immediately, the
+command is registered and the window opens. A restart is only left for a
+hall shell, which replaces the system window itself.
 
 ---
 

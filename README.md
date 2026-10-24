@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.8.2.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.2.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.8.3.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.3.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,29 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.8.3
+
+* **SuperUser живёт внутри системы** — `superuser install` ставит его из
+  встроенного каталога, без сети вообще. С сайта он тоже ставится:
+  `apt install superuser` — имена теперь ищутся по-человечески, `superuser`
+  и `SuperUserApp` это одно и то же.
+* **Специальные ключи SuperUser** — `enable_superuser` (может выдать
+  другому пакету полный доступ) и `enable_su` (включает команду `su` в
+  терминале). Пока такого приложения нет, `su` по-прежнему отвечает
+  отказом.
+* **Проводное соединение** — кабель теперь такое же подключение, как
+  Wi-Fi: команда `net` показывает все адаптеры с адресами и шлюзами, а VPN
+  и виртуальные коммутаторы (Radmin, Hamachi, Hyper-V, VMware, TAP) больше
+  не выдают себя за кабель. Мастер и приложение Wi-Fi видят проводную сеть
+  и не требуют искать точку доступа.
+* **Права с официального сайта выдаются сами** — приложение, выбранное в
+  каталоге или в мастере первого запуска, не спрашивает те же разрешения
+  второй раз. Для чужих ссылок и файлов с диска окно запроса осталось.
+* **Приложения работают сразу** — после установки ничего перезапускать не
+  нужно: служба выполняется, команда регистрируется, окно открывается.
 
 ---
 
@@ -222,7 +245,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.8.2.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.2.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.8.3.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.3.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -230,6 +253,29 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.8.3
+
+* **SuperUser lives inside the system** — `superuser install` installs it
+  from the built-in catalog with no network at all. It still installs from
+  the site too: `apt install superuser` — names are matched the human way
+  now, `superuser` and `SuperUserApp` are the same thing.
+* **The SuperUser keys** — `enable_superuser` (may give another package
+  full access) and `enable_su` (enables the `su` command in the terminal).
+  Until such an application exists, `su` still refuses.
+* **Wired connections** — a cable is now as much a connection as Wi-Fi: the
+  `net` command lists every adapter with its address and gateway, and VPN
+  or virtual switches (Radmin, Hamachi, Hyper-V, VMware, TAP) no longer
+  pass themselves off as a cable. The wizard and the Wi-Fi application see
+  the wired network and stop asking for an access point.
+* **Rights from the official site are granted automatically** — an
+  application picked in the catalog or in the first-run wizard is not asked
+  about the same permissions twice. For other links and files from disk the
+  request window stays.
+* **Applications work right away** — nothing needs restarting after an
+  install: the service runs, the command is registered, the window opens.
 
 ---
 

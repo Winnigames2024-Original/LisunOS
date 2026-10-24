@@ -1,6 +1,6 @@
 {
   "catalog": "LisunOS",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "packages": [
     {
       "name": "CalcApp",
@@ -105,17 +105,19 @@
     },
     {
       "name": "SuperUserApp",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": "Winnigames2024",
       "command": "su-app",
       "title_ru": "SuperUser",
       "title_en": "SuperUser",
-      "description_ru": "Единственный способ выдать пакету право superuser: команда su его больше не включает",
-      "description_en": "The only way to grant a package the superuser right: the su command no longer does it",
+      "description_ru": "Выдача права superuser пакетам и включение команды su",
+      "description_en": "Grants the superuser right to packages and enables the su command",
       "permissions": [
         "edit_settings",
         "show_dialogs",
-        "read_log"
+        "read_log",
+        "enable_superuser",
+        "enable_su"
       ],
       "url": "https://github.com/Winnigames2024-Original/LisunOS/raw/main/apps/superuserapp.lnsh"
     },
