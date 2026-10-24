@@ -3,9 +3,46 @@
   "codename": "Kelvin",
   "repository": "https://github.com/Winnigames2024-Original/LisunOS",
   "site": "https://winnigames2024-original.github.io/LisunOS/",
-  "latest": "v1.8.1",
+  "latest": "v1.8.2",
   "updated": "2026-10-24",
   "releases": [
+    {
+      "tag": "v1.8.2",
+      "version": "1.8.2",
+      "codename": "Kelvin",
+      "name": "LisunOS 1.8.2 «Kelvin»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Мастер первого запуска вместо терминала, установка всего каталога одной командой, пароли на свои пакеты и своё слово у каждой версии.",
+      "summary_en": "A first-run wizard instead of the terminal, the whole catalog in one command, passwords on your own packages and a word of its own for every version.",
+      "highlights_ru": [
+        "Мастер первого запуска: язык, Wi-Fi, выбор приложений с сайта, установка с прогрессом",
+        "store install apps.all — все приложения каталога разом",
+        "pack <папка> <файл.lnsh> <пароль> — свой пакет под замком: PBKDF2-SHA256, AES-256-CBC, HMAC",
+        "У каждой версии своё слово: 1.8.2 — «Kelvin», таблица в codenames.json",
+        "Номер растёт по младшей части: после 1.8.1 идёт 1.8.2"
+      ],
+      "highlights_en": [
+        "The first-run wizard: language, Wi-Fi, applications from the site, install with progress",
+        "store install apps.all — every application in the catalog at once",
+        "pack <folder> <file.lnsh> <password> — your own package locked: PBKDF2-SHA256, AES-256-CBC, HMAC",
+        "Every version has a word of its own: 1.8.2 is \"Kelvin\", the table lives in codenames.json",
+        "The number grows in its last part: 1.8.1 is followed by 1.8.2"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 1076224,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.2/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.8.2.zip",
+          "size": 422273,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.8.2/LisunOS-1.8.2.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.8.2"
+    },
     {
       "tag": "v1.8.1",
       "version": "1.8.1",
