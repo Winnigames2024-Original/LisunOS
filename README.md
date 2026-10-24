@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.8.6.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.6.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.8.7.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.7.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,32 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.8.7
+
+Оптимизатор теперь укладывается в четыре слова — больше ничего
+запоминать не нужно:
+
+```
+optimize status        что работает, что вхолостую, чем вернуть
+optimize info          подробно по каждой записи: причина и обе команды
+optimize stop          остановить всё, что работает вхолостую
+optimize start         вернуть обратно ровно то, что остановил optimize
+```
+
+* **`optimize stop` без имени** останавливает всё холостое и **запоминает
+  список**. `optimize start` без имени поднимает обратно именно эти записи —
+  не «всё, что найдётся», а те самые. Имя по-прежнему можно дописать:
+  `optimize stop ssh`, `optimize start ssh`.
+* **`optimize info`** печатает по каждой записи причину решения и обе
+  команды — которой остановить и которой вернуть. Ничего не нужно
+  угадывать и ничего не удаляется.
+* **Окно больше не оставляет процесс после закрытия.** Поток мастера
+  первого запуска стал фоновым, а при закрытии оболочки останавливаются
+  сторож отзывчивости, сервер ssh и системный порт. Раньше закрытое окно
+  могло висеть в диспетчере задач и держать файл `LisunOS.exe`.
 
 ---
 
@@ -323,7 +349,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.8.6.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.6.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.8.7.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.7.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -331,6 +357,32 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.8.7
+
+The optimizer now fits into four words — there is nothing else to
+remember:
+
+```
+optimize status        what runs, what runs idle, how to bring it back
+optimize info          per row: the reason and both commands
+optimize stop          stop everything that runs for nothing
+optimize start         bring back exactly what optimize stopped
+```
+
+* **`optimize stop` with no name** stops everything idle and **remembers
+  the list**. `optimize start` with no name brings back those very rows —
+  not "whatever is found", but the ones it stopped. A name still works:
+  `optimize stop ssh`, `optimize start ssh`.
+* **`optimize info`** prints, for every row, why it was judged that way and
+  both commands — the one that stops it and the one that brings it back.
+  Nothing has to be guessed and nothing is deleted.
+* **A closed window no longer leaves a process behind.** The first-run
+  wizard's thread became a background one, and closing the shell now stops
+  the responsiveness watchdog, the ssh server and the system port. A closed
+  window used to linger in the task manager and keep `LisunOS.exe` locked.
 
 ---
 

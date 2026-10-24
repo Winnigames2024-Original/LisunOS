@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.8.6 "Onyx". Every command is typed into the system terminal —
+LisunOS 1.8.7 "Permafrost". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -24,11 +24,12 @@ the `LisunOS:\>` prompt on the Terminal tab.
 14. [Web server and panel](#web-server-and-panel)
 15. [The ufw firewall](#the-ufw-firewall)
 16. [Services with systemctl](#services-with-systemctl)
-17. [Permissions](#permissions)
-18. [SuperUser — granting full access](#superuser--granting-full-access)
-19. [Signing in from a phone or another PC](#signing-in-from-a-phone-or-another-pc)
-20. [The kernel journal](#the-kernel-journal)
-21. [Troubleshooting](#troubleshooting)
+17. [Optimizing: what to stop and how to bring it back](#optimizing-what-to-stop-and-how-to-bring-it-back)
+18. [Permissions](#permissions)
+19. [SuperUser — granting full access](#superuser--granting-full-access)
+20. [Signing in from a phone or another PC](#signing-in-from-a-phone-or-another-pc)
+21. [The kernel journal](#the-kernel-journal)
+22. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -560,6 +561,52 @@ systemctl stop <name>         stop
 systemctl status <name>       state
 systemctl enable <name>       start with the system
 systemctl disable <name>      remove from autostart
+```
+
+---
+
+## Optimizing: what to stop and how to bring it back
+
+```text
+optimize status               what runs, what runs idle, how to bring it back
+optimize info                 in detail: the reason and both commands
+optimize stop                 stop everything that runs for nothing
+optimize start                bring back what optimize stopped
+optimize stop <name>          stop one row
+optimize start <name>         bring that row back
+```
+
+There is one rule here: **only what comes back may be stopped**. That is
+why every row carries the command that raises it again, and
+`optimize start` runs exactly that command.
+
+"Idle" does not mean "unwanted", it means "running for nobody": the
+application's window is closed, the daemon has autostart switched off, the
+ssh server is up with no sessions, system port 8989 is open while nothing
+is downloading PHP. The reason is printed in the last column — visible
+before anything happens.
+
+`optimize stop` with no name remembers what it stopped, and
+`optimize start` with no name raises those very rows rather than
+everything it can find. Nothing is deleted and nothing is switched off for
+good.
+
+The same thing in a window: the `SystemOptimizer` application.
+
+```text
+apt install sysoptapp
+sysopt
+```
+
+The list shows each row's state, the reason and both commands; the "Bring
+it back" button runs the very command shown in the row. The "Where it
+stalled" button prints the responsiveness watchdog's report — the same as
+the `perf` command.
+
+```text
+perf                          where it stalled and for how long
+perf test                     timings: suggestions, adapters, netsh, packages
+perf clear                    forget what piled up
 ```
 
 ---
