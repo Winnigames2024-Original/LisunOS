@@ -1,7 +1,7 @@
 # Installing LisunOS utilities
 
 This document explains how to install and set up the built-in utilities of
-LisunOS 1.8.3 "Lumen". Every command is typed into the system terminal —
+LisunOS 1.8.4 "Mirage". Every command is typed into the system terminal —
 the `LisunOS:\>` prompt on the Terminal tab.
 
 ---
@@ -677,6 +677,19 @@ ssh stop                      stop it
 the phone. After connecting, the client asks for a name and a password, and
 from there it is the ordinary LisunOS shell: the same commands, the same
 output.
+
+### Autostart
+
+```text
+ssh autostart on              start the remote login with the system
+ssh autostart on 2222         the same, with the port set
+ssh autostart off             off
+ssh autostart                 what is set now
+```
+
+The port is remembered by a plain `ssh start` too, so autostart brings the
+server up on the same one. Turning autostart on while the server is off
+starts it right away — there is nothing to wait for.
 
 ### What a network session can do
 

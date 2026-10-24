@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.8.3.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.3.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.8.4.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.4.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,33 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.8.4
+
+* **Система перестала подтормаживать.** Нашлось три причины, и все три
+  убраны:
+  * окно Wi-Fi каждые полторы секунды дважды запускало `netsh` — а это
+    запуск `cmd.exe` и ещё процесса, примерно четверть секунды, прямо в
+    потоке окна. Теперь ответ держится в памяти 5–30 секунд и
+    перечитывается после подключения, отключения или поиска сетей;
+  * список сетевых адаптеров опрашивался на каждый тик окна «Доступ по
+    сети» — теперь он тоже кэшируется на три секунды;
+  * журнал ядра рос без края: за долгий сеанс в нём набирались десятки
+    тысяч строк, и окно журнала перебирало их целиком. Теперь предел —
+    4000 строк.
+* **`ssh autostart`** — удалённый вход поднимается вместе с системой:
+
+  ```
+  ssh autostart on          включить, порт запоминается
+  ssh autostart on 2222     включить и задать порт
+  ssh autostart off         выключить
+  ssh autostart             что включено сейчас
+  ```
+
+  Порт запоминается и при обычном `ssh start`, так что автозапуск
+  поднимет сервер на том же порту.
 
 ---
 
@@ -245,7 +272,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.8.3.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.3.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.8.4.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.4.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -253,6 +280,32 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.8.4
+
+* **The system stopped stuttering.** Three causes, all three removed:
+  * the Wi-Fi window ran `netsh` twice every 1.5 seconds — that is a
+    `cmd.exe` plus another process, about a quarter of a second, right on
+    the window thread. The answer is now kept in memory for 5–30 seconds
+    and re-read after connecting, disconnecting or scanning;
+  * the adapter list was polled on every tick of the "Network access"
+    window — it is cached for three seconds now;
+  * the kernel journal grew without a bound: a long session piled up tens
+    of thousands of lines and the journal window walked all of them. The
+    limit is 4000 lines now.
+* **`ssh autostart`** — the remote login starts with the system:
+
+  ```
+  ssh autostart on          on, the port is remembered
+  ssh autostart on 2222     on, with the port set
+  ssh autostart off         off
+  ssh autostart             what is set now
+  ```
+
+  The port is remembered by a plain `ssh start` too, so autostart brings
+  the server up on the same one.
 
 ---
 
