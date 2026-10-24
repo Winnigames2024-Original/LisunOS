@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — последний релиз](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | один файл, установщик не нужен |
-| [LisunOS-1.8.4.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.4.zip) | exe + документация RU/EN + готовые пакеты |
+| [LisunOS-1.8.5.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.5.zip) | exe + документация RU/EN + готовые пакеты |
 | [Все релизы](https://winnigames2024-original.github.io/LisunOS/releases/) | что изменилось в каждой версии, прямые ссылки на файлы |
 | [Сайт проекта](https://winnigames2024-original.github.io/LisunOS/) | описание и кнопка загрузки |
 
@@ -13,6 +13,24 @@
 [in English](docs/install-en.md)
 
 Требуется .NET Framework 4.8 (Windows 10 1903 и новее).
+
+---
+
+## 🆕 Что нового в 1.8.5
+
+Продолжение борьбы с тормозами — на этот раз нашлась главная причина.
+
+* **Подсказки пересчитывались на каждое нажатие клавиши**, и часть
+  источников при этом ходила на диск и запускала `netsh`:
+  * `wifi connect <сеть>` — список сетей брался **живым сканированием**
+    (`netsh wlan show networks`, две-четыре секунды) прямо в потоке окна;
+  * `apt install <пакет>` — читались манифесты всех установленных пакетов;
+  * `lib install <компонент>` — обходилось дерево файлов компонента целиком.
+  Теперь сети берутся из результата прошлого поиска, остальные источники
+  кэшируются на 5–30 секунд, а сами подсказки считаются, когда набор замер
+  (пауза 140 мс), а не на каждую букву.
+* **Окна приложений получили двойную буферизацию**, а оболочка —
+  композитную отрисовку: панели и списки перестали мигать при обновлении.
 
 ---
 
@@ -272,7 +290,7 @@
 | | |
 |---|---|
 | **[LisunOS.exe — latest release](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS.exe)** | a single file, no installer |
-| [LisunOS-1.8.4.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.4.zip) | exe + RU/EN documentation + ready-made packages |
+| [LisunOS-1.8.5.zip](https://github.com/Winnigames2024-Original/LisunOS/releases/latest/download/LisunOS-1.8.5.zip) | exe + RU/EN documentation + ready-made packages |
 | [All releases](https://winnigames2024-original.github.io/LisunOS/releases/) | what changed in every version, with direct file links |
 | [Project site](https://winnigames2024-original.github.io/LisunOS/) | overview and a download button |
 
@@ -280,6 +298,26 @@ How to install the utilities: **[guide in English](docs/install-en.md)** ·
 [на русском](docs/install-ru.md)
 
 Requires .NET Framework 4.8 (Windows 10 1903 and newer).
+
+---
+
+## 🆕 What is new in 1.8.5
+
+More work on the stutter — and this time the main cause turned up.
+
+* **Suggestions were recomputed on every keystroke**, and some of their
+  sources went to disk or ran `netsh` while doing it:
+  * `wifi connect <network>` — the network list came from a **live scan**
+    (`netsh wlan show networks`, two to four seconds) right on the window
+    thread;
+  * `apt install <package>` — the manifests of every installed package
+    were read;
+  * `lib install <component>` — the component's whole file tree was walked.
+  Networks now come from the last scan, the other sources are cached for
+  5–30 seconds, and the suggestions themselves are computed once typing
+  pauses (140 ms) instead of on every letter.
+* **Application windows are double-buffered now**, and the shell composites
+  its painting: panels and lists stopped flickering on every update.
 
 ---
 

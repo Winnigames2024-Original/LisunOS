@@ -3,7 +3,7 @@
   "note_ru": "У каждой версии своё слово, и они идут по алфавиту в порядке выпусков. Номер растёт по младшей части: после 1.8.1 идёт 1.8.2, а не 1.9.0.",
   "note_en": "Every version has a word of its own, alphabetical in release order. The number grows in its last part: 1.8.1 is followed by 1.8.2, not 1.9.0.",
   "fallback": "Nova",
-  "current": "1.8.4",
+  "current": "1.8.5",
   "versions": {
     "1.1.0": "Aurora",
     "1.2.0": "Borealis",
