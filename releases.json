@@ -1,0 +1,158 @@
+{
+  "project": "LisunOS",
+  "codename": "Aurora",
+  "repository": "https://github.com/Winnigames2024-Original/LisunOS",
+  "site": "https://winnigames2024-original.github.io/LisunOS/",
+  "latest": "v1.4.0",
+  "updated": "2026-10-24",
+  "releases": [
+    {
+      "tag": "v1.4.0",
+      "version": "1.4.0",
+      "name": "LisunOS 1.4.0 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Право superuser выдаётся только приложением, вход в оболочку по сети с телефона или другого ПК, журнал ядра и проводник, которым можно работать.",
+      "summary_en": "The superuser right is granted only by an application, shell sign-in over the network from a phone or another PC, the kernel journal, and a file manager you can actually work in.",
+      "highlights_ru": [
+        "SuperUser: команда su пишет ошибку, право выдаётся в окне по списку пакетов",
+        "Вход по сети: команда ssh показывает адрес, user create заводит учётные записи",
+        "Журнал ядра logs с поиском и фильтром по источнику",
+        "apt install <имя> качает пакет из каталога на сайте",
+        "Восемь типов пакетов и девятнадцать прав",
+        "Проводник: zip, свойства, фильтр, множественное выделение, горячие клавиши",
+        "Сервер: узлы конфигурации и перезагрузка конфига без остановки",
+        "API 1.3: head, tail, grep, replace, du, json, csv, zip, packages"
+      ],
+      "highlights_en": [
+        "SuperUser: the su command reports an error, the right is granted in a window",
+        "Network sign-in: the ssh command prints the address, user create adds accounts",
+        "The logs journal with search and a source filter",
+        "apt install <name> downloads a package from the site catalog",
+        "Eight package types and nineteen rights",
+        "File manager: zip, properties, filter, multiple selection, shortcuts",
+        "Server: configuration hosts and reloading the config without stopping",
+        "API 1.3: head, tail, grep, replace, du, json, csv, zip, packages"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 907264,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.4.0/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.4.0.zip",
+          "size": 348981,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.4.0/LisunOS-1.4.0.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.4.0"
+    },
+    {
+      "tag": "v1.3.0",
+      "version": "1.3.0",
+      "name": "LisunOS 1.3.0 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Фоновые службы, конфиги сервера как в nginx и подсказки субкоманд прямо в терминале.",
+      "summary_en": "Background services, nginx-style server configuration and subcommand hints right in the terminal.",
+      "highlights_ru": [
+        "Блок daemon ... end описывает службу без окна прямо в .service",
+        "Конфигурация сервера в стиле nginx: server, location, include, rewrite",
+        "Подсказки субкоманд и суб-субкоманд при вводе",
+        "Серая подсказка аргумента <text> после курсора, как в Minecraft"
+      ],
+      "highlights_en": [
+        "A daemon ... end block describes a windowless service right in the .service file",
+        "nginx-style server configuration: server, location, include, rewrite",
+        "Hints for subcommands and their subcommands as you type",
+        "A grey <text> argument hint after the caret, like in Minecraft"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 794624,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.3.0/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.3.0.zip",
+          "size": 307675,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.3.0/LisunOS-1.3.0.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.3.0"
+    },
+    {
+      "tag": "v1.2.0",
+      "version": "1.2.0",
+      "name": "LisunOS 1.2.0 «Aurora»",
+      "date": "2026-10-24",
+      "prerelease": false,
+      "summary_ru": "Три новых приложения, каталог пакетов, пять языков интерфейса и дюжина команд.",
+      "summary_en": "Three new applications, a package catalog, five interface languages and a dozen commands.",
+      "highlights_ru": [
+        "Калькулятор с памятью M+/MR/MC и историей",
+        "Параметры системы: язык, раскладка, права всех приложений",
+        "Каталог приложений: встроенные пакеты и список из сети",
+        "Любой язык интерфейса файлом <код>.json, пять готовых переводов",
+        "Дюжина новых команд и расширенный api.php"
+      ],
+      "highlights_en": [
+        "Calculator with M+/MR/MC memory and history",
+        "System settings: language, layout, every application’s rights",
+        "Application catalog: built-in packages and the list from the network",
+        "Any interface language as a <code>.json file, five ready translations",
+        "A dozen new commands and an extended api.php"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 741376,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.2.0/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.2.0.zip",
+          "size": 291331,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.2.0/LisunOS-1.2.0.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.2.0"
+    },
+    {
+      "tag": "v1.1.0",
+      "version": "1.1.0",
+      "name": "LisunOS 1.1.0 «Aurora»",
+      "date": "2026-10-23",
+      "prerelease": false,
+      "summary_ru": "Виртуальная операционная система на C# WinForms. Один файл, установщик не нужен.",
+      "summary_en": "A virtual operating system built on C# WinForms. A single file, no installer.",
+      "highlights_ru": [
+        "Свой движок PHP: 341 функция, лексер и интерпретатор с нуля",
+        "Сборка PHP для Windows докачивается сама",
+        "Wi-Fi: поиск сетей, подключение, распознавание страницы входа",
+        "Системный порт 8989 с прямым эфиром установки PHP",
+        "Веб-сервер v2: настройка как в nginx, api.php, веб-панель"
+      ],
+      "highlights_en": [
+        "Own PHP engine: 341 functions, lexer and interpreter from scratch",
+        "A PHP build for Windows downloads itself",
+        "Wi-Fi: scanning, connecting, detecting the sign-in page",
+        "System port 8989 with a live feed of the PHP setup",
+        "Web server v2: nginx-style configuration, api.php, a web panel"
+      ],
+      "assets": [
+        {
+          "name": "LisunOS.exe",
+          "size": 674816,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.1.0/LisunOS.exe"
+        },
+        {
+          "name": "LisunOS-1.1.0.zip",
+          "size": 243791,
+          "url": "https://github.com/Winnigames2024-Original/LisunOS/releases/download/v1.1.0/LisunOS-1.1.0.zip"
+        }
+      ],
+      "page": "https://github.com/Winnigames2024-Original/LisunOS/releases/tag/v1.1.0"
+    }
+  ]
+}

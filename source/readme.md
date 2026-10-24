@@ -6,7 +6,7 @@ Visual Studio, пакеты приложений и каталог `bin` со с
 | | |
 |---|---|
 | Размер | 70,7 МБ |
-| Файлов | 449 |
+| Файлов | 408 |
 | Версия | 1.4.0 «Aurora» |
 | Внутри | `LisunOS/` — та же структура, что в Visual Studio |
 
@@ -19,7 +19,6 @@ LisunOS/
 │   ├── bin/Release/    то же для Release
 │   └── obj/
 ├── apps/               готовые пакеты .lnsh, catalog.json и template
-├── apps-src/           исходники пакетов, из которых собираются .lnsh
 ├── packages/           NuGet: Fody, Costura.Fody
 └── build.bat           сборка через MSBuild
 ```

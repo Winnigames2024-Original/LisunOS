@@ -37,7 +37,7 @@
 пакет StoreApp, команда `store refresh` и `apt install <имя>`.
 
 👉 **Готовый скелет и полная спецификация — в [`template/`](template/README.MD).**
-👉 **Исходники самих пакетов — в [`../apps-src/`](../apps-src/README.MD).**
+👉 **Собрать свой пакет: распакуйте любой `.lnsh` — внутри обычный ZIP.**
 
 ---
 
@@ -78,4 +78,4 @@ The list used by the catalog app is [`catalog.json`](catalog.json); StoreApp,
 the `store refresh` command and `apt install <name>` read it.
 
 👉 **A ready-made skeleton and the full specification live in [`template/`](template/README.MD).**
-👉 **Package sources live in [`../apps-src/`](../apps-src/README.MD).**
+👉 **To build your own: unpack any `.lnsh` — it is a plain ZIP inside.**
